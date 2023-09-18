@@ -1,0 +1,53 @@
+/* ======= NAV ========= */
+@media all and (max-width: 992px){
+    #main-site-nav
+    {
+        top: 5px;
+        right: 5px;
+        left: 5px;
+        margin: 0;
+        border-radius: 0;
+    }
+
+    #main-site-nav .navbar-brand img
+    {
+        border-radius: 0;
+        width: 110px;
+    }
+
+    .offcanvas-body{
+        background: rgba(0,0,0,0.9);
+    }
+
+    .offcanvas-header{
+        background-image: url('../images/land_light.jpeg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    /* ======================== */
+
+    /* ======== HOME ========= */
+    .home-first-section {
+        background-image: url('../images/background_mobile_home_light.jpeg');
+    }
+
+    .home-first-section h1
+    {
+        font-size: 1.5rem;
+    }
+
+    .home-first-section p
+    {
+        font-size: 1rem;
+    }
+}
+
+@media all and (max-width: 576px){
+    .home-first-section #first-section-content
+    {
+        padding-top: 25%;
+    }
+}
+
