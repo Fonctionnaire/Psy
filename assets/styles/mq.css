@@ -1,3 +1,7 @@
+:root {
+    --my-text-brown: #e1d9d1;
+}
+
 /* ======= NAV ========= */
 @media all and (max-width: 992px){
     #main-site-nav
@@ -26,6 +30,12 @@
         background-repeat: no-repeat;
     }
 
+    #main-site-nav .navbar-toggler-icon
+    {
+        background-color: var(--my-text-brown);
+        border-radius: 5px;
+    }
+
     /* ======================== */
 
     /* ======== HOME ========= */
@@ -42,12 +52,21 @@
     {
         font-size: 1rem;
     }
+
+    .home-first-section .first-section-important .first-section-important-cards .important-card{
+        width: 45%;
+        margin-bottom: 20px;
+    }
 }
 
 @media all and (max-width: 576px){
     .home-first-section #first-section-content
     {
         padding-top: 25%;
+    }
+
+    .home-first-section .first-section-important .first-section-important-cards .important-card{
+        width: 100%;
     }
 }
 

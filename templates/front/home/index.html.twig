@@ -3,23 +3,84 @@
 
 {% endblock %}
 {% block body %}
-<section class="custom-section home-first-section">
-    <div id="first-section-content" class="custom-container">
-        <div class="first-section-block">
-            <h1>CECI EST MON TITRE PRINCIPAL</h1>
-            <p>
-                Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
-            </p>
-        </div>
-        <div class="first-section-buttons">
-            <div>
-                <a href="" class="btn">Bouton 1</a>
+    <section class="custom-section home-first-section">
+        <div id="first-section-content" class="custom-container">
+            <div class="first-section-block">
+                <h1>CECI EST MON TITRE PRINCIPAL</h1>
+                <p>
+                    Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
+                </p>
             </div>
-            <div>
-                <a href="" class="btn">Bouton 2</a>
-            </div>
-        </div>
-    </div>
-</section>
+            <div class="first-section-buttons">
+                <div>
+                    <a href="" class="btn btn-style-one">QUOI FAIRE ?</a>
+                    {# TODO Liste des choses à faire (médecin/psy/relaxation/etc) #}
+                </div>
+                <div>
+                    <a href="" class="btn btn-style-two">TOUT SAVOIR</a>
+                    {# TODO Liste des aspect psy (Peur d'avoir peur/anticipation/fuite/Pensées anxieuses/crise d'angoisse/attaque de panique. Page avec cadres, comme POINTS IMPORTANT #}
 
+                </div>
+            </div>
+            <div class="first-section-important">
+                <h3>LES POINTS IMPORTANTS</h3>
+                <div class="first-section-important-cards">
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#understandHomeModal">
+                            {# TODO Trouble psy connaitre théorie #}
+                            <img src="{{ asset('images/reading_child_light.jpeg') }}" alt="Tout savoir">
+                        </a>
+                        <div class="important-card-text">
+                            <h5>Bien comprendre</h5>
+                            <p>ce que vous traversez</p>
+                        </div>
+                    </div>
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#understandHomeModal">
+                            <img src="{{ asset('images/dog_cat_doctor_light.jpeg') }}" alt="Médecin traitant">
+                        </a>
+                        <div class="important-card-text">
+                            <h5>Votre médecin,</h5>
+                            <p>votre première aide</p>
+                        </div>
+                    </div>
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#understandHomeModal">
+                            <img src="{{ asset('images/psychotherapy_light.jpeg') }}" alt="Mon psy, ce héro">
+                        </a>
+                        <div class="important-card-text">
+                            <h5>Le psy,</h5>
+                            <p>votre meilleur atout</p>
+                        </div>
+                    </div>
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#understandHomeModal">
+                            <img src="{{ asset('images/dog_community_light.jpeg') }}" alt="Toute une communauté pour vous">
+                            {# TODO Discussion / Forum / Message privé #}
+                        </a>
+                        <div class="important-card-text">
+                            <h5>En parler,</h5>
+                            <p>afin d'être soutenu</p>
+                        </div>
+                    </div>
+                </div>
+                {% include 'front/home/_homeModal.html.twig' %}
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-second-section">
+        <div id="second-section-content" class="custom-container">
+            <h2>UNE COMMUNAUTÉ EN DEVENIR, PRÊTE À VOUS SOUTENIR</h2>
+        </div>
+    </section>
+    <section class="custom-section home-third-section">
+        <div id="third-section-content" class="custom-container">
+            <h2>LES CHIFFRES CLÉS</h2>
+        </div>
+    </section>
+    <section class="custom-section home-fourth-section">
+        <div id="fourth-section-content" class="custom-container">
+            <h2>LES DERNIÈRES VICTOIRES</h2>
+        </div>
+    </section>
 {% endblock %}
