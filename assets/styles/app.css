@@ -305,7 +305,7 @@ body{
 .home-second-section{
     width: 100%;
     background-color: rgba(0,0,0,0.9);
-    background-image: url('../images/council_variant_light.jpeg');
+    background-image: url('../images/community_light_darked.jpeg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -607,8 +607,12 @@ body{
 /* REVIEW SECTION */
 
 .home-review-section{
-    background-color: rgb(60,42,41);
-    background: linear-gradient(90deg, rgba(60,42,41,1) 0%, rgba(0,0,0,1) 50%);
+    /*background-color: rgb(60,42,41);*/
+    /*background: linear-gradient(90deg, rgba(60,42,41,1) 0%, rgba(0,0,0,1) 50%);*/
+    background-image: url('../images/birds_light.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     border-bottom: 5px solid black;
 }
 .home-review-section .home-review-section-block{
@@ -623,6 +627,17 @@ body{
     margin-bottom: 75px;
     text-align: center;
     text-shadow: var(--my-text-shadow);
+}
+
+.home-review-section .home-review-section-block .owl-carousel .owl-nav{
+    display: block;
+    color: var(--my-light-blue);
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .owl-nav button{
+    margin: 0 20px;
 }
 
 .home-review-section .home-review-section-block .owl-carousel .item{
@@ -667,6 +682,72 @@ body{
     align-items: center;
     justify-content: center;
     padding: 5px 15px;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-footer i{
+    color: var(--my-light-blue);
+}
+
+.home-review-section .home-review-section-block .home-review-section-links
+{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-register
+{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-commitment-section{
+    background-image: url('../images/night_stars_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid black;
+}
+
+.home-commitment-section .home-commitment-section-block{
+    width: 100%;
+    padding: 120px 0;
+}
+
+.home-commitment-section .home-commitment-section-block h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 75px;
+    text-shadow: var(--my-text-shadow);
+    text-align: center;
+}
+
+.home-commitment-section .home-commitment-section-block .home-commitment-text{
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.home-commitment-section .home-commitment-section-block p{
+    font-size: 1.2rem;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-commitment-section .home-commitment-section-block ul{
+    list-style-type: none;
+}
+
+.home-commitment-section .home-commitment-section-block ul li{
+    font-size: 1.2rem;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-commitment-section .home-commitment-section-block ul li i{
+    color: var(--my-light-blue);
+    margin-right: 10px;
+    width: 25px;
 }
 
 /* ======================== */

@@ -87,9 +87,9 @@
             </div>
             <div class="second-section-content-block">
                 <a class="btn social-buttons">MESSAGE PRIVÉ</a>
+                <a class="btn social-buttons">PARTAGE</a>
                 <a class="btn social-buttons">FORUM</a>
                 <a class="btn social-buttons">TÉMOIGNAGES</a>
-                <a class="btn social-buttons">PARTAGE</a>
                 <a class="btn volunteer-button">REJOINDRE LA COMMUNAUTÉ</a>
 
             </div>
@@ -227,6 +227,27 @@
             </div>
         </div>
     </section>
+    <section class="custom-section home-commitment-section">
+        <div id="commitment-section-content" class="custom-container">
+            <div class="home-commitment-section-block">
+                <h2>NOS ENGAGEMENTS</h2>
+                <div class="home-commitment-text">
+                    <p>La vie privée ainsi que les données personnelles de chacuns.es sont deux éléments très importants à nos yeux. Nous nous engageons à les respecter au maximum en applicant strictement les points suivants :
+                    </p>
+                    <ul>
+                        <li><i class="fa-regular fa-address-card"></i> Seuls un pseudo, une adresse e-mail et un mot de passe sont demandés afin de s'inscrire.</li>
+                        <li><i class="fa-regular fa-comments"></i> Les messages (privés, forum, partage et témoignages) et leur contenu ne sont partagés à aucun tier.</li>
+                        <li><i class="fa-solid fa-users"></i> La communauté s'engage à respecter votre vie privée dans leurs réponses et leurs questions.</li>
+                        <li><i class="fa-solid fa-cookie"></i> Uniquement des Cookies basiques et non-intrusifs sont utilisés sur le site.</li>
+                        <li><i class="fa-solid fa-trash-can"></i> Suppression rapide et totale des données personnelles en cas de demande.</li>
+                    </ul>
+                    <p>
+                        En plus de cela, il nous tient à cœur de proposer une aide et un soutien de manière totalement bénévole, et sans publicités.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="custom-section home-review-section">
         <div id="review-section-content" class="custom-container">
             <div class="home-review-section-block">
@@ -261,19 +282,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <section class="custom-section home-commitment-section">
-        <div id="commitment-section-content" class="custom-container">
-            <div class="home-commitment-section-block">
-                <h2>NOS ENGAGEMENTS</h2>
-                données personnelles privées
-                Anonyma (à par le mail)
-                pas de collecte de donnée
-                100% gratuit, aucune compensation, financière ou autre, demandée
-                pas de publicité
-                Respect de la vie privée : aucune solicitation
+                <div class="home-review-section-links">
+                    <a class="btn btn-style-two">DONNER VOTRE AVIS</a>
+                    <a class="home-review-section-links-register">Inscrivez-vous pour laisser votre avis</a>
+                </div>
             </div>
         </div>
     </section>
@@ -285,14 +297,14 @@
         $(document).ready(function(){
             $('.owl-carousel').owlCarousel({
                 loop:true,
-                center: true,
-                autoplay: true,
+                center:true,
+                autoplay:true,
                 margin:8,
                 responsiveClass:true,
-                autoplayHoverPause: true,
+                autoplayHoverPause:true,
                 autoplayTimeout: 5000,
                 nav:true,
-                dots: true,
+                dots:true,
                 responsive:{
                     0:{
                         items:1,
@@ -300,15 +312,15 @@
                         loop:true
                     },
                     600:{
-                        items:2,
+                        items:1,
                         nav:true,
                         loop:true
                     },
                     1000:{
                         items:3,
                         nav:true,
-                        dots: false,
-                        loop:true
+                        dots:true,
+                        loop:true,
                     }
                 }
             })

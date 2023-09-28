@@ -128,6 +128,11 @@
 
     }
 
+    /* COMMITMENT SECTION */
+    .home-commitment-section .home-commitment-section-block ul{
+        padding-left: 0;
+    }
+
     /* ====================== */
 }
 
