@@ -1,3 +1,789 @@
-body {
-    background-color: skyblue;
+/* ======= VAR ======= */
+:root {
+    --my-text-brown: #e1d9d1;
+    --my-brown: rgba(60,42,41,1);
+    --my-text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0,0,0,.8);
+    --my-light-blue: #13A2B7;
 }
+
+
+/* ======= UTILS ========= */
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.container-fluid{
+    padding: 0;
+    width: 100%;
+}
+
+.custom-section{
+    width: 100%;
+}
+
+.custom-container
+{
+    margin: 0 10%;
+}
+
+.btn-style-one
+{
+    background: rgba(60,42,41,0.9);
+    border-radius: 10px;
+    padding: 10px 30px;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+    border: 2px solid rgb(225, 217, 209);
+    margin-right: 25px;
+    font-size: 1.2rem;
+}
+
+.btn-style-one:hover
+{
+    background: rgba(60,42,41,1);
+    transition: 0.2s;
+    color: white;
+}
+
+.btn-style-two
+{
+    background: rgba(225, 217, 209, 0.7);
+    border-radius: 10px;
+    padding: 10px 30px;
+    color: rgba(60,42,41,1);
+    font-weight: bold;
+    transition: 0.2s;
+    border: 2px solid rgb(60,42,41);
+    font-size: 1.2rem;
+}
+
+.btn-style-two:hover
+{
+    background: rgba(225, 217, 209, 1);
+    transition: 0.2s;
+    color: rgba(60,42,41,1);
+}
+
+
+/* ======== NAV ========= */
+#main-site-nav
+{
+    position: fixed;
+    z-index: 9;
+    top: 20px;
+    right: 20px;
+    left: 20px;
+    background: rgba(0,0,0,0.9);
+    border-radius: 10px;
+    padding: 0;
+}
+
+#main-site-nav .brand-with-tooltip
+{
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+#main-site-nav .brand-with-tooltip img
+{
+    width: 150px;
+    border-radius: 10px 0 0 10px;
+    object-fit: cover;
+    border: 2px solid var(--my-text-brown);
+}
+
+#main-site-nav .dropdown-menu{
+    background: rgba(0,0,0,0.9);
+    border: 1px solid var(--my-text-brown);
+}
+
+#main-site-nav .dropdown-menu a{
+    transition: 0.2s;
+}
+
+#main-site-nav .dropdown-menu a:hover{
+    background: rgba(255,255,255,0.2);
+    transition: 0.2s;
+}
+
+#main-site-nav .dropdown-menu .dropdown-divider{
+    border-color: white;
+}
+
+#main-site-nav ul li
+{
+    transition: 0.2s;
+    border-radius: 10px;
+}
+
+#main-site-nav ul li:hover
+{
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+#main-site-nav ul li a
+{
+    color: white;
+    font-weight: bold;
+}
+
+#main-site-nav ul li .nav-btn-direct-message
+{
+    background: rgba(60,42,41,0.8);
+    border-radius: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+#main-site-nav .dropdown-menu i
+{
+    margin-right: 10px;
+}
+
+
+/* ======================== */
+footer{
+    background: var(--my-brown);
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    border-top: 5px solid black;
+}
+
+footer h4{
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: var(--my-text-shadow);
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--my-text-brown) !important;
+    text-shadow: var(--my-text-shadow);
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+footer a:hover{
+    color: var(--my-light-blue) !important;
+    transition: 0.5s;
+}
+
+footer span{
+    color: white;
+}
+
+footer .footer-copyright{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-size: 0.8rem;
+    margin-top: 25px;
+}
+/* ======== FOOTER ========= */
+
+
+/* ======================== */
+
+/* ======== HOME ========= */
+.home-first-section{
+    width: 100%;
+    background-image: url('../images/good_vs_bad_background_light.jpeg');
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.home-first-section #first-section-content
+{
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.home-first-section #first-section-content .first-section-block
+{
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.home-first-section h1
+{
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-first-section p
+{
+    font-size: 1.3rem;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+
+.home-first-section #first-section-content .first-section-buttons
+{
+    display: flex;
+    margin-top: 15px;
+}
+
+.home-first-section .first-section-important{
+    margin-top: 70px;
+}
+
+.home-first-section .first-section-important h3{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-first-section .first-section-important .first-section-important-cards{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.home-first-section .first-section-important .first-section-important-cards .important-card{
+    background: rgba(0,0,0,0.5);
+    position: relative;
+    border: 3px solid var(--my-text-brown);
+    width: 24%;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.home-first-section .first-section-important .first-section-important-cards .important-card:hover{
+    border-color: rgb(60,42,41);
+    transform: scale(1.1);
+    transition: 0.2s;
+    z-index: 1;
+}
+
+.home-first-section .first-section-important .first-section-important-cards .important-card img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.home-first-section .first-section-important .first-section-important-cards .important-card .important-card-text{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    background: rgba(0,0,0,0.6);
+}
+
+.home-first-section .first-section-important .first-section-important-cards .important-card .important-card-text h5{
+    font-weight: bold;
+    color: var(--my-text-brown);
+}
+
+.home-first-section .first-section-important .first-section-important-cards .important-card .important-card-text p{
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.first-section-important .modal .modal-content{
+    border: 3px solid var(--my-text-brown);
+}
+
+.first-section-important .modal .modal-content .modal-header{
+    background: rgba(60,42,41,0.9);
+    color: white;
+}
+
+.first-section-important .modal .modal-content .modal-body{
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    padding: 0;
+    background-position: center;
+}
+
+#understandHomeModal .modal-body{
+    background-image: url('../images/reading_child_light.jpeg');
+}
+
+#doctorHomeModal .modal-body{
+    background-image: url('../images/dog_cat_doctor_light.jpeg');
+}
+
+#psyHomeModal .modal-body{
+    background-image: url('../images/psychotherapy_light.jpeg');
+}
+
+#communityHomeModal .modal-body{
+    background-image: url('../images/dog_community_light.jpeg');
+}
+
+.first-section-important .modal .modal-content .modal-body .modal-dark-overlay{
+    width: 100%;
+    height: 100%;
+    background: rgb(0,0,0,0.75);
+    padding: 20px;
+}
+
+/* SECOND SECTION */
+.home-second-section{
+    width: 100%;
+    background-color: rgba(0,0,0,0.9);
+    background-image: url('../images/community_light_darked.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 5px solid black;
+}
+
+.home-second-section #second-section-content{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 120px 0;
+}
+
+.home-second-section #second-section-content .second-section-content-block{
+    width: 49%;
+    text-align: center;
+}
+
+.home-second-section #second-section-content .second-section-content-block:last-of-type{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-second-section #second-section-content .second-section-content-block:last-of-type .social-buttons{
+    width: 49%;
+    margin-bottom: 10px;
+    background: rgba(225, 217, 209, 0.7);
+    border-radius: 10px;
+    padding: 10px 30px;
+    color: rgba(60,42,41,1);
+    font-weight: bold;
+    transition: 0.2s;
+    border: 2px solid rgb(60,42,41);
+    font-size: 1rem;
+    height: 48px;
+}
+
+.home-second-section #second-section-content .second-section-content-block:last-of-type .social-buttons:hover{
+    background: rgba(225, 217, 209, 1);
+    transition: 0.2s;
+}
+
+.home-second-section #second-section-content .second-section-content-block:last-of-type .volunteer-button{
+    width: 100%;
+    background: rgba(60,42,41,0.9);
+    border-radius: 10px;
+    padding: 10px 30px;
+    color: white;
+    font-weight: bold;
+    transition: 0.2s;
+    border: 2px solid rgb(225, 217, 209);
+    font-size: 1rem;
+    height: 48px;
+}
+
+.home-second-section #second-section-content .second-section-content-block:last-of-type .volunteer-button:hover{
+    background: rgba(60,42,41,1);
+    transition: 0.2s;
+}
+
+
+.home-second-section #second-section-content h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 25px;
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-second-section #second-section-content p{
+    font-size: 1.2rem;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+/* TESTIMONY SECTION */
+
+.home-testimony-section{
+    background-image: url('../images/cyber_info_light.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+}
+
+.home-testimony-section h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 75px;
+    text-shadow: var(--my-text-shadow);
+    text-align: center;
+}
+
+.home-testimony-section .testimony-section-header-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    margin: 0 25%;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px 0;
+}
+
+.home-testimony-section .testimony-section-header-info p{
+    margin: 0;
+}
+
+.home-testimony-section .testimony-section-header-info span{
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
+.home-testimony-section .testimony-section-header-info p:last-of-type{
+    font-size: 0.8rem;
+}
+
+.home-testimony-section .testimony-section-block{
+    width: 100%;
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 10px;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    margin-bottom: 15px;
+}
+
+.home-testimony-section .testimony-section-block p{
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+
+/* DATA SECTION */
+.home-data-section{
+    width: 100%;
+    background: black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+    background-image: url('../images/space_rocket_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.home-data-section .home-data-section-block{
+    width: 100%;
+    padding: 120px 0;
+}
+
+.home-data-section .home-data-section-block h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 75px;
+    text-align: center;
+    text-shadow: var(--my-text-shadow);
+}
+
+
+.home-data-section .home-data-numbers-block .home-data-numbers-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.home-data-section .home-data-numbers-block .home-data-numbers-info .home-data-numbers-info-item{
+    width: 49%;
+    text-align: center;
+    margin-bottom: 25px;
+    background: rgba(225, 217, 209, 0.85);
+    border-radius: 10px;
+    border: 2px solid rgb(60,42,41);
+    padding: 10px 30px;
+}
+
+.home-data-section .home-data-numbers-block .home-data-numbers-info .home-data-numbers-info-item i{
+    color: var(--my-brown);
+    margin-right: 10px;
+    text-shadow: none;
+}
+
+.home-data-section .home-data-numbers-block .home-data-numbers-info .home-data-numbers-info-item span{
+    color: var(--my-light-blue);
+    font-size: 1.5rem;
+    text-shadow: var(--my-text-shadow);
+    font-weight: bold;
+}
+
+.home-data-section .home-data-numbers-block .home-data-numbers-info .home-data-numbers-info-item p{
+    color: var(--my-brown);
+    font-size: 1.2rem;
+    margin-bottom: 0;
+}
+
+/* VICTORY SECTION */
+
+.home-victory-section{
+    background-image: url('../images/girl_victory_large_light.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-top: 5px solid black;
+    border-bottom: 5px solid black;
+}
+
+.home-victory-section .home-victory-section-block{
+    width: 100%;
+    padding: 120px 0;
+}
+
+.home-victory-section .home-victory-section-block h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 75px;
+    text-align: center;
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-victory-section .home-victory-victories{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item{
+    width: 33%;
+    text-align: center;
+    margin-bottom: 25px;
+    background: rgba(225, 217, 209, 0.85);
+    border-radius: 10px;
+    border: 2px solid rgb(60,42,41);
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-header{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-bottom: 2px solid rgb(60,42,41);
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-header p{
+    margin: 0;
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-header p:first-of-type span{
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-header p:last-of-type{
+    font-size: 0.75rem;
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-body{
+    padding: 10px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--my-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-body p{
+    margin: 0;
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-footer{
+    background: rgba(0,0,0,0.85);
+    border-radius: 0 0 7px 7px;
+    transition: 0.2s;
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-footer:hover{
+    background: rgba(0,0,0,0.5);
+    transition: 0.2s;
+}
+
+.home-victory-section .home-victory-victories .home-victory-victories-item-footer button{
+    width: 100%;
+    font-size: 0.8rem;
+    color: var(--my-light-blue);
+}
+
+/* REVIEW SECTION */
+
+.home-review-section{
+    /*background-color: rgb(60,42,41);*/
+    /*background: linear-gradient(90deg, rgba(60,42,41,1) 0%, rgba(0,0,0,1) 50%);*/
+    background-image: url('../images/birds_light.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.home-review-section .home-review-section-block{
+    width: 100%;
+    padding: 120px 0;
+}
+
+.home-review-section .home-review-section-block h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 75px;
+    text-align: center;
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-review-section .home-review-section-block .owl-carousel .owl-nav{
+    display: block;
+    color: var(--my-light-blue);
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .owl-nav button{
+    margin: 0 20px;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item{
+    border: 2px solid var(--my-text-brown);
+    background: rgba(0,0,0,0.85);
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item p{
+    margin: 0;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 15px;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-header span{
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-header p:last-of-type{
+    font-size: 0.75rem;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-body{
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    overflow: hidden;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-body p{
+    font-size: 0.9rem;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 15px;
+}
+
+.home-review-section .home-review-section-block .owl-carousel .item .owl-item-footer i{
+    color: var(--my-light-blue);
+}
+
+.home-review-section .home-review-section-block .home-review-section-links
+{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-register
+{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-commitment-section{
+    background-image: url('../images/night_stars_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 5px solid black;
+}
+
+.home-commitment-section .home-commitment-section-block{
+    width: 100%;
+    padding: 120px 0;
+}
+
+.home-commitment-section .home-commitment-section-block h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 75px;
+    text-shadow: var(--my-text-shadow);
+    text-align: center;
+}
+
+.home-commitment-section .home-commitment-section-block .home-commitment-text{
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.home-commitment-section .home-commitment-section-block p{
+    font-size: 1.2rem;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-commitment-section .home-commitment-section-block ul{
+    list-style-type: none;
+}
+
+.home-commitment-section .home-commitment-section-block ul li{
+    font-size: 1.2rem;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.home-commitment-section .home-commitment-section-block ul li i{
+    color: var(--my-light-blue);
+    margin-right: 10px;
+    width: 25px;
+}
+
+/* ======================== */

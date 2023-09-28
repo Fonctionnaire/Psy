@@ -1,0 +1,329 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+{% block body %}
+    <section class="custom-section home-first-section">
+        <div id="first-section-content" class="custom-container">
+            <div class="first-section-block">
+                <h1>CECI EST MON TITRE PRINCIPAL</h1>
+                <p>
+                    Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
+                </p>
+            </div>
+            <div class="first-section-buttons">
+                <div>
+                    <a href="" class="btn btn-style-one">QUOI FAIRE ?</a>
+                    {# TODO Liste des choses à faire (médecin/psy/relaxation/etc) #}
+                </div>
+                <div>
+                    <a href="" class="btn btn-style-two">TOUT SAVOIR</a>
+                    {# TODO Liste des aspect psy (Peur d'avoir peur/anticipation/fuite/Pensées anxieuses/crise d'angoisse/attaque de panique. Page avec cadres, comme POINTS IMPORTANT #}
+
+                </div>
+            </div>
+            <div class="first-section-important">
+                <h3>LES POINTS IMPORTANTS</h3>
+                <div class="first-section-important-cards">
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#understandHomeModal">
+                            {# TODO Trouble psy connaitre théorie #}
+                            <img src="{{ asset('images/reading_child_light.jpeg') }}" alt="Tout savoir">
+
+                            <div class="important-card-text">
+                                <h5>Bien comprendre</h5>
+                                <p>ce que vous traversez</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#doctorHomeModal">
+                            <img src="{{ asset('images/dog_cat_doctor_light.jpeg') }}" alt="Médecin traitant">
+
+                            <div class="important-card-text">
+                                <h5>Votre médecin</h5>
+                                <p>votre première aide</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#psyHomeModal">
+                            <img src="{{ asset('images/psychotherapy_light.jpeg') }}" alt="Mon psy, ce héro">
+
+                            <div class="important-card-text">
+                                <h5>Le psy</h5>
+                                <p>votre meilleur atout</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="important-card">
+                        <a data-bs-toggle="modal" data-bs-target="#communityHomeModal">
+                            <img src="{{ asset('images/dog_community_light.jpeg') }}" alt="Toute une communauté pour vous">
+                            {# TODO Discussion / Forum / Message privé #}
+
+                            <div class="important-card-text">
+                                <h5>En parler</h5>
+                                <p>afin d'être soutenu</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                {% include 'front/home/_homeModal.html.twig' %}
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-second-section">
+        <div id="second-section-content" class="custom-container">
+            <div class="second-section-content-block">
+                <h2>UNE COMMUNAUTÉ EN DEVENIR, PRÊTE À VOUS SOUTENIR</h2>
+                <p>
+                    Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
+                </p>
+            </div>
+            <div class="second-section-content-block">
+                <a class="btn social-buttons">MESSAGE PRIVÉ</a>
+                <a class="btn social-buttons">PARTAGE</a>
+                <a class="btn social-buttons">FORUM</a>
+                <a class="btn social-buttons">TÉMOIGNAGES</a>
+                <a class="btn volunteer-button">REJOINDRE LA COMMUNAUTÉ</a>
+
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-data-section">
+        <div id="data-section-content" class="custom-container">
+            <div class="home-data-section-block home-data-numbers-block">
+                <h2>LES CHIFFRES CLÉS</h2>
+                <div class="home-data-numbers-info">
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-regular fa-user"></i> 300</span>
+                        <p>Utilisateurs</p>
+                    </div>
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-solid fa-user-nurse"></i> 2</span>
+                        <p>Bénévoles</p>
+                    </div>
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-solid fa-comment-medical"></i> 25</span>
+                        <p>Témoignages</p>
+                    </div>
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-regular fa-comment"></i> 500</span>
+                        <p>Messages privés</p>
+                    </div>
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-regular fa-message"></i> 324</span>
+                        <p>Sujets sur le forum</p>
+                    </div>
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-solid fa-blog"></i> 18</span>
+                        <p>Actualités</p>
+                    </div>
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-solid fa-check"></i> 50</span>
+                        <p>Avis</p>
+                    </div>
+                    <div class="home-data-numbers-info-item">
+                        <span><i class="fa-regular fa-star"></i> 4/5</span>
+                        <p>Note moyenne</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-testimony-section">
+        <div id="testimony-section-content" class="custom-container">
+            <h2>LE DERNIER TÉMOIGNAGE</h2>
+            <div class="testimony-section-header-info">
+                <p>Par <span>Username</span></p>
+                <p>Le 23/09/23</p>
+            </div>
+            <div class="testimony-section-block">
+                <p>
+                    Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
+                </p>
+            </div>
+            <div class="testimony-section-buttons">
+                <a class="btn btn-style-one">LIRE LA SUITE</a>
+                <a class="btn btn-style-two">TOUS LES TÉMOIGNAGES</a>
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-victory-section">
+        <div id="victory-section-content" class="custom-container">
+            <div class="home-victory-section-block">
+                <h2>LES DERNIÈRES VICTOIRES</h2>
+                <div class="home-victory-victories">
+                    <div class="home-victory-victories-item">
+                        <div class="home-victory-victories-item-header">
+                            <p>Victoire de <span>Marie</span></p>
+                            <p>Il y a 2 jours</p>
+                        </div>
+                        <div class="home-victory-victories-item-body">
+                            <div>
+                                <p>Je suis allée chez le médecin !</p>
+                            </div>
+                        </div>
+                        <div class="home-victory-victories-item-footer">
+                            <form action="" method="post">
+                                <button class="btn">FÉLICITER USER <i class="fa-solid fa-hands-clapping"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="home-victory-victories-item">
+                        <div class="home-victory-victories-item-header">
+                            <p>Victoire de <span>Marie</span></p>
+                            <p>Il y a 2 jours</p>
+                        </div>
+                        <div class="home-victory-victories-item-body">
+                            <div>
+                                <p>Je suis allée chez le médecin ! fsdlfj sdpfj sdof,n sodfnosdnf, sdonf sdofnod sn</p>
+                            </div>
+                        </div>
+                        <div class="home-victory-victories-item-footer">
+                            <form action="" method="post">
+                                <button class="btn">FÉLICITER USER <i class="fa-solid fa-hands-clapping"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="home-victory-victories-item">
+                        <div class="home-victory-victories-item-header">
+                            <p>Victoire de <span>Marie</span></p>
+                            <p>Il y a 2 jours</p>
+                        </div>
+                        <div class="home-victory-victories-item-body">
+                            <div>
+                                <p>Je suis allée chez le médecin ! fsdlfj sdpfj sdof,n sodfnosdnf, sdonf sdofnod sn</p>
+                            </div>
+                        </div>
+                        <div class="home-victory-victories-item-footer">
+                            <form action="" method="post">
+                                <button class="btn">FÉLICITER USER <i class="fa-solid fa-hands-clapping"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="home-victory-victories-item">
+                        <div class="home-victory-victories-item-header">
+                            <p>Victoire de <span>Marie</span></p>
+                            <p>Il y a 2 jours</p>
+                        </div>
+                        <div class="home-victory-victories-item-body">
+                            <div>
+                                <p>Je suis allée chez le médecin ! fsdlfj sdpfj sdof,n sodfnosdnf, sdonf sdofnod sn</p>
+                            </div>
+                        </div>
+                        <div class="home-victory-victories-item-footer">
+                            <form action="" method="post">
+                                <button class="btn">FÉLICITER USER <i class="fa-solid fa-hands-clapping"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-commitment-section">
+        <div id="commitment-section-content" class="custom-container">
+            <div class="home-commitment-section-block">
+                <h2>NOS ENGAGEMENTS</h2>
+                <div class="home-commitment-text">
+                    <p>La vie privée ainsi que les données personnelles de chacuns.es sont deux éléments très importants à nos yeux. Nous nous engageons à les respecter au maximum en applicant strictement les points suivants :
+                    </p>
+                    <ul>
+                        <li><i class="fa-regular fa-address-card"></i> Seuls un pseudo, une adresse e-mail et un mot de passe sont demandés afin de s'inscrire.</li>
+                        <li><i class="fa-regular fa-comments"></i> Les messages (privés, forum, partage et témoignages) et leur contenu ne sont partagés à aucun tier.</li>
+                        <li><i class="fa-solid fa-users"></i> La communauté s'engage à respecter votre vie privée dans leurs réponses et leurs questions.</li>
+                        <li><i class="fa-solid fa-cookie"></i> Uniquement des Cookies basiques et non-intrusifs sont utilisés sur le site.</li>
+                        <li><i class="fa-solid fa-trash-can"></i> Suppression rapide et totale des données personnelles en cas de demande.</li>
+                    </ul>
+                    <p>
+                        En plus de cela, il nous tient à cœur de proposer une aide et un soutien de manière totalement bénévole, et sans publicités.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-review-section">
+        <div id="review-section-content" class="custom-container">
+            <div class="home-review-section-block">
+                <h2>LES AVIS</h2>
+                <div class="owl-carousel">
+                    <div class="item">
+                        <div class="owl-item-header">
+                            <p>De <span>Username</span></p>
+                            <p>Le 25/09/2023</p>
+                        </div>
+                        <div class="owl-item-body">
+                            <p>
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sapien tortor, hendrerit non facilisis eu, rhoncus at lorem. Nam iaculis felis scelerisque mattis aliquet. Duis commodo cursus finibus. Morbi auctor vehicula est, non hendrerit purus. Aenean non purus vestibulum, tincidunt nunc eget, convallis tellus. Sed non erat enim. Integer sit amet dui et lorem convallis porta. Integer euismod massa quis neque ornare condimentum. Proin varius ex eget magna tempus pellentesque suscipit eu nibh. Nunc sit amet metus id odio cursus tempus. Pellentesque lacinia cursus turpis nec euismod.
+                            </p>
+                        </div>
+                        <div class="owl-item-footer">
+                            <p>5 <i class="fa-solid fa-star"></i> / 5</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="owl-item-header">
+                            <p>De <span>Username</span></p>
+                            <p>Le 25/09/2023</p>
+                        </div>
+                        <div class="owl-item-body">
+                            <p>
+                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sapien tortor, hendrerit non facilisis eu, rhoncus at lorem. Nam iaculis felis scelerisque mattis aliquet.
+                            </p>
+                        </div>
+                        <div class="owl-item-footer">
+                            <p>5 <i class="fa-solid fa-star"></i> / 5</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="home-review-section-links">
+                    <a class="btn btn-style-two">DONNER VOTRE AVIS</a>
+                    <a class="home-review-section-links-register">Inscrivez-vous pour laisser votre avis</a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+                loop:true,
+                center:true,
+                autoplay:true,
+                margin:8,
+                responsiveClass:true,
+                autoplayHoverPause:true,
+                autoplayTimeout: 5000,
+                nav:true,
+                dots:true,
+                responsive:{
+                    0:{
+                        items:1,
+                        nav:true,
+                        loop:true
+                    },
+                    600:{
+                        items:1,
+                        nav:true,
+                        loop:true
+                    },
+                    1000:{
+                        items:3,
+                        nav:true,
+                        dots:true,
+                        loop:true,
+                    }
+                }
+            })
+        });
+    </script>
+{% endblock %}
