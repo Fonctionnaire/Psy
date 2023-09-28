@@ -150,7 +150,44 @@ body{
 
 
 /* ======================== */
+footer{
+    background: var(--my-brown);
+    width: 100%;
+    text-align: center;
+    padding: 40px 0;
+    border-top: 5px solid black;
+}
 
+footer h4{
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: var(--my-text-shadow);
+}
+
+footer a{
+    text-decoration: none;
+    color: var(--my-text-brown) !important;
+    text-shadow: var(--my-text-shadow);
+    margin-left: 10px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+
+footer a:hover{
+    color: var(--my-light-blue) !important;
+    transition: 0.5s;
+}
+
+footer span{
+    color: white;
+}
+
+footer .footer-copyright{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-size: 0.8rem;
+    margin-top: 25px;
+}
 /* ======== FOOTER ========= */
 
 
@@ -613,7 +650,6 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    border-bottom: 5px solid black;
 }
 .home-review-section .home-review-section-block{
     width: 100%;
