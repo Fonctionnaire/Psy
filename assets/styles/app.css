@@ -156,6 +156,11 @@ body{
     margin-right: 10px;
 }
 
+#main-site-nav span.nav-username{
+    color: var(--my-light-blue);
+    font-weight: bold;
+    margin-left: 10px;
+}
 
 /* ======================== */
 
@@ -203,16 +208,144 @@ footer .footer-copyright{
 /* ======================== */
 
 /* ======== SECURITY ========= */
-/* REGISTER */
-#register-section{
+/* REGISTER & LOGIN */
+.auth-section{
     min-height: 80vh;
-    padding-top: 300px;
-    background-image: url('../images/welcoming.light_darked.jpeg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
 }
 
+#register-form-section{
+    background-image: url('../images/welcoming.light_darked.jpeg');
+}
+
+#login-form-section{
+    background-image: url('../images/space_ship_cokpit_light_darked.jpeg');
+}
+
+.auth-section .auth-section-block{
+    padding: 180px 0;
+}
+
+.auth-section .auth-section-block .auth-section-header h1, .auth-section .auth-section-block .auth-section-header p{
+    color: white;
+    text-shadow: var(--my-text-shadow);
+}
+
+.auth-section .auth-section-block .auth-section-items{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item{
+    width: 49%;
+    border: 2px solid var(--my-light-blue);
+    background: rgba(0,0,0,0.8);
+    padding: 25px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-form-errors{
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-body h2{
+    margin-bottom: 25px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-body div:first-of-type{
+    margin-bottom: 50px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-footer{
+    text-align: center;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item h2{
+    color: white;
+    text-shadow: var(--my-text-shadow);
+    font-weight: bold;
+    margin-bottom: 40px;
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item h2 span{
+    color: var(--my-light-blue);
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item p{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-size: 1.2rem;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item ul{
+    list-style-type: none;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item ul li{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item ul li:before {
+    content: "\2022";
+    color: var(--my-light-blue);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-inputs{
+    margin-bottom: 20px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-inputs #auth_password div:first-of-type{
+    margin-bottom: 10px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-inputs ul{
+    list-style-type: none;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-inputs ul li{
+    color: red;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-inputs .help-text{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item label{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    margin-bottom: 10px;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item input{
+    width: 100%;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item input[type="checkbox"]{
+    width: auto;
+}
+
+.auth-section .auth-section-block .auth-section-items .auth-section-item .btn{
+    width: 100%;
+}
 
 /* ======== HOME ========= */
 .home-first-section{
@@ -826,7 +959,7 @@ footer .footer-copyright{
     margin-top: 20px;
 }
 
-.home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-register
+.home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-auth
 {
     color: var(--my-text-brown);
     text-shadow: var(--my-text-shadow);

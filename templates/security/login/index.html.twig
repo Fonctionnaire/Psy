@@ -1,22 +1,59 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello LoginController!{% endblock %}
+{% block title %}{% endblock %}
 
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+    <section id="login-form-section" class="auth-section custom-section">
+        <div class="custom-container auth-section-block">
+            <div class="auth-section-header">
+                <h1>CONNEXION</h1>
+            </div>
+            <div class="auth-section-items">
+                <div class="auth-section-item">
+                    {% if error %}
+                        <div class="auth-form-errors">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
 
-    <form action="{{ path('app_login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}">
+                    <form action="{{ path('app_login') }}" method="post">
+                        <div class="auth-section-item-inputs">
+                            <label for="username">Email:</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}">
+                        </div>
+                        <div class="auth-section-item-inputs">
+                            <label for="password">Password:</label>
+                            <input type="password" id="password" name="_password">
+                        </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password">
-
-        {# If you want to control the URL the user is redirected to on success
+                        {# If you want to control the URL the user is redirected to on success
         <input type="hidden" name="_target_path" value="/account"> #}
 
-        <button type="submit">login</button>
-    </form>
+                        <div class="auth-section-item-inputs">
+                            <label for="remember_me">
+                            <input type="checkbox" id="remember_me" name="_remember_me">
+                                <span>Se souvenir de moi</span></label>
+                        </div>
+                        <div class="auth-section-item-inputs">
+                         <button type="submit" class="btn btn-style-two">CONNEXION</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="auth-section-item">
+                    <div class="auth-section-item-body">
+                        <div>
+                            <h2>Vous n'avez pas encore de compte ?</h2>
+                            <p>
+                                <a href="{{ path('app_register') }}" class="btn btn-style-two">INSCRIPTION</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h2>Vous avez oublié votre mot de passe ?</h2>
+                            <p>
+                                <a href="#" class="btn btn-style-one">Cliquez ici</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 {% endblock %}

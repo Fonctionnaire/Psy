@@ -3,9 +3,76 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-    <section id="register-section" class="custom-section">
-        {{ form_start(form) }}
-        {{ form_row(form) }}
-        {{ form_end(form) }}
+    <section id="register-form-section" class="auth-section custom-section">
+        <div class="custom-container auth-section-block">
+            <div class="auth-section-header">
+                <h1>INSCRIPTION</h1>
+                <p>Inscrivez vous en quelques secondes afin d'obtenir l'aide de toute la communauté</p>
+            </div>
+            <div class="auth-section-items">
+                <div class="auth-section-item">
+                    {{ form_start(form) }}
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.email) }}<br>
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.username) }}<br>
+                        {{ form_widget(form.username) }}
+                        {{ form_errors(form.username) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.firstname) }}<br>
+                        {{ form_widget(form.firstname) }}
+                        {{ form_help(form.firstname) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.password) }}<br>
+                        {{ form_widget(form.password) }}
+                        {{ form_help(form.password) }}
+                        {{ form_errors(form.password) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_widget(form.isAcceptedTerms) }}
+                        <label for="register_isAcceptedTerms" class="required">
+                            <span>J'accepte les <a href="{{ path('app_terms_legals') }}" target="_blank">mentions légales</a> et <a href="{{ path('app_terms_usage') }}" target="_blank">conditions d'utilisation</a> en vigueur</span></label>
+                        {{ form_errors(form.isAcceptedTerms) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_row(form.submit) }}
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+                <div class="auth-section-item">
+                    <h2>BIENVENUE SUR « <span>MY PSY COMMUNITY</span> »</h2>
+                    <p>
+                        Vous êtes perdu et ne savez pas comment vous en sortir ? Vous avez besoin d'aide et de conseils ? <br>
+                        Vous êtes au bon endroit !
+                    </p>
+                    <p>
+                        Sur « My Psy Community », toute une communauté est à votre écoute et vous apporte aide, conseils et soutien.
+                    </p>
+                    <p>
+                        En vous inscrivant, vous pourrez :
+                    </p>
+                    <ul>
+                        <li>Créer des sujets sur le Forum afin de recevoir aide et conseils.</li>
+                        <li>Répondre aux autres sujets sur le Forum afin d'aider à votre tour.</li>
+                        <li>Demander de l'aide et des conseils en message privé.</li>
+                        <li>Partager votre expérience dans la section « Témoignages ».</li>
+                        <li>Partager vos coups de cœur bien-être dans la section « Partage »</li>
+                    </ul>
+                    <div class="auth-section-item-footer">
+                        <p>
+                            De la part de la communauté : <br>
+                            « Prenez soin de vous »
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock %}

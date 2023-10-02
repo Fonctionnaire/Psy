@@ -109,7 +109,7 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-user"></i>
                             {% if app.user %}
-                            USERNAME
+                                <span class="nav-username">{{ app.user.username }}</span>
                                 {% else %}
                             PROFIL
                             {% endif %}

@@ -38,7 +38,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     )]
     #[Assert\Regex(
         pattern: '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
-        message: 'Le mot de passe doit contenir au moins 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial.'
+        message: 'Le mot de passe doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial (#?!@$%^&*-).'
     )]
     private ?string $password = null;
 
@@ -61,6 +61,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'uuid', nullable: true)]
     private ?Uuid $registrationToken;
+
+    #[ORM\Column]
+    private ?bool $isAcceptedTerms = false;
 
     public function __construct()
     {
@@ -218,6 +221,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTest(?Uuid $test): static
     {
         $this->test = $test;
+
+        return $this;
+    }
+
+    public function isIsAcceptedTerms(): ?bool
+    {
+        return $this->isAcceptedTerms;
+    }
+
+    public function setIsAcceptedTerms(bool $isAcceptedTerms): static
+    {
+        $this->isAcceptedTerms = $isAcceptedTerms;
 
         return $this;
     }

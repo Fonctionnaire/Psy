@@ -44,6 +44,18 @@
 
     /* ======================== */
 
+    /* ======== REGISTER FORM ========= */
+    .auth-section .auth-section-block{
+        padding: 145px 0;
+    }
+
+    .auth-section .auth-section-block .auth-section-items .auth-section-item{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    /* ================================ */
+
     /* ======== HOME ========= */
     .home-first-section {
         background-image: url('../images/background_mobile_home_light.jpeg');
