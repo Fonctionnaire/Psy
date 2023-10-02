@@ -79,19 +79,61 @@
     </section>
     <section class="custom-section home-second-section">
         <div id="second-section-content" class="custom-container">
+            <h2>UNE COMMUNAUTÉ EN DEVENIR, PRÊTE À VOUS SOUTENIR</h2>
             <div class="second-section-content-block">
-                <h2>UNE COMMUNAUTÉ EN DEVENIR, PRÊTE À VOUS SOUTENIR</h2>
                 <p>
                     Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
                 </p>
             </div>
-            <div class="second-section-content-block">
-                <a class="btn social-buttons">MESSAGE PRIVÉ</a>
-                <a class="btn social-buttons">PARTAGE</a>
-                <a class="btn social-buttons">FORUM</a>
-                <a class="btn social-buttons">TÉMOIGNAGES</a>
-                <a class="btn volunteer-button">REJOINDRE LA COMMUNAUTÉ</a>
+            <div>
+                <a href="#" class="btn btn-style-two">DÉCOUVRIR LES BÉNÉVOLES</a> <br> <a href="#">Rejoindre les bénévoles</a>
+            </div>
+        </div>
+    </section>
+    <section class="custom-section home-help-section">
+        <div id="help-section-content" class="custom-container">
+            <div class="home-help-section-header">
+                <h2>FORUM <span>vs</span> MESSAGE PRIVÉ</h2>
+                <p>ou les deux</p>
+            </div>
+            <div class="help-section-block">
+                <div class="help-section-block-items">
+                    <div class="help-section-block-item">
+                        <h4>Forum</h4>
+                        <p>
+                            Le forum est un bon moyen de demander de l'aide et des conseils à toute la communauté. <br>
+                            Différents points de vue, conseils et soutiens peuvent vous aider à avancer et à vous sentir mieux.<br>
 
+                        </p>
+                        <p>Avantages :</p>
+                        <ul>
+                            <li>Toute la communauté peut vous répondre et vous aider.</li>
+                            <li>Votre message et les réponses peuvent aider d'autres personnes.</li>
+                            <li>Vous pouvez à votre tour apporter votre aide à d'autres personnes.</li>
+                        </ul>
+                    </div>
+                    <div class="help-section-block-item-button">
+                        <a href="#" class="btn btn-style-two">FORUM</a>
+                    </div>
+                </div>
+                <div class="help-section-block-items">
+                    <div class="help-section-block-item">
+                        <h4>Message privé</h4>
+                        <p>
+                            Vous ne préférez pas partager ce que vous traversez avec tout le monde ? Vous pouvez utiliser les messages privés afin de demander aide, conseils et soutien.<br>
+                            Lilie et Thibaut, nos deux co-fondateurs, sont là pour vous lire, vous répondre, vous aider et vous conseiller.
+                        </p>
+                        <p>Avantages :</p>
+                        <ul>
+                            <li>Vos messages sont privés, visibles uniquement par vous, Lilie et Thibaut.</li>
+                            <li>Demandez à tout moment aide et conseils auprès de Lilie et Thibaut.</li>
+                            <li>Une discussion suivie dans le temps si besoin, permettant d'être accompagné.e et soutenu.e jusqu'à la guérison.</li>
+                        </ul>
+                    </div>
+                    <div class="help-section-block-item-button">
+                        <a href="#" class="btn btn-style-two">MESSAGE PRIVÉ</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -109,16 +151,16 @@
                         <p>Bénévoles</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-solid fa-comment-medical"></i> 25</span>
-                        <p>Témoignages</p>
+                        <span><i class="fa-regular fa-message"></i> 324</span>
+                        <p>Sujets sur le forum</p>
                     </div>
                     <div class="home-data-numbers-info-item">
                         <span><i class="fa-regular fa-comment"></i> 500</span>
                         <p>Messages privés</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-regular fa-message"></i> 324</span>
-                        <p>Sujets sur le forum</p>
+                        <span><i class="fa-solid fa-comment-medical"></i> 25</span>
+                        <p>Témoignages</p>
                     </div>
                     <div class="home-data-numbers-info-item">
                         <span><i class="fa-solid fa-blog"></i> 18</span>
@@ -284,7 +326,7 @@
                 </div>
                 <div class="home-review-section-links">
                     <a class="btn btn-style-two">DONNER VOTRE AVIS</a>
-                    <a class="home-review-section-links-register">Inscrivez-vous pour laisser votre avis</a>
+                    <a href="{{ path('app_register') }}" class="home-review-section-links-register">Inscrivez-vous pour laisser votre avis</a>
                 </div>
             </div>
         </div>

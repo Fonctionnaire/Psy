@@ -1,0 +1,52 @@
+/* ======= REGISTRATION CONFIRMATION ======= */
+#register-mail-section{
+    padding: 0 5%;
+}
+#register-mail-section #register-mail-container{
+    border: 2px solid rgba(60,42,41,1);
+}
+
+#register-mail-section #register-mail-container .register-mail-header{
+    background: rgba(60,42,41,1);
+    text-align: center;
+    padding: 10px 0;
+}
+
+#register-mail-section #register-mail-container .register-mail-header h1{
+    color: #e1d9d1;
+    text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0,0,0,.8);
+    margin: 0;
+}
+
+#register-mail-section #register-mail-container .register-mail-header h1 span{
+    color: #13A2B7;
+}
+
+#register-mail-section #register-mail-container .register-mail-body{
+    padding: 25px;
+    background: #e1d9d1;
+    color: rgba(60,42,41,1);
+}
+
+#register-mail-section #register-mail-container .register-mail-body p{
+    margin: 0;
+    text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0,0,0,.8);
+    font-size: 1.4rem;
+}
+
+#register-mail-section #register-mail-container .register-mail-footer{
+    background: rgba(0,0,0,0.85);
+    text-align: center;
+    padding: 10px 0;
+}
+
+#register-mail-section #register-mail-container .register-mail-footer a{
+    color: #13A2B7;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+#register-mail-section .register-mail-sign{
+    margin-top: 15px;
+}
