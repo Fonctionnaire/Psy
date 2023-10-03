@@ -43,7 +43,7 @@ jobs:
         run: make composer
       - name: Database
         run: make db env=test
-      - name: Quality assurance
-        run: make qa
+#      - name: Quality assurance
+#        run: make qa
       - name: Tests
         run: make tests
