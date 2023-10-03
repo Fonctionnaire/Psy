@@ -34,13 +34,18 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          MYSQL_ROOT_PASSWORD: 'Password123!'
+          DB_DATABASE: test_db
+          DB_USER: root
+          DB_PASSWORD: root
         ports:
           - 3306:3306
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
-
+      - name: Set up MySQL
+        run: |
+            sudo /etc/init.d/mysql start
+            mysql -e 'CREATE DATABASE ${{ env.DB_DATABASE }};' -u${{ env.DB_USER }} -p${{ env.DB_PASSWORD }}
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v2
         with:
