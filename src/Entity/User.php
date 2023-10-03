@@ -65,6 +65,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?bool $isAcceptedTerms = false;
 
+    #[ORM\Column(type: 'uuid', nullable: true)]
+    private ?Uuid $resetPasswordToken = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -233,6 +236,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsAcceptedTerms(bool $isAcceptedTerms): static
     {
         $this->isAcceptedTerms = $isAcceptedTerms;
+
+        return $this;
+    }
+
+    public function getResetPasswordToken(): ?Uuid
+    {
+        return $this->resetPasswordToken;
+    }
+
+    public function setResetPasswordToken(?Uuid $resetPasswordToken): static
+    {
+        $this->resetPasswordToken = $resetPasswordToken;
 
         return $this;
     }

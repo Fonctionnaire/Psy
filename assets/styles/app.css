@@ -208,7 +208,7 @@ footer .footer-copyright{
 /* ======================== */
 
 /* ======== SECURITY ========= */
-/* REGISTER & LOGIN */
+/* REGISTER & LOGIN & RESET PASSWORD */
 .auth-section{
     min-height: 80vh;
     background-repeat: no-repeat;
@@ -222,6 +222,10 @@ footer .footer-copyright{
 
 #login-form-section{
     background-image: url('../images/space_ship_cokpit_light_darked.jpeg');
+}
+
+#resetpassword-form-section{
+    background-image: url('../images/reset_password_light_darked.jpeg');
 }
 
 .auth-section .auth-section-block{
@@ -246,6 +250,10 @@ footer .footer-copyright{
     padding: 25px;
 }
 
+#register_password div:first-of-type{
+    margin-bottom: 20px;
+}
+
 .auth-section .auth-section-block .auth-section-items .auth-section-item .auth-form-errors{
     color: red;
     text-align: center;
@@ -255,7 +263,9 @@ footer .footer-copyright{
 .auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-body h2{
     margin-bottom: 25px;
 }
-
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-body em{
+    font-size: 0.8rem;
+}
 .auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-body div:first-of-type{
     margin-bottom: 50px;
 }
@@ -309,7 +319,7 @@ footer .footer-copyright{
     margin-bottom: 20px;
 }
 
-.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-inputs #auth_password div:first-of-type{
+.auth-section .auth-section-block .auth-section-items .auth-section-item .auth-section-item-inputs #auth_password div:first-of-type, .auth-section #reset_password_password div:first-of-type{
     margin-bottom: 10px;
 }
 
@@ -346,6 +356,7 @@ footer .footer-copyright{
 .auth-section .auth-section-block .auth-section-items .auth-section-item .btn{
     width: 100%;
 }
+
 
 /* ======== HOME ========= */
 .home-first-section{

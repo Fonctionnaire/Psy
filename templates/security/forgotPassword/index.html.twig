@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <section id="resetpassword-form-section" class="auth-section custom-section">
+        <div class="custom-container auth-section-block">
+            <div class="auth-section-header">
+                <h1>REINITIALISATION DU MOT DE PASSE</h1>
+            </div>
+            <div class="auth-section-items">
+                <div class="auth-section-item">
+                    <p>Afin de réinitialiser votre mot de passe, veuillez saisir l'adresse e-mail utilisée lors de votre inscription.</p>
+                    <form action="{{ path('app_forgot_password') }}" method="post">
+                        <div class="auth-section-item-inputs">
+                            <label for="forgot_password_email">Email:</label>
+                            <input type="email" id="forgot_password_email" name="forgot_password_email">
+                        </div>
+                        <div class="auth-section-item-inputs">
+                            <button type="submit" class="btn btn-style-two">ENVOYER</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="auth-section-item">
+                    <div class="auth-section-item-body">
+                        <h2>PROCESSUS DE REINITIALISATION</h2>
+                        <p>
+                            Une fois votre adresse e-mail saisie et le formulaire envoyé, vous recevrez un e-mail contenant un lien de réinitialisation de votre mot de passe.<br>
+                            <em>Pensez à vérifier vos spams</em>
+                        </p>
+                        <p>
+                            En cliquant sur ce lien, vous serez redirigé vers une page vous permettant de saisir votre nouveau mot de passe.<br>
+                            Une fois ce nouveau mot de passe saisi et validé, vous pourrez vous connecter à votre compte.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

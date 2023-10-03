@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <section id="resetpassword-form-section" class="auth-section custom-section">
+        <div class="custom-container auth-section-block">
+            <div class="auth-section-header">
+                <h1>NOUVEAU MOT DE PASSE</h1>
+            </div>
+            <div class="auth-section-items">
+                <div class="auth-section-item">
+                    <p>Vous pouvez maintenant créer un nouveau mot de passe pour votre compte.</p>
+                    {{ form_start(form) }}
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.password) }}
+                        {{ form_widget(form.password) }}
+                        {{ form_errors(form.password) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_row(form.submit) }}
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+                <div class="auth-section-item">
+                    <div class="auth-section-item-body">
+                        <h2>INFORMATIONS</h2>
+                        <p>
+                            Une fois ce nouveau mot de passe saisi et validé, vous pourrez vous connecter à votre compte avec ce dernier.
+                        </p>
+                        <p>
+                            <i class="fa-solid fa-circle-info"></i> Conseil : choisissez un mot de passe complexe, comportant des chiffres et caractères spéciaux, et qui est spécifique pour ce site internet.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
