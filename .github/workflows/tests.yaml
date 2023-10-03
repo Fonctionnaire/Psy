@@ -1,14 +1,35 @@
-name: Continuous integration
-on: [push]
+name: "Tests"
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+env:
+  fail-fast: true
+  PHPUNIT_FLAGS: "-v"
+  SYMFONY_PHPUNIT_DIR: "$HOME/symfony-bridge/.phpunit"
+  SYMFONY_DEPRECATIONS_HELPER: 7
+
+permissions:
+  contents: read
+
 jobs:
-  ci:
-    name: Continuous Integration
+  test:
+    name: "${{ matrix.operating-system }} / PHP ${{ matrix.php-version }}"
     runs-on: ${{ matrix.operating-system }}
+    continue-on-error: false
+
     strategy:
-      fail-fast: false
       matrix:
-        operating-system: [ubuntu-latest]
-        php-versions: ['8.2']
+        operating-system: ['ubuntu-latest']
+        php-version: ['8.2']
+        include:
+          - operating-system: 'macos-latest'
+            php-version: '8.2'
+          - operating-system: 'windows-latest'
+            php-version: '8.2'
     services:
       mysql:
         image: mysql:8.0
@@ -17,33 +38,40 @@ jobs:
         ports:
           - 3306:3306
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Setup PHP, with composer and extensions
+      - name: "Checkout code"
+        uses: actions/checkout@v3
+
+      - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-versions }}
-          extensions: mbstring, xml, ctype, iconv, intl
-      - name: Get composer cache directory
+          coverage: "none"
+          extensions: "intl, mbstring, pdo_sqlite"
+          php-version: ${{ matrix.php-version }}
+          tools: composer:v2
+
+      - name: "Add PHPUnit matcher"
+        run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
+
+      - name: "Set composer cache directory"
         id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-      - name: Cache composer dependencies
-        uses: actions/cache@v1
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: "Cache composer"
+        uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer-
-      - name: Symfony CLI
-        run: |
-          curl -sS https://get.symfony.com/cli/installer | bash
-          mv /home/runner/.symfony5/bin/symfony /usr/local/bin/symfony
-      - name: Prepare
-        run: make prepare env=test db-password=Password123!
-      - name: Build
-        run: make composer
-      - name: Database
-        run: make db env=test
-#      - name: Quality assurance
-#        run: make qa
-      - name: Tests
-        run: make tests
+          key: ${{ runner.os }}-${{ matrix.php-version }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: ${{ runner.os }}-${{ matrix.php-version }}-composer-
+
+      - name: "Install dependencies"
+        run: composer install --no-interaction --no-progress
+
+      - name: "Install PHPUnit"
+        run: vendor/bin/simple-phpunit install
+
+      - name: "PHPUnit version"
+        run: vendor/bin/simple-phpunit --version
+
+      - name: "Run tests"
+        run: vendor/bin/simple-phpunit ${{ env.PHPUNIT_FLAGS }}
