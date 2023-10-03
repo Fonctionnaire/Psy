@@ -16,13 +16,6 @@ env:
 #  contents: read
 
 jobs:
-  job:
-    runs-on: macos-latest
-    steps:
-      - run: |
-          brew install docker
-          colima start
-          docker run -e [...]
   test:
     name: "${{ matrix.operating-system }} / PHP ${{ matrix.php-version }}"
     runs-on: ${{ matrix.operating-system }}
@@ -41,9 +34,7 @@ jobs:
       mysql:
         image: mysql:8.0
         env:
-          DB_DATABASE: test_db
-          DB_USER: root
-          DB_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: 'Password123!'
         ports:
           - 3306:3306
     steps:
@@ -78,6 +69,12 @@ jobs:
 
       - name: "Install dependencies"
         run: composer install --no-interaction --no-progress
+
+      - name: Prepare
+        run: make prepare env=test db-password=Password123!
+
+      - name: Database
+        run: make db env=test
 
       - name: "Install PHPUnit"
         run: vendor/bin/simple-phpunit install
