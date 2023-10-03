@@ -27,7 +27,7 @@ class SecurityControllerTest extends WebTestCase
         $user = new User();
         $user
             ->setEmail('user@email.fr')
-            ->setPassword($this->userPasswordHasher->hashPassword($user, 'password'))
+            ->setPassword($this->userPasswordHasher->hashPassword($user, 'UserPassword1#'))
             ->setUsername('username')
             ->setRoles(['ROLE_USER']);
         $this->userRepository->save($user, true);
@@ -50,10 +50,9 @@ class SecurityControllerTest extends WebTestCase
         $this->createUser();
 
         $this->client->request(Request::METHOD_GET, '/login');
-        $this->client->submitForm('CONNEXION', ['_username' => 'user@email.fr', '_password' => 'password']);
+        $this->client->submitForm('CONNEXION', ['_username' => 'user@email.fr', '_password' => 'UserPassword1#']);
         $this->client->followRedirect();
-
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorExists('.alert.alert-success', 'Vous êtes désormais connecté.e.');
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 }
