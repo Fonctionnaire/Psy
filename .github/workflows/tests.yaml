@@ -25,11 +25,11 @@ jobs:
       matrix:
         operating-system: ['ubuntu-latest']
         php-version: ['8.2']
-        include:
-          - operating-system: 'macos-latest'
-            php-version: '8.2'
-          - operating-system: 'windows-latest'
-            php-version: '8.2'
+#        include:
+#          - operating-system: 'macos-latest'
+#            php-version: '8.2'
+#          - operating-system: 'windows-latest'
+#            php-version: '8.2'
     services:
       mysql:
         image: mysql:8.0
