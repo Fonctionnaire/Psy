@@ -71,6 +71,10 @@
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="#">Exercices</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Pour les proches</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -105,24 +109,32 @@
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-user"></i>
                             {% if app.user %}
-                            USERNAME
+                                <span class="nav-username">{{ app.user.username }}</span>
                                 {% else %}
                             PROFIL
                             {% endif %}
                         </a>
-
-                        <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i> Mon compte</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trophy"></i> Mes victoires</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a></li>
-                        </ul>
-
+                        {% if app.user %}
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear"></i> Mon compte</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trophy"></i> Mes victoires</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{ path('app_logout') }}"><i class="fa-solid fa-right-from-bracket"></i> Déconnexion</a></li>
+                            </ul>
+                        {% else %}
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="{{ path('app_login') }}"><i class="fa-solid fa-right-to-bracket"></i> Connexion</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{ path('app_register') }}"><i class="fa-solid fa-address-card"></i> Inscription</a></li>
+                            </ul>
+                        {% endif %}
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn nav-btn-direct-message" aria-current="page" href="{{ path('app_home_index') }}">MESSAGE PRIVÉ</a>
@@ -130,5 +142,6 @@
                 </ul>
             </div>
         </div>
+    {% include 'utils/flash.html.twig' %}
     </div>
 </nav>

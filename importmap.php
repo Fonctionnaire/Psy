@@ -26,7 +26,4 @@ return [
         'downloaded_to' => 'vendor/bootstrap.js',
         'url' => 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/+esm',
     ],
-    'owlcarousel' => [
-        'url' => 'https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js',
-    ],
 ];

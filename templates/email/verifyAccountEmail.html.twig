@@ -1,0 +1,24 @@
+{% apply inline_css(source('@styles/securityMail.css')) %}
+    <section id="register-mail-section">
+        <div id="register-mail-container">
+            <div class="register-mail-header">
+                <h1>Bienvenue <span>{{ user.username }}</span> !</h1>
+            </div>
+            <div class="register-mail-body">
+                <p>
+                    Pour nous, votre bien-être est notre priorité. Une fois votre compte vérifié, vous pourrez bénéficier de l'aide de toute la communauté.<br>
+                    Votre compte a bien été créé, il ne vous reste plus qu'à le valider en cliquant sur le lien ci-dessous.
+                </p>
+            </div>
+            <div class="register-mail-footer">
+                <a href="{{ host }}/inscription/confirmation/{{ user.registrationToken }}/{{ user.id }}">Je valide mon compte</a>
+            </div>
+        </div>
+        <div class="register-mail-sign">
+            <p>
+                Prenez soin de vous.<br>
+                <a href="{{ host }}">My Psy Community</a>
+            </p>
+        </div>
+    </section>
+{% endapply %}

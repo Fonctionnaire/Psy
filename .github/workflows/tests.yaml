@@ -30,7 +30,13 @@ jobs:
             php-version: '8.2'
           - operating-system: 'windows-latest'
             php-version: '8.2'
-
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: 'Password123!'
+        ports:
+          - 3306:3306
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3

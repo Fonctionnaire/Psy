@@ -3,8 +3,13 @@
 }
 
 
-/* ======= NAV ========= */
 @media all and (max-width: 992px){
+    /* ========= FLASH MESSAGE ========= */
+    #my-flash-message-block {
+        top: 20%;
+    }
+
+/* ======= NAV ========= */
     #main-site-nav
     {
         top: 5px;
@@ -39,6 +44,18 @@
 
     /* ======================== */
 
+    /* ======== REGISTER FORM ========= */
+    .auth-section .auth-section-block{
+        padding: 145px 0;
+    }
+
+    .auth-section .auth-section-block .auth-section-items .auth-section-item{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    /* ================================ */
+
     /* ======== HOME ========= */
     .home-first-section {
         background-image: url('../images/background_mobile_home_light.jpeg');
@@ -68,6 +85,16 @@
         width: 100%;
     }
 
+    /* HELP SECTION */
+    .home-help-section #help-section-content .help-section-block .help-section-block-items {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .home-help-section #help-section-content .help-section-block .help-section-block-item{
+        height: initial;
+    }
+
     /* THIRD SECTION */
     .home-data-section .home-data-section-block{
         width: 100%;
@@ -92,6 +119,11 @@
     /* ========================= */
 }
 @media all and (max-width: 576px){
+    /* ========= FLASH MESSAGE ========= */
+    #my-flash-message-block {
+        top: 10%;
+    }
+
     .custom-container
     {
         margin: 0 5%;
@@ -104,6 +136,12 @@
     }
 
     .home-first-section .first-section-important .first-section-important-cards .important-card{
+        width: 100%;
+    }
+
+    /* SECOND SECTION */
+
+    .home-second-section #second-section-content a {
         width: 100%;
     }
 
