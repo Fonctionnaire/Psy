@@ -1,4 +1,6 @@
 {
+    "name": "fonctionnaire/psy",
+    "description": "My Psy Community project",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
