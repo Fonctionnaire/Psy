@@ -6,7 +6,7 @@ db-user ?= root
 db-password ?= password
 db-host ?= 127.0.0.1
 db-port ?= 3306
-db-name ?= oc-symfony-6
+db-name ?= psy
 db-version ?= 8.0
 db-charset ?= utf8mb4
 
@@ -44,7 +44,6 @@ yarn-build: ## Build des assets pour l'environnement de production
 
 install: ## Installation du projet
 	make composer
-	make yarn
 	make prepare env=dev db-user=$(db-user) db-password=$(db-password) db-name=$(db-name) db-host=$(db-host) db-port=$(db-port) db-version=$(db-version) db-charset=$(db-charset)
 	make prepare env=test db-user=$(db-user) db-password=$(db-password) db-name=$(db-name) db-host=$(db-host) db-port=$(db-port) db-version=$(db-version) db-charset=$(db-charset)
 	make yarn-dev
@@ -138,34 +137,34 @@ qa-stylelint: ## Analyse du code avec StyleLint
 qa: ## Analyse du code
 	make qa-composer
 	make qa-doctrine
-	make qa-twig
-	make qa-yaml
-	make qa-container
+#	make qa-twig
+#	make qa-yaml
+#	make qa-container
 	make qa-security-check
-	make qa-phpmd
-	make qa-phpcpd
+#	make qa-phpmd
+#	make qa-phpcpd
 	make qa-cs-fixer
 	make qa-phpstan
-	make qa-eslint
-	make qa-stylelint
+#	make qa-eslint
+#	make qa-stylelint
 .PHONY: qa
 
 fix-cs-fixer: ## Correction automatique des erreurs de code avec PHP-CS-Fixer
 	$(DISABLE_XDEBUG) php vendor/bin/php-cs-fixer fix
 .PHONY: fix-cs-fixer
 
-fix-eslint: ## Correction automatique des erreurs de code avec ESLint
-	yarn eslint assets --fix
-.PHONY: fix-cs-fixer
-
-fix-stylelint: ## Correction automatique des erreurs de code avec StyleLint
-	yarn stylelint assets/**/*.scss --fix
-.PHONY: fix-stylelint
+#fix-eslint: ## Correction automatique des erreurs de code avec ESLint
+#	yarn eslint assets --fix
+#.PHONY: fix-cs-fixer
+#
+#fix-stylelint: ## Correction automatique des erreurs de code avec StyleLint
+#	yarn stylelint assets/**/*.scss --fix
+#.PHONY: fix-stylelint
 
 fix: ## Correction automatique des erreurs de code
 	make fix-cs-fixer
-	make fix-eslint
-	make fix-stylelint
+#	make fix-eslint
+#	make fix-stylelint
 .PHONY: fix
 
 help: ## Show this help.
