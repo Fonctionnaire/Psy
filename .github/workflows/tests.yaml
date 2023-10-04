@@ -16,21 +16,6 @@ permissions:
   contents: read
 
 jobs:
-  compile:
-    name: Compile site assets
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-      - name: Run the build process with Docker
-        uses: addnab/docker-run-action@v3
-        with:
-          image: aschmelyun/cleaver:latest
-          options: -v ${{ github.workspace }}:/var/www
-          run: |
-            composer install
-            npm install
-            npm run production
   test:
     name: "${{ matrix.operating-system }} / PHP ${{ matrix.php-version }}"
     runs-on: ${{ matrix.operating-system }}
@@ -55,6 +40,16 @@ jobs:
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v3
+
+      - name: Set up Docker Compose
+        run: |
+          sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+          sudo chmod +x /usr/local/bin/docker-compose
+
+      - name: Build and run Docker containers
+        run: |
+          docker-compose -f docker-compose.yml up --build -d
+          sleep 10
 
       - name: "Install PHP with extensions"
         uses: shivammathur/setup-php@v2
