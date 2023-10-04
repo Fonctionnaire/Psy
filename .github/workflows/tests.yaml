@@ -12,8 +12,8 @@ env:
   SYMFONY_PHPUNIT_DIR: "$HOME/symfony-bridge/.phpunit"
   SYMFONY_DEPRECATIONS_HELPER: 7
 
-permissions:
-  contents: read
+#permissions:
+#  contents: read
 
 jobs:
   test:
