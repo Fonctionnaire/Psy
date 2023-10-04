@@ -31,19 +31,19 @@ class ResetPasswordType extends AbstractType
                         'min' => 8,
                         'minMessage' => 'Le mot de passe doit contenir au moins {{ limit }} caractères.',
                         'max' => 255,
-                        'maxMessage' => 'Le mot de passe ne peut excéder {{ limit }} caractères.'
+                        'maxMessage' => 'Le mot de passe ne peut excéder {{ limit }} caractères.',
                     ]),
                     new Regex([
                         'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
-                        'message' => 'Le mot de passe doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial (#?!@$%^&*-).'
-                    ])
-                ]
+                        'message' => 'Le mot de passe doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial (#?!@$%^&*-).',
+                    ]),
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Réinitialiser mon mot de passe',
                 'attr' => [
-                    'class' => 'btn btn-style-two'
-                ]
+                    'class' => 'btn btn-style-two',
+                ],
             ])
         ;
     }

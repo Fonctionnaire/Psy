@@ -9,6 +9,7 @@ use Symfony\Component\Validator\Validator\ValidatorInterface;
 class UserTest extends KernelTestCase
 {
     private $validator;
+
     public function setUp(): void
     {
         self::bootKernel();
@@ -24,7 +25,7 @@ class UserTest extends KernelTestCase
             ->setUsername('test')
             ->setFirstName('test')
             ->setIsAcceptedTerms(true)
-    ;
+        ;
         $errors = $this->validator->validate($user);
         $this->assertCount(0, $errors);
     }

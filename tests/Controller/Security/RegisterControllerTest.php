@@ -10,7 +10,6 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 
 class RegisterControllerTest extends WebTestCase
 {
-
     private KernelBrowser $client;
     private UserRepository $userRepository;
     private UserPasswordHasher $userPasswordHasher;
@@ -26,9 +25,9 @@ class RegisterControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/inscription');
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('h1', "INSCRIPTION");
+        $this->assertSelectorTextContains('h1', 'INSCRIPTION');
 
-        $this->client->submitForm("register[submit]", [
+        $this->client->submitForm('register[submit]', [
             'register[username]' => 'test',
             'register[firstname]' => 'test',
             'register[email]' => 'test@mail.fr',

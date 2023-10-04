@@ -11,7 +11,6 @@ class UserChecker implements UserCheckerInterface
 {
     public function checkPreAuth(UserInterface $user): void
     {
-
     }
 
     public function checkPostAuth(UserInterface $user): void
@@ -21,7 +20,6 @@ class UserChecker implements UserCheckerInterface
         }
 
         if (!$user->isIsAccountValidated()) {
-
             throw new CustomUserMessageAuthenticationException('Veuillez vérifier votre compte via l\'e-mail envoyé avant de pouvoir vous connecter. Vérifiez vos spams.');
         }
     }

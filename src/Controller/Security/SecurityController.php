@@ -12,8 +12,9 @@ class SecurityController extends AbstractController
     #[Route('/login', name: 'app_login')]
     public function index(AuthenticationUtils $authenticationUtils): Response
     {
-        if($this->getUser()){
+        if ($this->getUser()) {
             $this->addFlash('warning', 'Vous êtes déjà connecté.e.');
+
             return $this->redirectToRoute('app_home_index',
                 [],
                 Response::HTTP_SEE_OTHER
