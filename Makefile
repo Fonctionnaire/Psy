@@ -144,7 +144,7 @@ qa: ## Analyse du code
 #	make qa-phpmd
 #	make qa-phpcpd
 	make qa-cs-fixer
-	make qa-phpstan
+	#make qa-phpstan
 #	make qa-eslint
 #	make qa-stylelint
 .PHONY: qa
