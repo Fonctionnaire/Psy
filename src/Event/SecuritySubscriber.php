@@ -4,13 +4,11 @@ namespace App\Event;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Event\LoginSuccessEvent;
 use Symfony\Component\Security\Http\Event\LogoutEvent;
 
 class SecuritySubscriber extends AbstractController implements EventSubscriberInterface
 {
-
     public static function getSubscribedEvents(): array
     {
         return [

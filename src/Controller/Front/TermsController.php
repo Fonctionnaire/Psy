@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class TermsController extends AbstractController
 {
-
     #[Route('/mentions-legales', name: 'app_terms_legals', methods: ['GET'])]
     public function legal(): Response
     {

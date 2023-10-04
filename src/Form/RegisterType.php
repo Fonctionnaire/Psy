@@ -20,7 +20,7 @@ class RegisterType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => 'Votre email'
+                'label' => 'Votre email',
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -31,15 +31,15 @@ class RegisterType extends AbstractType
                 'second_options' => [
                     'label' => 'Confirmation du mot de passe',
                     'help' => 'Le mot de passe doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial (#?!@$%^&*-).',
-                ]
+                ],
             ])
             ->add('username', TextType::class, [
-                'label' => 'Votre pseudo'
+                'label' => 'Votre pseudo',
             ])
-            ->add('firstname', TextType::class,[
+            ->add('firstname', TextType::class, [
                 'required' => false,
                 'label' => 'Votre prénom',
-                'help' => 'Ce champ est facultatif.'
+                'help' => 'Ce champ est facultatif.',
             ])
             ->add('isAcceptedTerms', CheckboxType::class, [
                 'required' => true,
@@ -49,13 +49,13 @@ class RegisterType extends AbstractType
                     new IsTrue([
                         'message' => 'Vous devez accepter les conditions d\'utilisation.',
                     ]),
-                ]
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'S\'inscrire',
                 'attr' => [
-                    'class' => 'btn btn-style-one'
-                ]
+                    'class' => 'btn btn-style-one',
+                ],
             ])
         ;
     }

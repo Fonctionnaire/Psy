@@ -23,7 +23,7 @@ class ResetPasswordMail implements ResetPasswordMailInterface
             ->htmlTemplate('email/resetPasswordEmail.html.twig')
             ->context([
                 'user' => $user,
-                'host' => $host
+                'host' => $host,
             ])
         ;
         $this->mailer->send($email);
