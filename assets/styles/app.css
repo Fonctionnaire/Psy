@@ -1027,3 +1027,13 @@ footer .footer-copyright{
 }
 
 /* ======================== */
+
+/* ====== DASHBOARD USER ====== */
+.dashboard-section{
+    background-image: url('../images/user_dashboard_large_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 80vh;
+}
