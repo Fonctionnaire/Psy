@@ -4,7 +4,154 @@
 
 {% block body %}
     <section class="custom-section dashboard-section">
-        <div id="dashboard-section-content" class="custom-container">
+        <div class="custom-container dashboard-section-content">
+        <h1>MON PROFIL</h1>
+            <div class="dashboard-section-infos">
+                <div class="dashboard-section-blocks dashboard-personal-data">
+                    <h5>MES INFOS</h5>
+                    <div>
+                        <p class="info-label">Inscrit.e le</p>
+                        <p class="info-user-data">{{ user.createdAt|date('d/m/y') }}</p>
+                    </div>
+                    <div>
+                        <p class="info-label">Email</p>
+                        <p class="info-user-data">{{ user.email }}</p>
+                    </div>
+                    {% if user.firstname %}
+                    <div>
+                        <p class="info-label">Prénom</p>
+                        <p class="info-user-data">{{ user.firstname }}</p>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <p class="info-label">Pseudo</p>
+                        <p class="info-user-data">{{ user.username }}</p>
+                    </div>
+                    <div>
+                        <a href="#" class="btn btn-style-two">Modifier mes infos</a>
+                    </div>
+                </div>
+                <div class="dashboard-infos-list">
+                    <div class="dashboard-section-blocks">
+                        <h5>MES MESSAGES PRIVÉS</h5>
+                        <p><span>300</span></p>
+                        <div>
+                            <a href="#" class="btn btn-style-two">ACCÉDER</a>
+                        </div>
+                    </div>
+                    <div class="dashboard-section-blocks">
+                        <h5>MES SUJETS SUR LE FORUM</h5>
+                        <p><span>10</span></p>
+                        <div>
+                            <a href="#" class="btn btn-style-two">ACCÉDER</a>
+                        </div>
+                    </div>
+                    <div class="dashboard-section-blocks">
+                        <h5>MON TÉMOIGNAGE</h5>
+                        <p>Écrit le : <span>06/10/2023</span></p>
+                        <div>
+                            <a href="#" class="btn btn-style-two">VOIR</a>
+                        </div>
+                    </div>
+                    <div class="dashboard-section-blocks">
+                        <h5>MON AVIS</h5>
+                        <p>Écrit le : <span>06/10/2023</span></p>
+                        <div>
+                            <a href="#" class="btn btn-style-two">VOIR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-victory-section">
+                <h2>MES VICTOIRES</h2>
+                <div class="dashboard-victory-block">
+                    <div class="dashboard-victories-list">
+                        <div class="my-victories-item">
+                            <div class="my-victories-item-header">
+                                <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
+                            </div>
+                            <div class="my-victories-item-body">
+                                <img src="{{ asset('images/birds_light.jpeg') }}">
+                            </div>
+                            <div class="my-victories-item-footer">
+                                <p>J'ai consulté mon médecin</p>
+                            </div>
+                            <div class="my-victories-item-description">
+                                <p>
+                                    Ma super description !
+                                </p>
+                            </div>
+                        </div>
+                        <div class="my-victories-item">
+                            <div class="my-victories-item-header">
+                                <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
+                            </div>
+                            <div class="my-victories-item-body">
+                                <img src="{{ asset('images/birds_light.jpeg') }}">
+                            </div>
+                            <div class="my-victories-item-footer">
+                                <p>J'ai consulté mon médecin</p>
+                            </div>
+                            <div class="my-victories-item-description">
+                                <p>
+                                    Ma super description !
+                                </p>
+                            </div>
+                        </div>
+                        <div class="my-victories-item">
+                            <div class="my-victories-item-header">
+                                <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
+                            </div>
+                            <div class="my-victories-item-body">
+                                <img src="{{ asset('images/birds_light.jpeg') }}">
+                            </div>
+                            <div class="my-victories-item-footer">
+                                <p>J'ai consulté mon médecin</p>
+                            </div>
+                            <div class="my-victories-item-description">
+                                <p>
+                                    Ma super description !
+                                </p>
+                            </div>
+                        </div>
+                        <div class="my-victories-item">
+                            <div class="my-victories-item-header">
+                                <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
+                            </div>
+                            <div class="my-victories-item-body">
+                                <img src="{{ asset('images/birds_light.jpeg') }}">
+                            </div>
+                            <div class="my-victories-item-footer">
+                                <p>J'ai consulté mon médecin</p>
+                            </div>
+                            <div class="my-victories-item-description">
+                                <p>
+                                    Ma super description !
+                                </p>
+                            </div>
+                        </div>
+                        <div class="my-victories-item">
+                            <div class="my-victories-item-header">
+                                <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
+                            </div>
+                            <div class="my-victories-item-body">
+                                <img src="{{ asset('images/birds_light.jpeg') }}">
+                            </div>
+                            <div class="my-victories-item-footer">
+                                <p>J'ai consulté mon médecin</p>
+                            </div>
+                            <div class="my-victories-item-description">
+                                <p>
+                                    Ma super description !
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dashboard-victory-button">
+                        <a href="#" class="btn btn-style-two">TOUT VOIR</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 {% endblock %}

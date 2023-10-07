@@ -1037,3 +1037,222 @@ footer .footer-copyright{
     background-attachment: fixed;
     min-height: 80vh;
 }
+
+.dashboard-section .dashboard-section-content{
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.dashboard-section .dashboard-section-content h1{
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: var(--my-text-shadow);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-blocks{
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--my-light-blue);
+}
+
+/* INDEX */
+.dashboard-section .dashboard-section-content .dashboard-section-infos{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data{
+    width: 25%;
+    text-align: center;
+}
+
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data h5{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data p{
+    margin-bottom: 3px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data div{
+    margin-bottom: 15px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data div:last-of-type{
+    margin-bottom: 0;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data .info-label{
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data .info-user-data{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list{
+    width: 74%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
+    width: 49%;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks:first-of-type, .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks:nth-child(2) {
+    margin-bottom: 5px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
+    text-align: center;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks h5{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks p{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-size: 1.2rem;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks p span{
+    color: var(--my-light-blue);
+}
+
+.dashboard-section .dashboard-victory-section{
+    margin-top: 20px;
+}
+
+.dashboard-section .dashboard-victory-section h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: var(--my-text-shadow);
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block{
+    width: 100%;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--my-light-blue);
+    margin-bottom: 20px;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item{
+    width: 32%;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid var(--my-light-blue);
+    padding: 5px 0;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header p, .dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-footer p{
+    margin-bottom: 0;
+    color: white;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header p i{
+    color: var(--my-light-blue);
+    margin-right: 10px;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header p span{
+    color: var(--my-text-brown);
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-body img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid var(--my-light-blue);
+    padding: 10px;
+    min-height: 30px;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-description
+{
+    background: rgba(0,0,0,0.9);
+    border: 1px solid var(--my-light-blue);
+    display: none;
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 15px;
+
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item:hover .my-victories-item-description{
+    display: block;
+    height: 100%;
+    animation: 1s victoryItemDescription forwards;
+}
+
+
+@keyframes victoryItemDescription {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-description p{
+    color: var(--my-text-brown);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victory-button{
+    text-align: center;
+    margin-top: 25px;
+}

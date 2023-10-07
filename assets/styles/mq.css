@@ -3,6 +3,26 @@
 }
 
 
+@media all and (max-width: 1320px){
+    /* ========= DASHBOARD ========= */
+    /* INDEX */
+    .dashboard-section .dashboard-section-content{
+        padding-top: 15%;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data{
+        width: 34%;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list{
+        width: 65%;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
+        width: 49%;
+    }
+}
+
 @media all and (max-width: 992px){
     /* ========= FLASH MESSAGE ========= */
     #my-flash-message-block {
@@ -105,6 +125,32 @@
         width: 49.5%;
 
     }
+
+    /* ========= DASHBOARD ========= */
+    /* INDEX */
+    .dashboard-section .dashboard-section-content{
+        padding-top: 18%;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data{
+        width: 49%;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list{
+        width: 50%;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
+        width: 100%;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks:nth-child(3){
+        margin-bottom: 5px;
+    }
+
+    .dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item{
+        width: 49%;
+    }
 }
 @media all and (max-width: 772px) {
     /* ========= HOME ========= */
@@ -117,6 +163,21 @@
 
 
     /* ========================= */
+
+    /* ========= DASHBOARD ========= */
+    /* INDEX */
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list{
+        width: 100%;
+    }
+
+    .dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item{
+        width: 100%;
+    }
 }
 @media all and (max-width: 576px){
     /* ========= FLASH MESSAGE ========= */
@@ -173,8 +234,13 @@
 
     /* ====================== */
     /* ====== DASHBOARD USER ====== */
+    .dashboard-section .dashboard-section-content{
+        padding-top: 25%;
+    }
+
     .dashboard-section {
         background-image: url('../images/user_dashboard_vertical_light_darked.jpeg');
     }
+
 }
 
