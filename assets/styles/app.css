@@ -1136,20 +1136,24 @@ footer .footer-copyright{
     color: var(--my-light-blue);
 }
 
-.dashboard-section .dashboard-victory-section{
+.dashboard-section .dashboard-help-section{
     margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
-.dashboard-section .dashboard-victory-section h2{
+.dashboard-section .dashboard-help-section h2{
     font-size: 2rem;
     color: white;
     font-weight: bold;
     margin-bottom: 30px;
     text-shadow: var(--my-text-shadow);
+    text-align: center;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block{
-    width: 100%;
+.dashboard-section .dashboard-help-section .dashboard-help-block{
+    width: 49%;
     background: rgba(0,0,0,0.8);
     padding: 20px;
     border-radius: 10px;
@@ -1157,21 +1161,21 @@ footer .footer-copyright{
     margin-bottom: 20px;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item{
-    width: 32%;
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item{
+    width: 100%;
     height: 200px;
     position: relative;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header{
     position: absolute;
     top: 0;
     left: 0;
@@ -1182,27 +1186,27 @@ footer .footer-copyright{
     padding: 5px 0;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header p, .dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-footer p{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header p, .dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-footer p{
     margin-bottom: 0;
     color: white;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header p i{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header p i{
     color: var(--my-light-blue);
     margin-right: 10px;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-header p span{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header p span{
     color: var(--my-text-brown);
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-body img{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-body img{
     width: 100%;
     height: 200px;
     object-fit: cover;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-footer{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-footer{
     position: absolute;
     bottom: 0;
     left: 0;
@@ -1214,7 +1218,7 @@ footer .footer-copyright{
     min-height: 30px;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-description
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-description
 {
     background: rgba(0,0,0,0.9);
     border: 1px solid var(--my-light-blue);
@@ -1230,7 +1234,7 @@ footer .footer-copyright{
 
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item:hover .my-victories-item-description{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item:hover .my-victories-item-description{
     display: block;
     height: 100%;
     animation: 1s victoryItemDescription forwards;
@@ -1246,13 +1250,44 @@ footer .footer-copyright{
     }
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item .my-victories-item-description p{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-description p{
     color: var(--my-text-brown);
     font-size: 1rem;
     margin-bottom: 0;
 }
 
-.dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victory-button{
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victory-button{
     text-align: center;
     margin-top: 25px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-help-form-null{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-help-form-null div{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-help-form-null em{
+    font-size: 0.85rem
+}
+
+/* EDIT */
+#dashboard-edit-form-section
+{
+    background-image: url('../images/user_dashboard_large_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#dashboard-edit-form-section .auth-section-block .auth-section-items{
+    justify-content: center;
+}
+
+#dashboard-edit-form-section .auth-section-block .auth-section-items .auth-section-item{
+    width: 80%;
 }

@@ -148,9 +148,11 @@
         margin-bottom: 5px;
     }
 
-    .dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item{
-        width: 49%;
+    /* EDIT */
+    #dashboard-edit-form-section .auth-section-block .auth-section-items .auth-section-item{
+        width: 100%;
     }
+
 }
 @media all and (max-width: 772px) {
     /* ========= HOME ========= */
@@ -175,9 +177,10 @@
         width: 100%;
     }
 
-    .dashboard-section .dashboard-victory-section .dashboard-victory-block .dashboard-victories-list .my-victories-item{
+    .dashboard-section .dashboard-help-section .dashboard-help-block{
         width: 100%;
     }
+
 }
 @media all and (max-width: 576px){
     /* ========= FLASH MESSAGE ========= */

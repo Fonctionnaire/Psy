@@ -15,7 +15,7 @@
                     </div>
                     <div>
                         <p class="info-label">Email</p>
-                        <p class="info-user-data">{{ user.email }}</p>
+                        <p class="info-user-data">{{ censorUserEmail }}</p>
                     </div>
                     {% if user.firstname %}
                     <div>
@@ -28,7 +28,7 @@
                         <p class="info-user-data">{{ user.username }}</p>
                     </div>
                     <div>
-                        <a href="#" class="btn btn-style-two">Modifier mes infos</a>
+                        <a href="{{ path('app_user_dashboard_edit', {'id': user.id}) }}" class="btn btn-style-two">Modifier mes infos</a>
                     </div>
                 </div>
                 <div class="dashboard-infos-list">
@@ -62,42 +62,10 @@
                     </div>
                 </div>
             </div>
-            <div class="dashboard-victory-section">
-                <h2>MES VICTOIRES</h2>
-                <div class="dashboard-victory-block">
+            <div id="dashboard-victory-anchor" class="dashboard-help-section">
+                <div class="dashboard-help-block">
+                    <h2>MES VICTOIRES</h2>
                     <div class="dashboard-victories-list">
-                        <div class="my-victories-item">
-                            <div class="my-victories-item-header">
-                                <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
-                            </div>
-                            <div class="my-victories-item-body">
-                                <img src="{{ asset('images/birds_light.jpeg') }}">
-                            </div>
-                            <div class="my-victories-item-footer">
-                                <p>J'ai consulté mon médecin</p>
-                            </div>
-                            <div class="my-victories-item-description">
-                                <p>
-                                    Ma super description !
-                                </p>
-                            </div>
-                        </div>
-                        <div class="my-victories-item">
-                            <div class="my-victories-item-header">
-                                <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
-                            </div>
-                            <div class="my-victories-item-body">
-                                <img src="{{ asset('images/birds_light.jpeg') }}">
-                            </div>
-                            <div class="my-victories-item-footer">
-                                <p>J'ai consulté mon médecin</p>
-                            </div>
-                            <div class="my-victories-item-description">
-                                <p>
-                                    Ma super description !
-                                </p>
-                            </div>
-                        </div>
                         <div class="my-victories-item">
                             <div class="my-victories-item-header">
                                 <p><i class="fa-solid fa-trophy"></i> <span>Le 06/10/2023</span></p>
@@ -149,6 +117,27 @@
                     </div>
                     <div class="dashboard-victory-button">
                         <a href="#" class="btn btn-style-two">TOUT VOIR</a>
+                    </div>
+                </div>
+                <div id="dashboard-solution-anchor" class="dashboard-help-block">
+                    <h2>MES SOLUTIONS</h2>
+                    <div class="dashboard-help-form-null">
+                        {# SI PAS ENCORE REPONDU AU QUESTIONNAIRE #}
+                        <p>
+                            Avoir les bonnes solutions pour guérir est important.
+                        </p>
+                        <p>
+                            En répondant au questionnaire que nous vous proposons, des solutions adaptées à votre situation vous seront proposées.
+                        </p>
+                        <p>
+                            Ces solutions représentent une première base d'actions à mettre en place afin d'engager le processus de guérison.
+                        </p>
+                        <em>
+                            Si vous souhaitez approfondir chacune d'entre elles, n'hésitez pas à nous poser vos questions en message privé ou sur le forum.
+                        </em>
+                        <div>
+                            <a href="#" class="btn btn-style-two">C'EST PARTI</a>
+                        </div>
                     </div>
                 </div>
             </div>
