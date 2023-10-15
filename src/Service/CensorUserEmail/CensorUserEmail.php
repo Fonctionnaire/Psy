@@ -14,9 +14,9 @@ class CensorUserEmail implements CensorUserEmailInterface
 
         $censorString = str_repeat('*', $censorLength);
 
-        $censoredLocalPart = substr($localPart, 0, $localPartLength - $censorLength) . $censorString;
-        $censoredDomainPart = str_repeat('*', floor(strlen($domainPart) / 2)) . substr($domainPart, floor(strlen($domainPart) / 2));
-        $censoredEmail = $censoredLocalPart . '@**' . $censoredDomainPart;
+        $censoredLocalPart = substr($localPart, 0, $localPartLength - $censorLength).$censorString;
+        $censoredDomainPart = str_repeat('*', floor(strlen($domainPart) / 2)).substr($domainPart, floor(strlen($domainPart) / 2));
+        $censoredEmail = $censoredLocalPart.'@**'.$censoredDomainPart;
 
         return $censoredEmail;
     }

@@ -17,13 +17,12 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 #[IsGranted('ROLE_USER')]
 class UserDashboardController extends AbstractController
 {
-
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(User $user, CensorUserEmailInterface $censorUserEmail): Response
     {
         return $this->render('security/dashboard/index.html.twig', [
             'user' => $user,
-            'censorUserEmail' => $censorUserEmail($user->getEmail())
+            'censorUserEmail' => $censorUserEmail($user->getEmail()),
         ]);
     }
 
@@ -33,29 +32,29 @@ class UserDashboardController extends AbstractController
         Request $request,
         EntityManagerInterface $em,
         UserPasswordHasherInterface $userPasswordEncoder
-    ): Response
-    {
+    ): Response {
         $form = $this->createForm(UserEditType::class, $user);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid())
-        {
-            if ($form->get('plainPassword')->getData() !== null) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (null !== $form->get('plainPassword')->getData()) {
                 $user->setPassword($userPasswordEncoder->hashPassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 ));
-            }elseif ($form->get('email')->getData() !== null && filter_var($form->get('email')->getData(), FILTER_VALIDATE_EMAIL)){
+            } elseif (null !== $form->get('email')->getData() && filter_var($form->get('email')->getData(), FILTER_VALIDATE_EMAIL)) {
                 $user->setEmail($form->get('email')->getData());
             }
             $em->flush();
             $this->addFlash('success', 'Votre compte a bien été modifié.');
+
             return $this->redirectToRoute('app_user_dashboard_index', [
                 'id' => $user->getId()]
             );
         }
+
         return $this->render('security/dashboard/edit.html.twig', [
             'user' => $user,
-            'form' => $form
+            'form' => $form,
         ]);
     }
 
@@ -69,6 +68,7 @@ class UserDashboardController extends AbstractController
     public function delete(User $user, EntityManagerInterface $em): Response
     {
         $this->addFlash('success', 'Votre compte a bien été supprimé.');
+
         return $this->redirectToRoute('app_home_index');
     }
 }

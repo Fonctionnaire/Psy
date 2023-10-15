@@ -23,7 +23,7 @@ class UserEditType extends AbstractType
                 'required' => false,
                 'help' => 'Laissez vide pour ne pas modifier votre email.',
                 'attr' => [
-                    'placeholder' => 'Laissez vide pour ne pas modifier votre email.'
+                    'placeholder' => 'Laissez vide pour ne pas modifier votre email.',
                 ],
                 'mapped' => false,
                 'constraints' => [
@@ -31,13 +31,13 @@ class UserEditType extends AbstractType
                         'pattern' => '/^\\S+@\\S+\\.\\S+$/',
                         'message' => 'Veuillez saisir une adresse email avec un format valide. Ex : email@email.fr',
                     ]),
-                ]
+                ],
             ])
             ->add('plainPassword', PasswordType::class, [
                 'required' => false,
                 'label' => 'Nouveau mot de passe',
                 'attr' => [
-                    'placeholder' => 'Laissez vide pour ne pas modifier le mot de passe.'
+                    'placeholder' => 'Laissez vide pour ne pas modifier le mot de passe.',
                 ],
                 'help' => 'Laissez vide pour ne pas modifier le mot de passe. Le mot de passe doit contenir au moins 8 caractères, 1 majuscule, 1 minuscule, 1 chiffre et 1 caractère spécial (#?!@$%^&*-).',
                 'constraints' => [
