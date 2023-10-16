@@ -80,4 +80,22 @@ class UserDashboardControllerTest extends WebTestCase
         $this->assertNotNull($editedUser);
         $this->assertEquals('newPseudo', $editedUser->getUsername());
     }
+
+    public function testUserDashboardReview(): void
+    {
+        $user = $this->createUser();
+        $this->client->loginUser($user);
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/mon-avis');
+
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseStatusCodeSame(200);
+        $this->assertSelectorExists('h1', 'MON AVIS');
+
+        $this->client->submitForm('user_review[submit]', ['user_review[rate]' => 5, 'user_review[message]' => 'Mon avis sur le site est très positif. Un super avis positif']);
+        $this->assertResponseRedirects();
+        $this->client->followRedirect();
+        $this->assertResponseIsSuccessful();
+        $this->assertResponseStatusCodeSame(200);
+        $this->assertSelectorExists('.alert.alert-success', 'Merci ! Votre avis a bien été envoyé.');
+    }
 }

@@ -3,7 +3,9 @@
 namespace App\Controller\Security;
 
 use App\Entity\User;
+use App\Entity\UserReview;
 use App\Form\UserEditType;
+use App\Form\UserReviewType;
 use App\Service\CensorUserEmail\CensorUserEmailInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -53,6 +55,32 @@ class UserDashboardController extends AbstractController
         }
 
         return $this->render('security/dashboard/edit.html.twig', [
+            'user' => $user,
+            'form' => $form,
+        ]);
+    }
+
+    #[Route('/mon-avis', name: 'review', methods: ['GET', 'POST'])]
+    public function userReview(
+        User $user,
+        Request $request,
+        EntityManagerInterface $em
+    ): Response {
+        $review = new UserReview();
+        $form = $this->createForm(UserReviewType::class, $review);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $review->setUser($user);
+            $em->persist($review);
+            $em->flush();
+            $this->addFlash('success', 'Merci ! Votre avis a bien été envoyé.');
+
+            return $this->redirectToRoute('app_user_dashboard_index', [
+                'id' => $user->getId()]
+            );
+        }
+
+        return $this->render('security/dashboard/user_review.html.twig', [
             'user' => $user,
             'form' => $form,
         ]);

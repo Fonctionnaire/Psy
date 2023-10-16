@@ -70,6 +70,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'uuid', nullable: true)]
     private ?Uuid $resetPasswordToken = null;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?UserReview $userReview = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -262,6 +265,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setResetPasswordToken(?Uuid $resetPasswordToken): static
     {
         $this->resetPasswordToken = $resetPasswordToken;
+
+        return $this;
+    }
+
+    public function getUserReview(): ?UserReview
+    {
+        return $this->userReview;
+    }
+
+    public function setUserReview(UserReview $userReview): static
+    {
+        // set the owning side of the relation if necessary
+        if ($userReview->getUser() !== $this) {
+            $userReview->setUser($this);
+        }
+
+        $this->userReview = $userReview;
 
         return $this;
     }

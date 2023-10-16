@@ -55,10 +55,18 @@
                     </div>
                     <div class="dashboard-section-blocks">
                         <h5>MON AVIS</h5>
-                        <p>Écrit le : <span>06/10/2023</span></p>
-                        <div>
-                            <a href="#" class="btn btn-style-two">VOIR</a>
-                        </div>
+                        {% if user.userReview %}
+                            <p>Écrit le : <span>{{ user.userReview.createdAt|date('d/m/y') }}</span></p>
+                            <div>
+                                <a href="{{ path('app_user_dashboard_review', {'id': user.id}) }}" class="btn btn-style-two">VOIR</a>
+                            </div>
+                        {% else %}
+                            <p>Vous n'avez pas encore donné votre avis</p>
+                            <div>
+                                <a href="{{ path('app_user_dashboard_review', {'id': user.id}) }}" class="btn btn-style-two">DONNER MON AVIS</a>
+                            </div>
+                        {% endif %}
+
                     </div>
                 </div>
             </div>

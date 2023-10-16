@@ -1291,3 +1291,113 @@ footer .footer-copyright{
 #dashboard-edit-form-section .auth-section-block .auth-section-items .auth-section-item{
     width: 80%;
 }
+
+/* REVIEW */
+.dashboard-review-block{
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--my-light-blue);
+    margin-bottom: 20px;
+}
+
+#user-rate-form .block-radio-rate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#user-rate-form .form-rate-label{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+    font-weight: bold;
+
+}
+
+#user-rate-form #user_review_message
+{
+    min-height: 150px;
+}
+
+#user-rate-form .rate-radio-error ul{
+    display: inline-block;
+}
+
+#user-rate-form .rate-radio-error ul li{
+    color: red;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+#user-rate-form #user_review_rate {
+    float: left;
+    border: none;
+}
+
+#user-rate-form #user_review_rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+}
+
+#user-rate-form #user_review_rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0, 0, 0, 0);
+}
+
+#user-rate-form #user_review_rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+#user-rate-form #user_review_rate > input:checked ~ label {
+    color: #f70;
+}
+
+#user-rate-form #user_review_rate:not(:checked) > label:hover, #user-rate-form #user_review_rate:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+
+#user-rate-form #user_review_rate > input:checked + label:hover, #user-rate-form #user_review_rate > input:checked + label:hover ~ label, #user-rate-form #user_review_rate > input:checked ~ label:hover, #user-rate-form #user_review_rate > input:checked ~ label:hover ~ label, #user-rate-form #user_review_rate > label:hover ~ input:checked ~ label {
+    color: #ea0;
+}
+
+#user-rate-form #user_review_rate > label:active {
+    position:relative;
+}
+
+.user-review-done .user-review-done-rate{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.user-review-done .user-review-done-rate p:first-of-type, .user-review-done .user-review-done-message p:first-of-type{
+    font-size: 1.2rem;
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
+.user-review-done .user-review-done-rate p:last-of-type{
+    font-size: 1.5rem;
+    color: var(--my-text-brown);
+    font-weight: bold;
+}
+
+.user-review-done .user-review-done-rate p:last-of-type i{
+    color: var(--my-light-blue);
+}
+
+.user-review-done .user-review-done-message  div{
+    font-size: 1.5rem;
+    color: var(--my-text-brown);
+    border-bottom: 1px solid var(--my-light-blue);
+    border-top: 1px solid var(--my-light-blue);
+    padding: 25px 0;
+}
