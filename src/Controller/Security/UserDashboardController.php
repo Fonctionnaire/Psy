@@ -20,6 +20,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 class UserDashboardController extends AbstractController
 {
     #[Route('', name: 'index', methods: ['GET'])]
+    #[IsGranted('', subject: 'user')]
     public function index(User $user, CensorUserEmailInterface $censorUserEmail): Response
     {
         return $this->render('security/dashboard/index.html.twig', [
@@ -29,6 +30,7 @@ class UserDashboardController extends AbstractController
     }
 
     #[Route('/edition', name: 'edit', methods: ['GET', 'POST'])]
+    #[IsGranted('', subject: 'user')]
     public function edit(
         User $user,
         Request $request,
@@ -61,6 +63,7 @@ class UserDashboardController extends AbstractController
     }
 
     #[Route('/mon-avis', name: 'review', methods: ['GET', 'POST'])]
+    #[IsGranted('', subject: 'user')]
     public function userReview(
         User $user,
         Request $request,
@@ -93,8 +96,12 @@ class UserDashboardController extends AbstractController
     }
 
     #[Route('/suppression-du-compte', name: 'delete', methods: ['GET', 'POST'])]
+    #[IsGranted('', subject: 'user')]
     public function delete(User $user, EntityManagerInterface $em): Response
     {
+        $this->container->get('security.token_storage')->setToken(null);
+        $em->remove($user);
+        $em->flush();
         $this->addFlash('success', 'Votre compte a bien été supprimé.');
 
         return $this->redirectToRoute('app_home_index');
