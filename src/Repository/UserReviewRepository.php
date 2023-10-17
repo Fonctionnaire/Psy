@@ -21,6 +21,17 @@ class UserReviewRepository extends ServiceEntityRepository
         parent::__construct($registry, UserReview::class);
     }
 
+    public function findByIsValidated(): array
+    {
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.isValidated = :val')
+            ->setParameter('val', true)
+            ->orderBy('u.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     //    /**
     //     * @return UserReview[] Returns an array of UserReview objects
     //     */

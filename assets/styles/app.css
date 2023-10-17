@@ -964,10 +964,31 @@ footer .footer-copyright{
     color: var(--my-light-blue);
 }
 
+.home-review-section .home-review-section-block .home-review-section-no-review{
+    text-align: center;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-size: 1.2rem;
+    border: 2px solid var(--my-light-blue);
+    background: rgba(0,0,0,0.85);
+    padding: 15px 0;
+}
+
+.home-review-section .home-review-section-block .home-review-section-no-review p{
+    margin: 0;
+}
+
 .home-review-section .home-review-section-block .home-review-section-links
 {
     text-align: center;
     margin-top: 20px;
+}
+
+.home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-register
+{
+    color: var(--my-light-blue);
+    text-shadow: var(--my-text-shadow);
+    font-size: 1.2rem;
 }
 
 .home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-auth
