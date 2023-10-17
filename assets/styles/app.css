@@ -964,10 +964,31 @@ footer .footer-copyright{
     color: var(--my-light-blue);
 }
 
+.home-review-section .home-review-section-block .home-review-section-no-review{
+    text-align: center;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-size: 1.2rem;
+    border: 2px solid var(--my-light-blue);
+    background: rgba(0,0,0,0.85);
+    padding: 15px 0;
+}
+
+.home-review-section .home-review-section-block .home-review-section-no-review p{
+    margin: 0;
+}
+
 .home-review-section .home-review-section-block .home-review-section-links
 {
     text-align: center;
     margin-top: 20px;
+}
+
+.home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-register
+{
+    color: var(--my-light-blue);
+    text-shadow: var(--my-text-shadow);
+    font-size: 1.2rem;
 }
 
 .home-review-section .home-review-section-block .home-review-section-links .home-review-section-links-auth
@@ -1027,3 +1048,423 @@ footer .footer-copyright{
 }
 
 /* ======================== */
+
+/* ====== DASHBOARD USER ====== */
+.dashboard-section{
+    background-image: url('../images/user_dashboard_large_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 80vh;
+}
+
+.dashboard-section .dashboard-section-content{
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
+.dashboard-section .dashboard-section-content h1{
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: var(--my-text-shadow);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-blocks{
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--my-light-blue);
+}
+
+/* INDEX */
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content{
+    background: rgba(0,0,0,0.8);
+    border: 2px solid var(--my-light-blue);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-header{
+    background: rgba(60,42,41,0.9);
+    color: white;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-body{
+    text-align: justify;
+    color: var(--my-text-brown);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-body p{
+    margin-bottom: 10px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-footer{
+    text-align: center;
+    display: initial;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-footer a{
+    color: red;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-section-infos-delete-link{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data{
+    width: 25%;
+    text-align: center;
+}
+
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data h5{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data p{
+    margin-bottom: 3px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data div{
+    margin-bottom: 15px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data div:last-of-type{
+    margin-bottom: 0;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data .info-label{
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-personal-data .info-user-data{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list{
+    width: 74%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
+    width: 49%;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks:first-of-type, .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks:nth-child(2) {
+    margin-bottom: 5px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks h5{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks p{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+    font-size: 1.2rem;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks p span{
+    color: var(--my-light-blue);
+}
+
+.dashboard-section .dashboard-help-section{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.dashboard-section .dashboard-help-section h2{
+    font-size: 2rem;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-shadow: var(--my-text-shadow);
+    text-align: center;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block{
+    width: 49%;
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--my-light-blue);
+    margin-bottom: 20px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid var(--my-light-blue);
+    padding: 5px 0;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header p, .dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-footer p{
+    margin-bottom: 0;
+    color: white;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header p i{
+    color: var(--my-light-blue);
+    margin-right: 10px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-header p span{
+    color: var(--my-text-brown);
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-body img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.8);
+    border: 1px solid var(--my-light-blue);
+    padding: 10px;
+    min-height: 30px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-description
+{
+    background: rgba(0,0,0,0.9);
+    border: 1px solid var(--my-light-blue);
+    display: none;
+    width: 100%;
+    height: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    padding: 15px;
+
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item:hover .my-victories-item-description{
+    display: block;
+    height: 100%;
+    animation: 1s victoryItemDescription forwards;
+}
+
+
+@keyframes victoryItemDescription {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100%;
+    }
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list .my-victories-item .my-victories-item-description p{
+    color: var(--my-text-brown);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victory-button{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-help-form-null{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-help-form-null div{
+    text-align: center;
+    margin-top: 25px;
+}
+
+.dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-help-form-null em{
+    font-size: 0.85rem
+}
+
+/* EDIT */
+#dashboard-edit-form-section
+{
+    background-image: url('../images/user_dashboard_large_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#dashboard-edit-form-section .auth-section-items{
+    display: initial;
+}
+
+#dashboard-edit-form-section .auth-section-items .user-edit-form-home{
+    margin-top: 15px;
+}
+
+#dashboard-edit-form-section .auth-section-block .auth-section-items{
+    justify-content: center;
+}
+
+#dashboard-edit-form-section .auth-section-block .auth-section-items .auth-section-item{
+    width: 100%;
+}
+
+/* REVIEW */
+.dashboard-review-block{
+    background: rgba(0,0,0,0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--my-light-blue);
+    margin-bottom: 20px;
+}
+
+#user-rate-form .block-radio-rate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#user-rate-form .form-rate-label{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+    font-weight: bold;
+
+}
+
+#user-rate-form #user_review_message
+{
+    min-height: 150px;
+}
+
+#user-rate-form .rate-radio-error ul{
+    display: inline-block;
+}
+
+#user-rate-form .rate-radio-error ul li{
+    color: red;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+#user-rate-form #user_review_rate {
+    float: left;
+    border: none;
+}
+
+#user-rate-form #user_review_rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+}
+
+#user-rate-form #user_review_rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0, 0, 0, 0);
+}
+
+#user-rate-form #user_review_rate:not(:checked) > label:before {
+    content: '★ ';
+}
+
+#user-rate-form #user_review_rate > input:checked ~ label {
+    color: #f70;
+}
+
+#user-rate-form #user_review_rate:not(:checked) > label:hover, #user-rate-form #user_review_rate:not(:checked) > label:hover ~ label {
+    color: gold;
+}
+
+#user-rate-form #user_review_rate > input:checked + label:hover, #user-rate-form #user_review_rate > input:checked + label:hover ~ label, #user-rate-form #user_review_rate > input:checked ~ label:hover, #user-rate-form #user_review_rate > input:checked ~ label:hover ~ label, #user-rate-form #user_review_rate > label:hover ~ input:checked ~ label {
+    color: #ea0;
+}
+
+#user-rate-form #user_review_rate > label:active {
+    position:relative;
+}
+
+.user-review-done .user-review-done-rate{
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.user-review-done .user-review-done-rate p:first-of-type, .user-review-done .user-review-done-message p:first-of-type{
+    font-size: 1.2rem;
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
+.user-review-done .user-review-done-rate p:last-of-type{
+    font-size: 1.5rem;
+    color: var(--my-text-brown);
+    font-weight: bold;
+}
+
+.user-review-done .user-review-done-rate p:last-of-type i{
+    color: var(--my-light-blue);
+}
+
+.user-review-done .user-review-done-message  div{
+    font-size: 1.5rem;
+    color: var(--my-text-brown);
+    border-bottom: 1px solid var(--my-light-blue);
+    border-top: 1px solid var(--my-light-blue);
+    padding: 25px 0;
+}

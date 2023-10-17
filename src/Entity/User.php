@@ -42,6 +42,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     )]
     private ?string $password = null;
 
+    private ?string $plainPassword = null;
+
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt;
 
@@ -67,6 +69,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'uuid', nullable: true)]
     private ?Uuid $resetPasswordToken = null;
+
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?UserReview $userReview = null;
 
     public function __construct()
     {
@@ -135,13 +140,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(?string $plainPassword): static
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
     /**
      * @see UserInterface
      */
     public function eraseCredentials(): void
     {
         // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
+        $this->plainPassword = null;
     }
 
     public function getCreatedAt(): ?\DateTimeImmutable
@@ -248,6 +265,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setResetPasswordToken(?Uuid $resetPasswordToken): static
     {
         $this->resetPasswordToken = $resetPasswordToken;
+
+        return $this;
+    }
+
+    public function getUserReview(): ?UserReview
+    {
+        return $this->userReview;
+    }
+
+    public function setUserReview(UserReview $userReview): static
+    {
+        // set the owning side of the relation if necessary
+        if ($userReview->getUser() !== $this) {
+            $userReview->setUser($this);
+        }
+
+        $this->userReview = $userReview;
 
         return $this;
     }

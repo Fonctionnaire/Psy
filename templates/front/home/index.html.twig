@@ -290,43 +290,41 @@
             </div>
         </div>
     </section>
+
     <section class="custom-section home-review-section">
         <div id="review-section-content" class="custom-container">
             <div class="home-review-section-block">
                 <h2>LES AVIS</h2>
+                {% if userReviews|length > 0 %}
                 <div class="owl-carousel">
+                    {% for review in userReviews %}
                     <div class="item">
                         <div class="owl-item-header">
-                            <p>De <span>Username</span></p>
-                            <p>Le 25/09/2023</p>
+                            <p>De <span>{{ review.user.username }}</span></p>
+                            <p>Le {{ review.createdAt|date('d/m/y') }}</p>
                         </div>
                         <div class="owl-item-body">
-                            <p>
-                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sapien tortor, hendrerit non facilisis eu, rhoncus at lorem. Nam iaculis felis scelerisque mattis aliquet. Duis commodo cursus finibus. Morbi auctor vehicula est, non hendrerit purus. Aenean non purus vestibulum, tincidunt nunc eget, convallis tellus. Sed non erat enim. Integer sit amet dui et lorem convallis porta. Integer euismod massa quis neque ornare condimentum. Proin varius ex eget magna tempus pellentesque suscipit eu nibh. Nunc sit amet metus id odio cursus tempus. Pellentesque lacinia cursus turpis nec euismod.
-                            </p>
+                            {{ review.message }}
                         </div>
                         <div class="owl-item-footer">
-                            <p>5 <i class="fa-solid fa-star"></i> / 5</p>
+                            <p>{{ review.rate}} <i class="fa-solid fa-star"></i> / 5</p>
                         </div>
                     </div>
-                    <div class="item">
-                        <div class="owl-item-header">
-                            <p>De <span>Username</span></p>
-                            <p>Le 25/09/2023</p>
-                        </div>
-                        <div class="owl-item-body">
-                            <p>
-                                Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sapien tortor, hendrerit non facilisis eu, rhoncus at lorem. Nam iaculis felis scelerisque mattis aliquet.
-                            </p>
-                        </div>
-                        <div class="owl-item-footer">
-                            <p>5 <i class="fa-solid fa-star"></i> / 5</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
+                    {% else %}
+                    <div class="home-review-section-no-review">
+                        <p>Il n'y a pas encore d'avis utilisateur. Vous pouvez être le/la premier.ère.</p>
+                    </div>
+                {% endif %}
                 <div class="home-review-section-links">
-                    <a class="btn btn-style-two">DONNER VOTRE AVIS</a>
-                    <a href="{{ path('app_register') }}" class="home-review-section-links-register">Inscrivez-vous pour laisser votre avis</a>
+                    {% if app.user %}
+                        {% if not app.user.userReview %}
+                            <a href="{{ path('app_user_dashboard_review', {'id': app.user.id}) }}" class="btn btn-style-two">DONNER VOTRE AVIS</a>
+                        {% endif %}
+                    {% else %}
+                        <a href="{{ path('app_register') }}" class="home-review-section-links-register">Inscrivez-vous pour laisser votre avis</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

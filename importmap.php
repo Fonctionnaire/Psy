@@ -26,4 +26,13 @@ return [
         'downloaded_to' => 'vendor/bootstrap.js',
         'url' => 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/+esm',
     ],
+    '@hotwired/stimulus' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@hotwired/stimulus@3.2.2/+esm',
+    ],
+    '@symfony/stimulus-bundle' => [
+        'path' => '@symfony/stimulus-bundle/loader.js',
+    ],
+    '@hotwired/turbo' => [
+        'url' => 'https://cdn.jsdelivr.net/npm/@hotwired/turbo@7.3.0/+esm',
+    ],
 ];

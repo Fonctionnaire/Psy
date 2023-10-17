@@ -65,12 +65,10 @@ class RegisterController extends AbstractController
             $user->setIsAccountValidated(true);
             $user->setRegistrationToken(null);
             $em->flush();
-            $redirectResponse = $security->login($user);
-            $this->addFlash('success', 'Votre compte a bien été validé. Vous êtes maintenant connecté.e.');
-
-            return $redirectResponse;
+            $this->addFlash('success', 'Votre compte a bien été validé. Vous pouvez maintenant vous connecter.');
+        } else {
+            $this->addFlash('warning', 'Votre compte n\'a pas pu être validé. Veuillez réessayer.');
         }
-        $this->addFlash('warning', 'Votre compte n\'a pas pu être validé. Veuillez réessayer.');
 
         return $this->redirectToRoute('app_login',
             [],

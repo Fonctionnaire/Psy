@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <section id="dashboard-edit-form-section" class="auth-section custom-section">
+        <div class="custom-container auth-section-block">
+
+            <div class="auth-section-items">
+
+                <div class="auth-section-item">
+                    <div class="auth-section-header">
+                        <h1>MODIFIER MES INFORMATIONS</h1>
+                        <p>Vous pouvez modifier vos informations personnelles via le formulaire ci-dessous</p>
+                    </div>
+                    {{ form_start(form) }}
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.email) }}<br>
+                        {{ form_widget(form.email) }}
+                        {{ form_help(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.username) }}<br>
+                        {{ form_widget(form.username) }}
+                        {{ form_errors(form.username) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_label(form.firstname) }}<br>
+                        {{ form_widget(form.firstname) }}
+                        {{ form_help(form.firstname) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_widget(form.plainPassword) }}
+                        {{ form_help(form.plainPassword) }}
+                        {{ form_errors(form.plainPassword) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
+                        {{ form_row(form.submit) }}
+                    </div>
+
+                    {{ form_end(form) }}
+                </div>
+                <div class="user-edit-form-home">
+                    <a href="{{ path('app_user_dashboard_index', {'id': user.id}) }}" class="btn btn-style-one">RETOUR</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+
+
+

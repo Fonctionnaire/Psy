@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+{% block body %}
+    <section id="dashboard-review-section" class="dashboard-section custom-section">
+        <div class="custom-container dashboard-section-content">
+            <h1>MON AVIS</h1>
+            <div class="dashboard-review-block">
+                {% if not user.userReview %}
+                    <div id="user-rate-form">
+                        {{ form_start(form) }}
+                        <div class="block-radio-rate">
+                        {{ form_label(form.rate) }}
+                        <div class="rate-radio">
+
+                            {{ form_widget(form.rate) }}
+
+                            <div class="rate-radio-error">
+                                {{ form_errors(form.rate) }}
+                            </div>
+                        </div>
+                        </div>
+                        <div>
+                            {{ form_label(form.message) }}
+                            {{ form_widget(form.message) }}
+                            {{ form_errors(form.message) }}
+                        </div>
+                        <div class="text-center">
+                            {{ form_row(form.submit) }}
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                {% else %}
+                    <div class="user-review-done">
+                        <div class="user-review-done-rate">
+                            <p>Votre note</p>
+                            <p>{{ user.userReview.rate }} <i class="fa-solid fa-star"></i> / 5</p>
+                        </div>
+                        <div class="user-review-done-message">
+                            <p>Votre avis</p>
+                            <div>
+                                {{ user.userReview.message }}
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div>
+                <a href="{{ path('app_user_dashboard_index', {'id': user.id}) }}" class="btn btn-style-one">RETOUR</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
