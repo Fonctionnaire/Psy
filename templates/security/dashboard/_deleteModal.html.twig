@@ -1,0 +1,22 @@
+<div class="modal fade" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteUserModalLabel">Suppression de mon compte</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>La suppression de votre compte effacera vos données personnelles, vos messages privés et votre avis.</p>
+                <p>
+                    Vos messages sur le forum et votre témoignage seront conservés, mais attribués à un « Utilisateur supprimé ».<br>
+                    Vous pouvez nous demander de les supprimer en nous contactant via le formulaire de contact.
+                </p>
+                <p>En espérant avoir pu vous aider.</p>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ path('app_user_dashboard_delete', {'id': user.id}) }}">Confirmer la suppression de mon compte</a>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1059,6 +1059,40 @@ footer .footer-copyright{
 }
 
 /* INDEX */
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content{
+    background: rgba(0,0,0,0.8);
+    border: 2px solid var(--my-light-blue);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-header{
+    background: rgba(60,42,41,0.9);
+    color: white;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-body{
+    text-align: justify;
+    color: var(--my-text-brown);
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-body p{
+    margin-bottom: 10px;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-footer{
+    text-align: center;
+    display: initial;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .modal .modal-content .modal-footer a{
+    color: red;
+}
+
+.dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-section-infos-delete-link{
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
 .dashboard-section .dashboard-section-content .dashboard-section-infos{
     display: flex;
     justify-content: space-between;
@@ -1118,6 +1152,10 @@ footer .footer-copyright{
 
 .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks h5{
@@ -1284,12 +1322,20 @@ footer .footer-copyright{
     background-position: center;
 }
 
+#dashboard-edit-form-section .auth-section-items{
+    display: initial;
+}
+
+#dashboard-edit-form-section .auth-section-items .user-edit-form-home{
+    margin-top: 15px;
+}
+
 #dashboard-edit-form-section .auth-section-block .auth-section-items{
     justify-content: center;
 }
 
 #dashboard-edit-form-section .auth-section-block .auth-section-items .auth-section-item{
-    width: 80%;
+    width: 100%;
 }
 
 /* REVIEW */

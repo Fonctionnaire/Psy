@@ -30,6 +30,12 @@
                     <div>
                         <a href="{{ path('app_user_dashboard_edit', {'id': user.id}) }}" class="btn btn-style-two">Modifier mes infos</a>
                     </div>
+                    <div>
+                        <a type="button" class="dashboard-section-infos-delete-link" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
+                            Supprimer mon compte
+                        </a>
+                        {% include 'security/dashboard/_deleteModal.html.twig' %}
+                    </div>
                 </div>
                 <div class="dashboard-infos-list">
                     <div class="dashboard-section-blocks">

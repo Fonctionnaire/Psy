@@ -98,4 +98,18 @@ class UserDashboardControllerTest extends WebTestCase
         $this->assertResponseStatusCodeSame(200);
         $this->assertSelectorExists('.alert.alert-success', 'Merci ! Votre avis a bien été envoyé.');
     }
+
+    public function testDeleteUser(): void
+    {
+        $user = $this->createUser();
+        $this->client->loginUser($user);
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/suppression-du-compte');
+        $this->assertResponseRedirects();
+        $this->client->followRedirect();
+        $this->assertResponseStatusCodeSame(200);
+        $this->assertSelectorExists('.alert.alert-success', 'Votre compte a bien été supprimé.');
+
+        $deletedUser = $this->userRepository->findOneByUsername('username');
+        $this->assertNull($deletedUser);
+    }
 }
