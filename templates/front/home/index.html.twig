@@ -9,7 +9,7 @@
 {% endblock %}
 {% block body %}
     <section class="custom-section home-first-section">
-        <div id="first-section-content" class="custom-container">
+        <div id="first-section-content" class="custom-container custom-container-padding">
             <div class="first-section-block">
                 <h1>CECI EST MON TITRE PRINCIPAL</h1>
                 <p>
@@ -143,11 +143,11 @@
                 <h2>LES CHIFFRES CLÉS</h2>
                 <div class="home-data-numbers-info">
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-regular fa-user"></i> 300</span>
+                        <span><i class="fa-regular fa-user"></i> {{ homeCount.nbUsers }}</span>
                         <p>Utilisateurs</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-solid fa-user-nurse"></i> 2</span>
+                        <span><i class="fa-solid fa-user-nurse"></i> {{ homeCount.nbVolunteers }}</span>
                         <p>Bénévoles</p>
                     </div>
                     <div class="home-data-numbers-info-item">
@@ -167,11 +167,11 @@
                         <p>Actualités</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-solid fa-check"></i> 50</span>
+                        <span><i class="fa-solid fa-check"></i> {{ homeCount.nbUserReviews }}</span>
                         <p>Avis</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-regular fa-star"></i> 4/5</span>
+                        <span><i class="fa-regular fa-star"></i> {{ homeCount.averageRate }}/5</span>
                         <p>Note moyenne</p>
                     </div>
                 </div>
@@ -192,7 +192,7 @@
             </div>
             <div class="testimony-section-buttons">
                 <a class="btn btn-style-one">LIRE LA SUITE</a>
-                <a class="btn btn-style-two">TOUS LES TÉMOIGNAGES</a>
+                <a href="{{ path('app_testimony_index') }}" class="btn btn-style-two">TOUS LES TÉMOIGNAGES</a>
             </div>
         </div>
     </section>

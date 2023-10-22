@@ -73,6 +73,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?UserReview $userReview = null;
 
+    #[ORM\Column]
+    private ?bool $isVolunteer = null;
+
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Testimony $testimony = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -282,6 +288,35 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->userReview = $userReview;
+
+        return $this;
+    }
+
+    public function isIsVolunteer(): ?bool
+    {
+        return $this->isVolunteer;
+    }
+
+    public function setIsVolunteer(bool $isVolunteer): static
+    {
+        $this->isVolunteer = $isVolunteer;
+
+        return $this;
+    }
+
+    public function getTestimony(): ?Testimony
+    {
+        return $this->testimony;
+    }
+
+    public function setTestimony(Testimony $testimony): static
+    {
+        // set the owning side of the relation if necessary
+        if ($testimony->getUser() !== $this) {
+            $testimony->setUser($this);
+        }
+
+        $this->testimony = $testimony;
 
         return $this;
     }
