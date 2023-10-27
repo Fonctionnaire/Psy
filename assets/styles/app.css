@@ -1503,11 +1503,16 @@ footer .footer-copyright{
 .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu{
     background: rgba(0,0,0,0.9);
     border: 2px solid var(--my-light-blue);
+    min-width: 25%;
 }
 
 .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li a{
     color: var(--my-text-brown);
     text-shadow: var(--my-text-shadow);
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li a span{
+    float: right;
 }
 
 .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li:hover a{
@@ -1589,4 +1594,43 @@ footer .footer-copyright{
 .testimony-section .testimony-item a{
     color: var(--my-light-blue);
     text-decoration: none;
+}
+
+/* NEW */
+
+.testimony-section #testimony-form-new{
+    background: rgba(0,0,0,0.8);
+    border: 2px solid var(--my-light-blue);
+    padding: 25px;
+    margin-top: 35px;
+}
+
+.testimony-section #testimony-form-new form label{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.testimony-section #testimony-form-new form select, .testimony-section #testimony-form-new form textarea{
+    width: 100%;
+}
+
+.testimony-section #testimony-form-new form textarea{
+    min-height: 150px;
+    padding: 10px;
+}
+
+.testimony-section #testimony-form-new form div:nth-child(2){
+    margin: 25px 0;
+}
+
+.testimony-section #testimony-form-new form div:last-of-type{
+    text-align: center;
+}
+
+.testimony-section #testimony-form-new form ul{
+    list-style-type: none;
+    padding-left: 0;
+    color: red;
 }

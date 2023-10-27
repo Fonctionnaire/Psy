@@ -21,6 +21,12 @@
     .dashboard-section .dashboard-section-content .dashboard-section-infos .dashboard-infos-list .dashboard-section-blocks{
         width: 49%;
     }
+    /* ============================== */
+
+    /* ===== TESTIMONY SECTION ===== */
+    .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu{
+        min-width: 35%;
+    }
 }
 
 @media all and (max-width: 992px){
@@ -240,6 +246,13 @@
 
     .dashboard-section {
         background-image: url('../images/user_dashboard_vertical_light_darked.jpeg');
+    }
+
+    /* ==================== */
+
+    /* ===== TESTIMONY SECTION ===== */
+    .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu{
+        min-width: 70%;
     }
 
 }

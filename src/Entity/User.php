@@ -74,7 +74,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?UserReview $userReview = null;
 
     #[ORM\Column]
-    private ?bool $isVolunteer = null;
+    private bool $isVolunteer = false;
 
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Testimony $testimony = null;

@@ -21,6 +21,47 @@ class TestimonyRepository extends ServiceEntityRepository
         parent::__construct($registry, Testimony::class);
     }
 
+    public function save(Testimony $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(Testimony $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function findAllByCategory($category)
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.isValidated = true')
+            ->andWhere('t.testimonyCategory = :category')
+            ->setParameter('category', $category)
+            ->orderBy('t.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+    public function findLastTestimony()
+    {
+        return $this->createQueryBuilder('t')
+            ->andWhere('t.isValidated = true')
+            ->orderBy('t.createdAt', 'DESC')
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
 //    /**
 //     * @return Testimony[] Returns an array of Testimony objects
 //     */

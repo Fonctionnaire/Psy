@@ -178,24 +178,26 @@
             </div>
         </div>
     </section>
-    <section class="custom-section home-testimony-section">
-        <div id="testimony-section-content" class="custom-container">
-            <h2>LE DERNIER TÉMOIGNAGE</h2>
-            <div class="testimony-section-header-info">
-                <p>Par <span>Username</span></p>
-                <p>Le 23/09/23</p>
+    {% if lastTestimony %}
+        <section class="custom-section home-testimony-section">
+            <div id="testimony-section-content" class="custom-container">
+                <h2>LE DERNIER TÉMOIGNAGE</h2>
+                <div class="testimony-section-header-info">
+                    <p>Par <span>{{ lastTestimony.user.username }}</span></p>
+                    <p>Le 23/09/23</p>
+                </div>
+                <div class="testimony-section-block">
+                    <p>
+                        {{ lastTestimony.content|slice(0, 600) }} ...
+                    </p>
+                </div>
+                <div class="testimony-section-buttons">
+                    <a href="{{ path('app_testimony_show', {'token': lastTestimony.token}) }}" class="btn btn-style-one">LIRE LA SUITE</a>
+                    <a href="{{ path('app_testimony_index') }}" class="btn btn-style-two">TOUS LES TÉMOIGNAGES</a>
+                </div>
             </div>
-            <div class="testimony-section-block">
-                <p>
-                    Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
-                </p>
-            </div>
-            <div class="testimony-section-buttons">
-                <a class="btn btn-style-one">LIRE LA SUITE</a>
-                <a href="{{ path('app_testimony_index') }}" class="btn btn-style-two">TOUS LES TÉMOIGNAGES</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
     <section class="custom-section home-victory-section">
         <div id="victory-section-content" class="custom-container">
             <div class="home-victory-section-block">
