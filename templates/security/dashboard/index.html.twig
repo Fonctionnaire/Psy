@@ -4,7 +4,7 @@
 
 {% block body %}
     <section class="custom-section dashboard-section">
-        <div class="custom-container dashboard-section-content">
+        <div class="custom-container dashboard-section-content custom-container-padding">
         <h1>MON PROFIL</h1>
             <div class="dashboard-section-infos">
                 <div class="dashboard-section-blocks dashboard-personal-data">
@@ -54,10 +54,19 @@
                     </div>
                     <div class="dashboard-section-blocks">
                         <h5>MON TÉMOIGNAGE</h5>
-                        <p>Écrit le : <span>06/10/2023</span></p>
+                        {% if user.testimony and user.testimony.isValidated == true %}
+                        <p>Écrit le : <span>{{ user.testimony.createdAt|date('d/m/Y') }}</span></p>
                         <div>
-                            <a href="#" class="btn btn-style-two">VOIR</a>
+                            <a href="{{ path('app_testimony_show', {'token': user.testimony.token}) }}" class="btn btn-style-two">VOIR</a>
                         </div>
+                        {% elseif user.testimony and user.testimony.isValidated == false %}
+                            <p>Votre témoignage est en cours de validation</p>
+                        {% else %}
+                            <div>
+                                <p>Pas encore de témoignage</p>
+                                <a href="{{ path('app_testimony_new') }}" class="btn btn-style-two">ÉCRIRE MON TÉMOIGNAGE</a>
+                            </div>
+                        {% endif %}
                     </div>
                     <div class="dashboard-section-blocks">
                         <h5>MON AVIS</h5>

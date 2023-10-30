@@ -3,7 +3,7 @@
         <div class="navbar-brand brand-with-tooltip" data-bs-toggle="tooltip" data-bs-placement="bottom"
            data-bs-custom-class="custom-tooltip" data-bs-html="true"
            data-bs-title="« <em>Il avait entrevu la délivrance, la liberté, une vie nouvelle. Ce n'était qu'une lueur dans les ténèbres, mais vive et fixe devant lui.</em> » <br> - Anatole France">
-            <img src="{{ asset('images/hope_light.jpeg') }}" alt="logo">
+            <img src="{{ asset('images/hope.jpeg') }}" alt="logo">
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -82,7 +82,7 @@
                             COMMUNAUTÉ
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Témoignages</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_testimony_index') }}">Témoignages</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
@@ -116,6 +116,12 @@
                         </a>
                         {% if app.user %}
                             <ul class="dropdown-menu dropdown-menu-end">
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li><a class="dropdown-item" href="{{ path('app_user_dashboard_index', {'id': app.user.id}) }}"><i class="fa-solid fa-gears"></i> Admin</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                {% endif %}
                                 <li><a class="dropdown-item" href="{{ path('app_user_dashboard_index', {'id': app.user.id}) }}"><i class="fa-solid fa-gear"></i> Mon compte</a></li>
                                 <li>
                                     <hr class="dropdown-divider">

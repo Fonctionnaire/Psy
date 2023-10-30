@@ -4,12 +4,12 @@
 {% endblock %}
 {% block body %}
     <section id="dashboard-review-section" class="dashboard-section custom-section">
-        <div class="custom-container dashboard-section-content">
+        <div class="custom-container dashboard-section-content custom-container-padding">
             <h1>MON AVIS</h1>
             <div class="dashboard-review-block">
                 {% if not user.userReview %}
                     <div id="user-rate-form">
-                        {{ form_start(form) }}
+                        {{ form_start(form, {'attr': {'id': 'testimony_new_form'}}) }}
                         <div class="block-radio-rate">
                         {{ form_label(form.rate) }}
                         <div class="rate-radio">
@@ -52,4 +52,7 @@
         </div>
     </section>
 {% endblock %}
-
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/disableReviewButton.js') }}"></script>
+{% endblock %}

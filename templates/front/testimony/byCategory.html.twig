@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+    <section class="custom-section testimony-section">
+        <div id="testimony-section-list" class="custom-container custom-container-padding">
+            <div class="testimony-list-header">
+                <h1>LES TÉMOIGNAGES</h1>
+                <p>
+                    Vous n'êtes pas seuls.es dans votre malheur, d'autres personnes ont vécu la même chose que vous. Il est souvent rassurant de le savoir et de connaître leur parcours.
+                </p>
+                <p>
+                    « Voici leurs histoires »
+                </p>
+            </div>
+            <div class="testimony-list-buttons">
+                {% if not app.user or not app.user.testimony %}
+                    <a href="{{ path('app_testimony_new') }}" class="btn btn-style-two">JE PROPOSE MON TÉMOIGNAGE</a>
+                {% endif %}
+                <div class="testimony-categories dropdown">
+                    <a class="btn btn-style-one dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        CATÉGORIES
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><a class="dropdown-item" href="{{ path('app_testimony_index') }}">Tout voir <span class="badge rounded-pill text-bg-info">{{ countTestimonies }}</span></a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        {% for category in categories %}
+                            <li><a class="dropdown-item" href="{{ path('app_testimony_category_list', {'slug': category.slug}) }}">{{ category.name }} <span class="badge rounded-pill text-bg-info">{{ category.testimony|length }}</span></a></li>
+                            {% if not loop.last %}
+                                <li><hr class="dropdown-divider"></li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="navigation testimonies-pagination">
+                {{ knp_pagination_render(testimonies, null, {}, {
+                    'align': 'center',
+                    'size': 'small',
+                    'rounded': true,
+                }) }}
+            </div>
+            <div class="testimonies-list">
+                {% for testimony in testimonies %}
+                    <div class="testimony-item">
+                        <div class="testimonies-item-header">
+                            <div class="testimony-user">
+                                <p>Par <span>{{ testimony.user.username }}</span> | <em>Le {{ testimony.createdAt|date('d/m/Y') }}</em></p>
+                                <p></p>
+                            </div>
+                            <div class="testimony-category">
+                                {{ testimony.testimonyCategory.name }}
+                            </div>
+                        </div>
+                        <div class="testimonies-item-body">
+                            {{ testimony.content|slice(0, 350)|raw }} ...
+                        </div>
+                        <a href="{{ path('app_testimony_show', {'token': testimony.token}) }}">
+                            <div class="testimonies-item-footer">
+                                <p>Lire la suite</p>
+                            </div>
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="testimonies-list-null">
+                        <p>Aucun témoignage n'a été publié pour le moment.</p>
+                        <a class="btn btn-style-two">JE PROPOSE MON TÉMOIGNAGE</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="navigation testimonies-pagination">
+                {{ knp_pagination_render(testimonies, null, {}, {
+                    'align': 'center',
+                    'size': 'small',
+                    'rounded': true,
+                }) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

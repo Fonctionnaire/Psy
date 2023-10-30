@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{% endblock %}
+{% block body %}
+    <section class="custom-section testimony-section">
+        <div id="testimony-section-list" class="custom-container custom-container-padding">
+            <div class="testimony-list-buttons">
+                <a href="{{ path('app_testimony_index') }}" class="btn btn-style-two">RETOUR</a>
+            </div>
+            <div class="testimonies-list">
+                    <div class="testimony-item">
+                        <div class="testimonies-item-header">
+                            <div class="testimony-user">
+                                <p>Par <span>{{ testimony.user.username }}</span> | <em>Le {{ testimony.createdAt|date('d/m/Y') }}</em></p>
+                                <p></p>
+                            </div>
+                            <div class="testimony-category">
+                                {{ testimony.testimonyCategory.name }}
+                            </div>
+                        </div>
+                        <div class="testimonies-item-body">
+                            {{ testimony.content|raw }}
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

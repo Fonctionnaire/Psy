@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <section class="custom-section testimony-section">
+        <div id="testimony-section-list" class="custom-container custom-container-padding">
+            <div class="testimony-list-header">
+                <h1>VOTRE TÉMOIGNAGES</h1>
+                <p>
+                    Proposez à la communauté votre expérience, ce que vous avez traversé et comment vous avez réussi à vous en sortir. Votre témoignage pourra aider un bon nombre de personnes qui traversent la même situation que vous.
+                </p>
+            </div>
+            <div id="testimony-form-new">
+                {{ form_start(form, {'attr': {'id': 'testimony_new_form'}}) }}
+
+                <div>
+                    {{ form_label(form.testimonyCategory) }}<br>
+                    {{ form_widget(form.testimonyCategory) }}
+                    {{ form_errors(form.testimonyCategory) }}
+                </div>
+                <div>
+                    {{ form_label(form.content) }}<br>
+                    {{ form_widget(form.content) }}
+                    {{ form_errors(form.content) }}
+                </div>
+                <div>
+                    {{ form_widget(form.submit) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/disableTestimonyButton.js') }}"></script>
+{% endblock %}
+

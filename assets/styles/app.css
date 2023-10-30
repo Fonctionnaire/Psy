@@ -35,6 +35,11 @@ body{
     margin: 0 10%;
 }
 
+.custom-container-padding{
+    padding-top: 10%;
+    padding-bottom: 5%;
+}
+
 .btn-style-one
 {
     background: rgba(60,42,41,0.9);
@@ -228,9 +233,6 @@ footer .footer-copyright{
     background-image: url('../images/reset_password_light_darked.jpeg');
 }
 
-.auth-section .auth-section-block{
-    padding: 180px 0;
-}
 
 .auth-section .auth-section-block .auth-section-header h1, .auth-section .auth-section-block .auth-section-header p{
     color: white;
@@ -369,17 +371,12 @@ footer .footer-copyright{
     position: relative;
 }
 
-.home-first-section #first-section-content
-{
-    padding-top: 10%;
-    padding-bottom: 5%;
-}
-
 .home-first-section #first-section-content .first-section-block
 {
     background: rgba(0,0,0,0.5);
     padding: 20px;
     border-radius: 10px;
+    margin-top: 30px;
 }
 
 .home-first-section h1
@@ -1059,11 +1056,6 @@ footer .footer-copyright{
     min-height: 80vh;
 }
 
-.dashboard-section .dashboard-section-content{
-    padding-top: 10%;
-    padding-bottom: 5%;
-}
-
 .dashboard-section .dashboard-section-content h1{
     margin-top: 0;
     font-weight: bold;
@@ -1467,4 +1459,201 @@ footer .footer-copyright{
     border-bottom: 1px solid var(--my-light-blue);
     border-top: 1px solid var(--my-light-blue);
     padding: 25px 0;
+}
+
+/* ======= TESTIMONY ======= */
+/* INDEX */
+.testimony-section{
+    background-image: url('../images/testimonies_2_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 90vh;
+}
+
+.testimony-section #testimony-section-list h1{
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: var(--my-text-shadow);
+}
+
+.testimony-section #testimony-section-list .testimony-list-header p{
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    text-shadow: var(--my-text-shadow);
+}
+
+.testimony-section #testimony-section-list .testimony-list-header p:last-of-type{
+    text-align: center;
+    margin-top: 5px;
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons{
+    margin-top: 25px;
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories{
+    margin-top: 25px;
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu{
+    background: rgba(0,0,0,0.9);
+    border: 2px solid var(--my-light-blue);
+    min-width: 25%;
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li a{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li a span{
+    float: right;
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li:hover a{
+    color: var(--my-brown);
+}
+
+.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu hr.dropdown-divider{
+    border-top: 1px solid var(--my-light-blue);
+}
+
+.testimony-section #testimony-section-list .testimonies-list-null{
+    border: 2px solid var(--my-light-blue);
+    text-align: center;
+    padding: 25px;
+    margin-top: 35px;
+    background: rgba(0,0,0,0.8);
+}
+
+.testimony-section #testimony-section-list .testimonies-list-null p{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+    text-shadow: var(--my-text-shadow);
+}
+
+.testimony-section .testimony-item{
+    border: 2px solid var(--my-light-blue);
+    background: rgba(0,0,0,0.8);
+    margin-top: 35px;
+}
+
+.testimony-section .testimony-item .testimonies-item-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 25px;
+    flex-wrap: wrap;
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+.testimony-section .testimony-item .testimonies-item-header .testimony-category{
+    color: var(--my-light-blue);
+}
+
+.testimony-section .testimony-item .testimonies-item-header .testimony-user p{
+    margin: 0;
+}
+
+.testimony-section .testimony-item .testimonies-item-header .testimony-user span{
+    color: var(--my-light-blue);
+}
+
+.testimony-section .testimony-item .testimonies-item-header .testimony-user em{
+    font-size: 0.8rem;
+}
+
+.testimony-section .testimony-item .testimonies-item-body{
+    padding: 15px 25px;
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.testimony-section .testimony-item .testimonies-item-footer{
+    padding: 5px;
+    text-align: center;
+    background: var(--my-brown);
+    border-top: 1px solid white;
+    transition: 0.2s;
+}
+
+.testimony-section .testimony-item .testimonies-item-footer:hover{
+    background: rgba(60,42,41,0.7);
+    transition: 0.2s;
+}
+
+.testimony-section .testimony-item .testimonies-item-footer p{
+    margin: 0;
+}
+
+.testimony-section .testimony-item a{
+    color: var(--my-light-blue);
+    text-decoration: none;
+}
+
+/* NEW */
+
+.testimony-section #testimony-form-new{
+    background: rgba(0,0,0,0.8);
+    border: 2px solid var(--my-light-blue);
+    padding: 25px;
+    margin-top: 35px;
+}
+
+.testimony-section #testimony-form-new form label{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.testimony-section #testimony-form-new form select, .testimony-section #testimony-form-new form textarea{
+    width: 100%;
+}
+
+.testimony-section #testimony-form-new form textarea{
+    min-height: 150px;
+    padding: 10px;
+}
+
+.testimony-section #testimony-form-new form div:nth-child(2){
+    margin: 25px 0;
+}
+
+.testimony-section #testimony-form-new form div:last-of-type{
+    text-align: center;
+}
+
+.testimony-section #testimony-form-new form ul{
+    list-style-type: none;
+    padding-left: 0;
+    color: red;
+}
+
+.testimonies-pagination .pagination{
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.testimonies-pagination .pagination .page-link span{
+    background: var(--my-text-brown) !important;
+}
+
+.testimonies-pagination .pagination .page-item{
+    border: 1px solid var(--my-brown) !important;
+}
+
+.testimonies-pagination .pagination .page-link{
+    color: var(--my-brown) !important;
+}
+
+.testimonies-pagination .pagination .active span{
+    background: var(--my-brown) !important;
+    color: var(--my-text-brown) !important;
+    border-color: var(--my-light-blue) !important;
 }
