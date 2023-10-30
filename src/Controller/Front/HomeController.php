@@ -17,13 +17,11 @@ class HomeController extends AbstractController
         UserReviewRepository $userReviewRepository,
         HomeCountServiceInterface $homeCountService,
         TestimonyRepository $testimonyRepository
-    ): Response
-    {
-
+    ): Response {
         return $this->render('front/home/index.html.twig', [
             'userReviews' => $userReviewRepository->findByIsValidated(),
             'homeCount' => $homeCountService->getHomeCount(),
-            'lastTestimony' => $testimonyRepository->findLastTestimony()
+            'lastTestimony' => $testimonyRepository->findLastTestimony(),
         ]);
     }
 }

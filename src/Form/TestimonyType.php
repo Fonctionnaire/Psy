@@ -19,7 +19,7 @@ class TestimonyType extends AbstractType
             ->add('content', TextareaType::class, [
                 'label' => 'Votre témoignage',
                 'attr' => [
-                    'placeholder' => 'Votre témoignage doit faire au moins 50 caractères.'
+                    'placeholder' => 'Votre témoignage doit faire au moins 50 caractères.',
                 ],
             ])
             ->add('testimonyCategory', EntityType::class, [
@@ -27,13 +27,13 @@ class TestimonyType extends AbstractType
                 'class' => TestimonyCategory::class,
                 'choice_label' => 'name',
                 'placeholder' => 'Choisissez une catégorie',
-                'help' => 'Choisissez une catégorie pour votre témoignage.'
+                'help' => 'Choisissez une catégorie pour votre témoignage.',
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Envoyer mon témoignage',
                 'attr' => [
                     'class' => 'btn btn-style-two',
-                ]
+                ],
             ])
         ;
     }

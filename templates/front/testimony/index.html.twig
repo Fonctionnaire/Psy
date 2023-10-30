@@ -33,6 +33,13 @@
                     </ul>
                 </div>
             </div>
+            <div class="navigation testimonies-pagination">
+                {{ knp_pagination_render(testimonies, null, {}, {
+                    'align': 'center',
+                    'size': 'small',
+                    'rounded': true,
+                }) }}
+            </div>
             <div class="testimonies-list">
                 {% for testimony in testimonies %}
                     <div class="testimony-item">
@@ -60,6 +67,13 @@
                         <a class="btn btn-style-two">JE PROPOSE MON TÉMOIGNAGE</a>
                     </div>
                 {% endfor %}
+                <div class="navigation testimonies-pagination">
+                    {{ knp_pagination_render(testimonies, null, {}, {
+                        'align': 'center',
+                        'size': 'small',
+                        'rounded': true,
+                    }) }}
+                </div>
             </div>
         </div>
     </section>

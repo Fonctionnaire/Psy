@@ -38,7 +38,6 @@ class Testimony
     #[ORM\JoinColumn(nullable: false)]
     private ?TestimonyCategory $testimonyCategory = null;
 
-
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -121,5 +120,4 @@ class Testimony
 
         return $this;
     }
-
 }

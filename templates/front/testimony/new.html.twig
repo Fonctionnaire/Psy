@@ -13,7 +13,7 @@
                 </p>
             </div>
             <div id="testimony-form-new">
-                {{ form_start(form) }}
+                {{ form_start(form, {'attr': {'id': 'testimony_new_form'}}) }}
 
                 <div>
                     {{ form_label(form.testimonyCategory) }}<br>
@@ -32,5 +32,9 @@
             </div>
         </div>
     </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/disableTestimonyButton.js') }}"></script>
 {% endblock %}
 

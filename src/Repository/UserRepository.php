@@ -59,7 +59,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     }
 
     /**
-     * Used to find user by role
+     * Used to find user by role.
      */
     public function findByRole(string $role)
     {
@@ -68,7 +68,7 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->setParameter('role', '%'.$role.'%')
             ->getQuery()
             ->getResult()
-            ;
+        ;
     }
 
     //    /**

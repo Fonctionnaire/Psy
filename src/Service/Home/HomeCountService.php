@@ -7,12 +7,10 @@ use App\Repository\UserReviewRepository;
 
 class HomeCountService implements HomeCountServiceInterface
 {
-
     public function __construct(
         private readonly UserRepository $userRepository,
         private readonly UserReviewRepository $userReviewRepository
-    )
-    {
+    ) {
     }
 
     public function getHomeCount(): array
@@ -27,13 +25,17 @@ class HomeCountService implements HomeCountServiceInterface
             $total += $rate->getRate();
         }
 
-        $averageRate = ceil($total / $nbUserReviews);
+        if (0 === $nbUserReviews) {
+            $averageRate = 0;
+        } else {
+            $averageRate = ceil($total / $nbUserReviews);
+        }
 
         $datas = [
             'nbUsers' => $nbUsers,
             'nbVolunteers' => $nbVolunteers,
             'nbUserReviews' => $nbUserReviews,
-            'averageRate' => $averageRate
+            'averageRate' => $averageRate,
         ];
 
         return $datas;

@@ -1634,3 +1634,26 @@ footer .footer-copyright{
     padding-left: 0;
     color: red;
 }
+
+.testimonies-pagination .pagination{
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.testimonies-pagination .pagination .page-link span{
+    background: var(--my-text-brown) !important;
+}
+
+.testimonies-pagination .pagination .page-item{
+    border: 1px solid var(--my-brown) !important;
+}
+
+.testimonies-pagination .pagination .page-link{
+    color: var(--my-brown) !important;
+}
+
+.testimonies-pagination .pagination .active span{
+    background: var(--my-brown) !important;
+    color: var(--my-text-brown) !important;
+    border-color: var(--my-light-blue) !important;
+}
