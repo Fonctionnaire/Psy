@@ -4,6 +4,7 @@ namespace App\Tests\Controller\Front;
 
 use App\Entity\TestimonyCategory;
 use App\Entity\User;
+use App\Repository\TestimonyCategoryRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -14,12 +15,14 @@ class TestimonyControllerTest extends WebTestCase
     private KernelBrowser $client;
     private UserRepository $userRepository;
     private UserPasswordHasher $userPasswordHasher;
+    private TestimonyCategoryRepository $testimonyCategoryRepository;
 
     protected function setUp(): void
     {
         $this->client = static::createClient();
         $this->userPasswordHasher = $this->client->getContainer()->get('security.user_password_hasher');
         $this->userRepository = $this->client->getContainer()->get('doctrine.orm.entity_manager')->getRepository(User::class);
+        $this->testimonyCategoryRepository = self::getContainer()->get(TestimonyCategoryRepository::class);
     }
 
     private function createUser(): User
@@ -35,12 +38,14 @@ class TestimonyControllerTest extends WebTestCase
         return $user;
     }
 
-    public function createCategory(): TestimonyCategory
+    public function createCategory(): void
     {
-        return (new TestimonyCategory())
+        $category = new TestimonyCategory();
+        $category->setName('test')
             ->setName('test')
             ->setSlug('test')
         ;
+        $this->testimonyCategoryRepository->save($category, true);
     }
 
     public function testTestimonyIndexPage(): void
@@ -53,12 +58,14 @@ class TestimonyControllerTest extends WebTestCase
 
     public function testCreateTestimony(): void
     {
+        $this->createCategory();
+        $category = $this->testimonyCategoryRepository->findOneBy(['slug' => 'test']);
         $user = $this->createUser();
         $this->client->loginUser($user);
         $crawler = $this->client->request('GET', '/temoignages/nouveau-temoignage');
         $form = $crawler->selectButton('testimony[submit]')->form([
             'testimony[content]' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam lectus turpis, pharetra at faucibus et, aliquet at justo. Cras eget tempus turpis. Ut ac dapibus nunc. Donec viverra id libero id elementum. Pellentesque feugiat mi ac semper ullamcorper. In viverra felis nibh, ut feugiat sapien ultricies suscipit. Suspendisse eget eros quis ipsum vehicul',
-            'testimony[testimonyCategory]' => '10',
+            'testimony[testimonyCategory]' => $category->getId(),
         ]);
         $this->client->submit($form);
         $this->assertResponseRedirects();
