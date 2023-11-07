@@ -1,0 +1,38 @@
+{% apply inline_css(source('@styles/contactMail.css')) %}
+    <section id="contact-mail-section">
+        <div id="contact-mail-container">
+            <div class="contact-mail-header">
+                <h1>Nous avons bien reçu votre demande, <span>{{ contact.firstname }}</span> !</h1>
+            </div>
+            <div class="contact-mail-body">
+                <p>
+                    Votre demande nous est bien parvenue. Nous vous répondrons dans les plus brefs délais.<br>
+                </p>
+                <br>
+                <hr>
+                <br>
+                <p>
+                    - Récapitulatif de votre demande -
+                </p>
+                <br>
+                <p>
+                    Sujet : {{ contact.subject }}
+                </p>
+                <br>
+                <p>
+                    Votre message : <br>
+                    {{ contact.content }}
+                </p>
+            </div>
+            <div class="contact-mail-footer">
+                <a href="{{ host }}">Retour sur le site</a>
+            </div>
+        </div>
+        <div class="contact-mail-sign">
+            <p>
+                Prenez soin de vous.<br>
+                <a href="{{ host }}">My Mental Community</a>
+            </p>
+        </div>
+    </section>
+{% endapply %}
