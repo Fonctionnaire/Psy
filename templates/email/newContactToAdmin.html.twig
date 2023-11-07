@@ -1,0 +1,37 @@
+{% apply inline_css(source('@styles/contactMail.css')) %}
+    <section id="contact-mail-section">
+        <div id="contact-mail-container">
+            <div class="contact-mail-header">
+                <h1>Tu as un nouveau contact !</h1>
+            </div>
+            <div class="contact-mail-body">
+                <p>
+                    Terms : {{ contact.isTermsAccepted }}
+                </p>
+                <p>
+                   Prénom : {{ contact.firstname }}
+                </p>
+                <p>
+                    E-mail : {{ contact.email }}
+                </p>
+                <p>
+                    Sujet : {{ contact.subject }}
+                </p>
+                <p>
+                    Message : <br>
+                    {{ contact.content }}
+                </p>
+            </div>
+            <div class="contact-mail-footer">
+{#    TODO Changer le lien vers l'admin  #}
+                <a href="{{ host }}">Voir le message</a>
+            </div>
+        </div>
+        <div class="contact-mail-sign">
+            <p>
+                Prenez soin de vous.<br>
+                <a href="{{ host }}">My Mental Community</a>
+            </p>
+        </div>
+    </section>
+{% endapply %}

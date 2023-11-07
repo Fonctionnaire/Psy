@@ -159,6 +159,12 @@
         width: 100%;
     }
 
+    /* ============================== */
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form-section #contact-form-block .contact-form-inline .contact-form-input{
+        width: 100%;
+    }
 }
 @media all and (max-width: 772px) {
     /* ========= HOME ========= */

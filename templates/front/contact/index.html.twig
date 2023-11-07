@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{% endblock %}
+
+{% block body %}
+<section class="custom-section contact-form-section">
+    <div id="contact-form-section-content" class="custom-container custom-container-padding">
+        <h1>NOUS CONTACTER</h1>
+        <div id="contact-form-block">
+            {{ form_start(form) }}
+
+            <div class="contact-form-inline">
+                <div class="contact-form-input">
+                    {{ form_label(form.firstname) }}<br>
+                    {{ form_widget(form.firstname) }}
+                    {{ form_errors(form.firstname) }}
+                </div>
+                <div class="contact-form-input">
+                    {{ form_label(form.email) }}<br>
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                </div>
+            </div>
+            <div class="contact-form-input">
+                {{ form_label(form.subject) }}<br>
+                {{ form_widget(form.subject) }}
+                {{ form_errors(form.subject) }}
+            </div>
+            <div class="contact-form-input">
+                {{ form_label(form.content) }}<br>
+                {{ form_widget(form.content) }}
+                {{ form_errors(form.content) }}
+            </div>
+            <div class="contact-form-wmca">
+                <p>{{ form_label(form.w_m_c_a) }}</p>
+                {{ form_widget(form.w_m_c_a) }}
+                {{ form_errors(form.w_m_c_a) }}
+            </div>
+            <div class="contact-form-input contact-form-submit">
+                {{ form_widget(form.isTermsAccepted) }}
+                <label for="register_isAcceptedTerms" class="required">
+                    <span>J'accepte les <a href="{{ path('app_terms_legals') }}" target="_blank">mentions légales</a> et <a href="{{ path('app_terms_usage') }}" target="_blank">conditions d'utilisation</a> en vigueur</span></label>
+                {{ form_errors(form.isTermsAccepted) }}
+            </div>
+            <div class="contact-form-input contact-form-submit">
+                {{ form_widget(form.submit) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</section>
+{% endblock %}
+

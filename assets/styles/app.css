@@ -1657,3 +1657,63 @@ footer .footer-copyright{
     color: var(--my-text-brown) !important;
     border-color: var(--my-light-blue) !important;
 }
+
+/* ========================== */
+
+/*====== CONTACT FORM ============*/
+.contact-form-section{
+    background-image: url('../images/mailbox_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 90vh;
+}
+
+.contact-form-section h1{
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 2.2rem;
+    color: white;
+    text-shadow: var(--my-text-shadow);
+}
+
+.contact-form-section #contact-form-block{
+    background: rgba(0,0,0,0.8);
+    border: 2px solid var(--my-light-blue);
+    padding: 25px;
+    margin-top: 35px;
+}
+
+.contact-form-section #contact-form-block .contact-form-input{
+    margin-bottom: 25px;
+}
+
+.contact-form-section #contact-form-block .contact-form-inline{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact-form-section #contact-form-block .contact-form-inline .contact-form-input{
+    width: 48%;
+}
+
+.contact-form-section #contact-form-block .contact-form-input label{
+    color: var(--my-text-brown);
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.contact-form-section #contact-form-block .contact-form-input select{
+    width: 100%;
+}
+
+.contact-form-section #contact-form-block .contact-form-submit{
+    text-align: center;
+}
+
+.contact-form-section #contact-form-block .contact-form-wmca{
+    display: none;
+}
