@@ -193,6 +193,21 @@
         width: 100%;
     }
 
+    /* ============================== */
+    /* ====== CONVERSATION ======== */
+    .chat-index-section .chat-index-team{
+        & .chat-index-team-block{
+            justify-content: center;
+
+        }
+        & .chat-index-team-member{
+            width: 100%;
+        }
+        & .chat-index-team-member:first-of-type{
+            margin-bottom: 20px;
+        }
+    }
+
 }
 @media all and (max-width: 576px){
     .custom-container-padding{

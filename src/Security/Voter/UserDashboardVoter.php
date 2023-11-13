@@ -21,6 +21,17 @@ class UserDashboardVoter extends Voter
         /** @var User $user */
         $user = $token->getUser();
 
-        return $expectedUser === $user;
+        if(in_array('ROLE_ADMIN', $user->getRoles()))
+        {
+            return true;
+        }
+
+        if($expectedUser !== $user)
+        {
+            return false;
+        }
+
+
+        return true;
     }
 }

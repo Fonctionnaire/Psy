@@ -477,6 +477,13 @@ footer .footer-copyright{
     background-position: center;
 }
 
+.first-section-important .modal .modal-content .modal-body h5{
+    font-weight: bold;
+    color: white;
+    text-shadow: var(--my-text-shadow);
+    margin-bottom: 10px;
+}
+
 #understandHomeModal .modal-body{
     background-image: url('../images/reading_child_light.jpeg');
 }
@@ -1716,4 +1723,82 @@ footer .footer-copyright{
 
 .contact-form-section #contact-form-block .contact-form-wmca{
     display: none;
+}
+
+/* ========================== */
+
+/* ====== CONVERSATION ======= */
+/* INDEX */
+.chat-index-section{
+    background-image: url('../images/chat_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    & h1{
+        color: white;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-shadow: var(--my-text-shadow);
+    }
+
+    & .chat-index-block{
+        margin-bottom: 35px;
+    }
+
+    & .chat-index-block p{
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+        font-size: 1.4rem;
+    }
+
+    & .chat-index-block p:last-of-type{
+        font-size: 1.2rem;
+    }
+}
+
+.chat-index-section .chat-index-team{
+    border: 2px solid var(--my-light-blue);
+    background: rgba(0,0,0,0.8);
+    padding: 25px;
+
+    & h3{
+        color: var(--my-light-blue);
+        font-weight: bold;
+        font-size: 1.6rem;
+        margin-bottom: 35px;
+        text-align: center;
+    }
+
+    & .chat-index-team-block{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    & .chat-index-team-block img{
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    & .chat-index-team-member{
+        width: 30%;
+        text-align: center;
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+    }
+
+    & .chat-index-team-member p:first-of-type{
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: var(--my-light-blue);
+    }
+
+    & .chat-index-team-member p:last-of-type{
+        font-style: italic;
+    }
 }
