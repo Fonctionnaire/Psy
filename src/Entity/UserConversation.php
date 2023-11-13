@@ -32,7 +32,6 @@ class UserConversation
     #[ORM\OneToMany(mappedBy: 'userConversation', targetEntity: UserMessage::class, orphanRemoval: true)]
     private Collection $userMessages;
 
-
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();

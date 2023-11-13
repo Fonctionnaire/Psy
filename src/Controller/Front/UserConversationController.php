@@ -3,8 +3,6 @@
 namespace App\Controller\Front;
 
 use App\Entity\User;
-use App\Entity\UserConversation;
-use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,7 +11,6 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 #[Route('/message-prive', name: 'app_conversation_')]
 class UserConversationController extends AbstractController
 {
-
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
     {
@@ -26,13 +23,13 @@ class UserConversationController extends AbstractController
     public function checkUser(): Response
     {
         $user = $this->getUser();
-        if($user)
-        {
+        if ($user) {
             return $this->redirectToRoute('app_conversation_chat', [
                 'id' => $user->getId(),
-                'token' =>$user->getUserConversation()->getToken()
+                'token' => $user->getUserConversation()->getToken(),
             ]);
         }
+
         return $this->redirectToRoute('app_login');
     }
 
@@ -41,8 +38,7 @@ class UserConversationController extends AbstractController
     #[IsGranted('', subject: 'user')]
     public function chat(
         User $user,
-    ): Response
-    {
+    ): Response {
         return $this->render('front/userConversation/chat.html.twig', [
             'controller_name' => 'UserConversationController',
         ]);
