@@ -2,6 +2,8 @@
 
 namespace App\Service\Home;
 
+use App\Repository\TestimonyRepository;
+use App\Repository\UserMessageRepository;
 use App\Repository\UserRepository;
 use App\Repository\UserReviewRepository;
 
@@ -9,7 +11,9 @@ class HomeCountService implements HomeCountServiceInterface
 {
     public function __construct(
         private readonly UserRepository $userRepository,
-        private readonly UserReviewRepository $userReviewRepository
+        private readonly UserReviewRepository $userReviewRepository,
+        private readonly UserMessageRepository $userMessageRepository,
+        private readonly TestimonyRepository $testimonyRepository
     ) {
     }
 
@@ -19,6 +23,9 @@ class HomeCountService implements HomeCountServiceInterface
         $nbVolunteers = $this->userRepository->count(['isAccountValidated' => true, 'isVolunteer' => true]);
         $nbUserReviews = $this->userReviewRepository->count(['isValidated' => true]);
         $rates = $this->userReviewRepository->findByIsValidated();
+
+        $nbUserMessages = $this->userMessageRepository->count(['isValid' => true]);
+        $nbUserTestimony = $this->testimonyRepository->count(['isValidated' => true]);
 
         $total = 0;
         foreach ($rates as $rate) {
@@ -36,6 +43,8 @@ class HomeCountService implements HomeCountServiceInterface
             'nbVolunteers' => $nbVolunteers,
             'nbUserReviews' => $nbUserReviews,
             'averageRate' => $averageRate,
+            'nbUserMessages' => $nbUserMessages,
+            'nbUserTestimony' => $nbUserTestimony,
         ];
 
         return $datas;

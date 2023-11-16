@@ -3,7 +3,12 @@
 namespace App\Controller\Front;
 
 use App\Entity\User;
+use App\Entity\UserMessage;
+use App\Form\UserMessageType;
+use App\Security\Handler\UserConversationHandlerInterface;
+use App\Service\Paginator\ConversationPaginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
@@ -11,6 +16,8 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 #[Route('/message-prive', name: 'app_conversation_')]
 class UserConversationController extends AbstractController
 {
+    public const MESSAGE_PER_PAGE = 10;
+
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
     {
@@ -38,9 +45,28 @@ class UserConversationController extends AbstractController
     #[IsGranted('', subject: 'user')]
     public function chat(
         User $user,
+        Request $request,
+        UserConversationHandlerInterface $userConversationHandler,
+        ConversationPaginator $conversationPaginator
     ): Response {
+        $userMessage = new UserMessage();
+        $form = $this->createForm(UserMessageType::class, $userMessage);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $userConversationHandler($user, $userMessage);
+
+            return $this->redirectToRoute('app_conversation_chat', [
+                'id' => $user->getId(),
+                'token' => $user->getUserConversation()->getToken(),
+            ]);
+        }
+
+        // TODO Pagination et EMAIL
         return $this->render('front/userConversation/chat.html.twig', [
-            'controller_name' => 'UserConversationController',
+            'user' => $user,
+            'messages' => $conversationPaginator($userMessage, $user, self::MESSAGE_PER_PAGE),
+            'form' => $form,
         ]);
     }
 }

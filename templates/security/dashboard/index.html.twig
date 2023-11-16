@@ -40,7 +40,7 @@
                 <div class="dashboard-infos-list">
                     <div class="dashboard-section-blocks">
                         <h5>MES MESSAGES PRIVÉS</h5>
-                        <p><span>{{ user.userMessages|length }}</span></p>
+                        <p><span>{{ user.userConversation.userMessages|length }}</span></p>
                         <div>
                             <a href="{{ path('app_conversation_chat', {'id': user.id, 'token': user.userConversation.token}) }}" class="btn btn-style-two">ACCÉDER</a>
                         </div>
