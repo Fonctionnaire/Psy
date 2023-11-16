@@ -131,7 +131,7 @@
                         </ul>
                     </div>
                     <div class="help-section-block-item-button">
-                        <a href="#" class="btn btn-style-two">MESSAGE PRIVÉ</a>
+                        <a href="{{ path('app_conversation_index') }}" class="btn btn-style-two">MESSAGE PRIVÉ</a>
                     </div>
                 </div>
             </div>
@@ -155,11 +155,11 @@
                         <p>Sujets sur le forum</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-regular fa-comment"></i> 500</span>
+                        <span><i class="fa-regular fa-comment"></i> {{ homeCount.nbUserMessages }}</span>
                         <p>Messages privés</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-solid fa-comment-medical"></i> 25</span>
+                        <span><i class="fa-solid fa-comment-medical"></i> {{ homeCount.nbUserTestimony }}</span>
                         <p>Témoignages</p>
                     </div>
                     <div class="home-data-numbers-info-item">

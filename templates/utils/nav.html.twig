@@ -34,6 +34,10 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
+                            <li><a class="dropdown-item" href="#">L'agoraphobie</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="#">La dépression</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -94,7 +98,7 @@
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Message privé</a></li>
+                            <li><a class="dropdown-item" href="{{ path('app_conversation_index') }}">Message privé</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -150,7 +154,7 @@
                         {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn nav-btn-direct-message" aria-current="page" href="{{ path('app_home_index') }}">MESSAGE PRIVÉ</a>
+                        <a class="nav-link btn nav-btn-direct-message" aria-current="page" href="{{ path('app_conversation_index') }}">MESSAGE PRIVÉ</a>
                     </li>
                 </ul>
             </div>

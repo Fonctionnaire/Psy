@@ -3,7 +3,9 @@
 namespace App\Controller\Security;
 
 use App\Entity\User;
+use App\Entity\UserConversation;
 use App\Form\RegisterType;
+use App\Repository\UserConversationRepository;
 use App\Repository\UserRepository;
 use App\Service\Email\VerifyAccountMailInterface;
 use Doctrine\ORM\EntityManagerInterface;
@@ -21,7 +23,8 @@ class RegisterController extends AbstractController
         Request $request,
         UserRepository $userRepository,
         UserPasswordHasherInterface $hasher,
-        VerifyAccountMailInterface $verifyAccountMail
+        VerifyAccountMailInterface $verifyAccountMail,
+        UserConversationRepository $userConversationRepository
     ): Response {
         if ($this->getUser()) {
             $this->addFlash('warning', 'Vous êtes déjà connecté.e.');
@@ -38,6 +41,11 @@ class RegisterController extends AbstractController
             $user->setRoles(['ROLE_USER']);
             $user->setPassword($hasher->hashPassword($user, $form->get('password')->getData()));
             $userRepository->save($user, true);
+
+            $userConversation = new UserConversation();
+            $userConversation->setUser($user);
+            $userConversationRepository->save($userConversation, true);
+
             $verifyAccountMail($user);
             $this->addFlash('success', 'Votre compte a bien été créé. Vous allez recevoir un email afin de confirmer votre inscription.');
 

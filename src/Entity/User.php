@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -79,10 +81,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Testimony $testimony = null;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?UserConversation $userConversation = null;
+
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserMessage::class, orphanRemoval: true)]
+    private Collection $userMessages;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->registrationToken = Uuid::v4();
+        $this->userMessages = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -317,6 +326,53 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         $this->testimony = $testimony;
+
+        return $this;
+    }
+
+    public function getUserConversation(): ?UserConversation
+    {
+        return $this->userConversation;
+    }
+
+    public function setUserConversation(UserConversation $userConversation): static
+    {
+        // set the owning side of the relation if necessary
+        if ($userConversation->getUser() !== $this) {
+            $userConversation->setUser($this);
+        }
+
+        $this->userConversation = $userConversation;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, UserMessage>
+     */
+    public function getUserMessages(): Collection
+    {
+        return $this->userMessages;
+    }
+
+    public function addUserMessage(UserMessage $userMessage): static
+    {
+        if (!$this->userMessages->contains($userMessage)) {
+            $this->userMessages->add($userMessage);
+            $userMessage->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUserMessage(UserMessage $userMessage): static
+    {
+        if ($this->userMessages->removeElement($userMessage)) {
+            // set the owning side to null (unless already changed)
+            if ($userMessage->getUser() === $this) {
+                $userMessage->setUser(null);
+            }
+        }
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Tests\Controller\Security;
 
 use App\Entity\User;
+use App\Entity\UserConversation;
+use App\Repository\UserConversationRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -13,22 +15,31 @@ class UserDashboardControllerTest extends WebTestCase
     private KernelBrowser $client;
     private UserRepository $userRepository;
     private UserPasswordHasher $userPasswordHasher;
+    private UserConversationRepository $userConversationRepository;
 
     protected function setUp(): void
     {
         $this->client = static::createClient();
         $this->userPasswordHasher = $this->client->getContainer()->get('security.user_password_hasher');
         $this->userRepository = $this->client->getContainer()->get('doctrine.orm.entity_manager')->getRepository(User::class);
+        $this->userConversationRepository = $this->client->getContainer()->get('doctrine.orm.entity_manager')->getRepository(UserConversation::class);
     }
 
     private function createUser(): User
     {
         $user = new User();
+        $userConversation = new UserConversation();
+
         $user
             ->setEmail('user@email.fr')
             ->setPassword($this->userPasswordHasher->hashPassword($user, 'UserPassword1#'))
             ->setUsername('username')
-            ->setRoles(['ROLE_USER']);
+            ->setRoles(['ROLE_USER'])
+            ->setUserConversation($userConversation)
+        ;
+        $userConversation->setUser($user)
+        ;
+        $this->userConversationRepository->save($userConversation, true);
         $this->userRepository->save($user, true);
 
         return $user;

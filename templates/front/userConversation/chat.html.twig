@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+{% endblock %}
+{% block body %}
+    <section class="custom-section chat-section">
+        <div id="chat" class="custom-container custom-container-padding">
+            <h1>MA CONVERSATION</h1>
+            <div class="navigation testimonies-pagination">
+                {{ knp_pagination_render(messages, null, {}, {
+                    'align': 'center',
+                    'size': 'small',
+                    'rounded': true,
+                }) }}
+            </div>
+            <div class="chat-block">
+                {% for message in messages %}
+                    {% if message.isAdmin == true %}
+                        <div class="chat-item-admin">
+                            <div class="chat-item-header">
+                                <div class="chat-item-img">
+                                    <img src="{{ asset('images/team/IMG_20221012_170021_2.jpg') }}" alt="{{ message.user.username }}">
+                                </div>
+                                <div class="chat-item-username">
+                                    <p>{{ message.user.username }}</p>
+                                </div>
+                                <div class="chat-item-date">
+                                    <p>Le {{ message.createdAt|date('d/m/y à H:i') }}</p>
+                                </div>
+                            </div>
+                            <div class="chat-item-body">
+                                {{ message.content|raw }}
+                            </div>
+                            <div class="chat-item-footer">
+                                <a href="#chat-answer-anchor" class="btn btn-style-chat" onclick="copyText(this)">citer</a>
+                            </div>
+                        </div>
+
+                        {% else %}
+
+                            <div class="chat-item">
+                                <div class="chat-item-header">
+                                    <div class="chat-item-username">
+                                        <p>{{ message.user.username }}</p>
+                                    </div>
+                                    <div class="chat-item-date">
+                                        <p>Le {{ message.createdAt|date('d/m/y à H:i') }}</p>
+                                    </div>
+                                </div>
+                                <div class="chat-item-body">
+                                    {{ message.content|raw }}
+                                </div>
+                                <div class="chat-item-footer">
+                                    <a href="#chat-answer-anchor" class="btn btn-style-chat" onclick="copyText(this)">citer</a>
+                                </div>
+                            </div>
+                    {% endif %}
+
+                    {% else %}
+                        <div class="chat-item-no-message">
+                            <p>Pas encore de message dans votre conversation.</p>
+                            <p>N'hésitez pas à nous écrire à tout moment, et à nous poser toutes les questions que vous avez. Nous prendrons toujours du temps pour vous répondre et essayer de vous aider de notre mieux.</p>
+                        </div>
+                {% endfor %}
+                <div class="navigation testimonies-pagination">
+                    {{ knp_pagination_render(messages, null, {}, {
+                        'align': 'center',
+                        'size': 'small',
+                        'rounded': true,
+                    }) }}
+                </div>
+                <div id="chat-answer-anchor" class="chat-form-answer">
+                    {{ form_start(form, {'attr': {'id': 'user_conversation_new_form'}}) }}
+                    <label for="user_message_content">Votre message</label>
+                    <input id="user_message_content" value="" type="hidden" name="user_message[content]">
+                    <trix-editor input="user_message_content" class="trix-content"></trix-editor>
+                    <div>
+                        {{ form_widget(form.submit) }}
+                    </div>
+                    {{ form_end(form, {render_rest: false}) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/conversation.js') }}"></script>
+    <script src="{{ asset('js/disableChatButton.js') }}"></script>
+{% endblock %}

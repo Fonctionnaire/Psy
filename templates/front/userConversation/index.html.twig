@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <section class="custom-section chat-index-section">
+        <div id="chat-index" class="custom-container custom-container-padding">
+            <h1>MESSAGES PRIVÉS</h1>
+            <div class="chat-index-block">
+                <div>
+                    <p>« Discuter à cœur ouvert avec une personne inconnue, objective, qui ne juge pas et qui comprend ce que vous traversez peut faire beaucoup de bien. »</p>
+                    <p>
+                        Nous vous proposons de venir discuter de ce que vous traversez avec nous, et de nous poser toutes les questions que vous souhaitez. Nous vous accompagnerons et soutiendrons de notre mieux en étant à votre écoute, et en vous proposant des solutions à mettre en place pour aller mieux.
+                    </p>
+                    <p>
+                        P.S. : nous ne sommes pas des professionnels de la santé, mais des personnes ayant vécu des situations similaires à la vôtre. N'hésitez pas à nous tutoyer.
+                    </p>
+                </div>
+                <a href="{{ path('app_conversation_check') }}" class="btn btn-style-two">MA CONVERSATION PRIVÉE</a>
+            </div>
+            <div class="chat-index-team">
+                <h3>VOS INTERLOCUTEURS</h3>
+                <div class="chat-index-team-block">
+                    <div class="chat-index-team-member">
+                        <img src="{{ asset('images/team/IMG_20221012_170021_2.jpg') }}" alt="Thibaut">
+                        <p>Thibaut</p>
+                        <p>« Début 2010, j'ai subi un burnout professionnel. Quelque temps plus tard, cela s'est transformé en trouble anxieux généralisé (TAG), puis en trouble panique avec agoraphobie et dépression. » </p>
+                    </div>
+                    <div class="chat-index-team-member">
+                        <img src="{{ asset('images/birds_light.jpeg') }}" alt="Lilie">
+                        <p>Lilie</p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

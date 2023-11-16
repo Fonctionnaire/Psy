@@ -165,6 +165,13 @@
     .contact-form-section #contact-form-block .contact-form-inline .contact-form-input{
         width: 100%;
     }
+
+    /* ======================== */
+
+    /* ===== CONVERSATION ===== */
+    .chat-section .chat-block .chat-form-answer {
+        width: 100%;
+    }
 }
 @media all and (max-width: 772px) {
     /* ========= HOME ========= */
@@ -191,6 +198,21 @@
 
     .dashboard-section .dashboard-help-section .dashboard-help-block{
         width: 100%;
+    }
+
+    /* ============================== */
+    /* ====== CONVERSATION ======== */
+    .chat-index-section .chat-index-team{
+        & .chat-index-team-block{
+            justify-content: center;
+
+        }
+        & .chat-index-team-member{
+            width: 100%;
+        }
+        & .chat-index-team-member:first-of-type{
+            margin-bottom: 20px;
+        }
     }
 
 }
