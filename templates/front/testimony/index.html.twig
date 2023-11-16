@@ -53,13 +53,15 @@
                             </div>
                         </div>
                         <div class="testimonies-item-body">
-                            {{ testimony.content|slice(0, 350)|raw }} ...
+                            {{ testimony.content|slice(0, 350)|striptags }} ...
                         </div>
-                        <a href="{{ path('app_testimony_show', {'token': testimony.token}) }}">
-                        <div class="testimonies-item-footer">
-                            <p>Lire la suite</p>
+                        <div>
+                            <a href="{{ path('app_testimony_show', {'token': testimony.token}) }}">
+                            <div class="testimonies-item-footer">
+                                <p>Lire la suite</p>
+                            </div>
+                            </a>
                         </div>
-                        </a>
                     </div>
                 {% else %}
                     <div class="testimonies-list-null">

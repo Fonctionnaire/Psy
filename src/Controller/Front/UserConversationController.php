@@ -62,7 +62,6 @@ class UserConversationController extends AbstractController
             ]);
         }
 
-        // TODO Pagination et EMAIL
         return $this->render('front/userConversation/chat.html.twig', [
             'user' => $user,
             'messages' => $conversationPaginator($userMessage, $user, self::MESSAGE_PER_PAGE),

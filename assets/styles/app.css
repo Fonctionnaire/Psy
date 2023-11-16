@@ -1633,7 +1633,7 @@ footer .footer-copyright{
     color: var(--my-text-brown);
     font-size: 1.2rem;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
 }
 
 .testimony-section #testimony-form-new form select, .testimony-section #testimony-form-new form textarea{
@@ -1649,7 +1649,7 @@ footer .footer-copyright{
     margin: 25px 0;
 }
 
-.testimony-section #testimony-form-new form div:last-of-type{
+.testimony-section #testimony-form-new form div.testimony-form-submit-button{
     text-align: center;
 }
 
@@ -1973,7 +1973,7 @@ trix-toolbar [type="button"]{
     background: white !important;
 }
 
-trix-editor[input="user_message_content"]{
+trix-editor[input="user_message_content"], trix-editor[input="testimony_content"]{
     background: white !important;
     min-height: 200px;
     padding: 15px;

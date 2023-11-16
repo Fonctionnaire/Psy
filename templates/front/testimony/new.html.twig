@@ -2,7 +2,11 @@
 {% block title %}
 
 {% endblock %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+{% endblock %}
 {% block body %}
     <section class="custom-section testimony-section">
         <div id="testimony-section-list" class="custom-container custom-container-padding">
@@ -21,14 +25,15 @@
                     {{ form_errors(form.testimonyCategory) }}
                 </div>
                 <div>
-                    {{ form_label(form.content) }}<br>
-                    {{ form_widget(form.content) }}
+                    <label for="testimony_content">Votre témoignage</label>
+                    <input id="testimony_content" value="" type="hidden" name="testimony[content]">
+                    <trix-editor input="testimony_content" class="trix-content"></trix-editor>
                     {{ form_errors(form.content) }}
                 </div>
-                <div>
+                <div class="testimony-form-submit-button">
                     {{ form_widget(form.submit) }}
                 </div>
-                {{ form_end(form) }}
+                {{ form_end(form, {render_rest: false}) }}
             </div>
         </div>
     </section>
