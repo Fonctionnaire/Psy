@@ -4,14 +4,16 @@ namespace App\Security\Handler;
 
 use App\Entity\User;
 use App\Entity\UserMessage;
-use App\Repository\UserMessageRepository;
+use App\Service\Email\ConversationMailInterface;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class userConversationHandler extends AbstractController implements userConversationHandlerInterface
 {
-    public function __construct(private readonly UserMessageRepository $userMessageRepository, private readonly EntityManagerInterface $em)
-    {
+    public function __construct(
+        private readonly EntityManagerInterface $em,
+        private readonly ConversationMailInterface $conversationMail,
+    ) {
     }
 
     public function __invoke(User $user, UserMessage $userMessage): void
@@ -31,15 +33,14 @@ class userConversationHandler extends AbstractController implements userConversa
         $userMessage->setUserConversation($userConversation);
         $userMessage->setUser($this->getUser());
 
-        //        $this->userMessageRepository->save($userMessage, true);
-
         $this->em->persist($userMessage);
         $this->em->flush();
-        //        if($this->isGranted('ROLE_ADMIN')) {
-        // //            $this->tchatMailToUser->__invoke($user);
-        //        }else{
-        // //            $this->tchatMailToAdmin->__invoke($user);
-        //        }
+
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $this->conversationMail->sendToUser($user);
+        } else {
+            $this->conversationMail->sendToAdmin($user);
+        }
 
         $this->addFlash('success', 'Votre message a bien été envoyé');
     }
