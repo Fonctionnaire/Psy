@@ -172,6 +172,13 @@
     .chat-section .chat-block .chat-form-answer {
         width: 100%;
     }
+
+    /* ======================== */
+
+    /* ===== KNOWLEDGE ===== */
+    .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
+        width: 32%;
+    }
 }
 @media all and (max-width: 772px) {
     /* ========= HOME ========= */
@@ -282,6 +289,18 @@
     .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu{
         min-width: 70%;
     }
+    /* ======================== */
 
+    /* ===== KNOWLEDGE ===== */
+    .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
+        width: 49%;
+    }
+}
+
+@media all and (max-width: 420px){
+    /* ===== KNOWLEDGE ===== */
+    .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
+        width: 100%;
+    }
 }
 

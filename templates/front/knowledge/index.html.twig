@@ -1,0 +1,98 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <section class="custom-section knowledge-index-section knowledge-index-background">
+        <div id="knowledge-index-content" class="custom-container custom-container-padding">
+            <h1>TOUT SAVOIR</h1>
+            <div class="knowledge-index-content-block">
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_anxiety') }}">
+                        <img src="{{ asset('images/anxiety_background_light_darked.jpeg') }}" alt="trouble anxieux généralisé">
+                        <div>
+                            <h2>Le trouble anxieux généralisé</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_anxiety_attack') }}">
+                        <img src="{{ asset('images/anxiety_attack_background_light_darked.jpeg') }}" alt="Crise d'angoisse">
+                        <div>
+                            <h2>La crise d'angoisse</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_panic_attack') }}">
+                        <img src="{{ asset('images/panic_attack_background_light_darked.jpeg') }}" alt="Attaque de panique">
+                        <div>
+                            <h2>L'attaque de panique</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_panic_disorder') }}">
+                        <img src="{{ asset('images/panic_disorder_background_light_darked.jpeg') }}" alt="Trouble panique">
+                        <div>
+                            <h2>Le trouble panique</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_bipolar') }}">
+                        <img src="{{ asset('images/bipolar_background_light_darked.jpeg') }}" alt="Trouble bipolaire">
+                        <div>
+                            <h2>Le trouble bipolaire</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_agoraphobia') }}">
+                        <img src="{{ asset('images/agoraphobia_background_light_darked.jpeg') }}" alt="Agoraphobie">
+                        <div>
+                            <h2>L'agoraphobie</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_depression') }}">
+                        <img src="{{ asset('images/depression_2_background_light_darked.jpeg') }}" alt="Dépression">
+                        <div>
+                            <h2>La dépression</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_burnout') }}">
+                        <img src="{{ asset('images/burnout_background_light_darked.jpeg') }}" alt="Burnout">
+                        <div>
+                            <h2>Le burnout</h2>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_phobia') }}">
+                        <img src="{{ asset('images/phobia_background_light_darked.jpeg') }}" alt="Phobies">
+                        <div>
+                            <h2>Les phobies</h2>
+                        </div>
+                    </a>
+                </div>
+                <div class="knowledge-index-item">
+                    <a href="{{ path('app_knowledge_loneliness') }}">
+                        <img src="{{ asset('images/loneliness_background_light_darked.jpeg') }}" alt="Solitude">
+                        <div>
+                            <h2>La solitude</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+

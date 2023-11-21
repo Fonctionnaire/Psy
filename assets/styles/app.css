@@ -394,6 +394,7 @@ footer .footer-copyright{
     padding: 20px;
     border-radius: 10px;
     margin-top: 30px;
+    text-align: justify;
 }
 
 .home-first-section h1
@@ -412,6 +413,10 @@ footer .footer-copyright{
     text-shadow: var(--my-text-shadow);
 }
 
+.home-first-section .home-presentation-quote{
+    text-align: center;
+    font-style: italic;
+}
 
 .home-first-section #first-section-content .first-section-buttons
 {
@@ -499,6 +504,10 @@ footer .footer-copyright{
     color: white;
     text-shadow: var(--my-text-shadow);
     margin-bottom: 10px;
+}
+
+#whatToDoHomeModal .modal-body{
+    background-image: url('../images/whattodo_background_light_darked.jpeg');
 }
 
 #understandHomeModal .modal-body{
@@ -1980,7 +1989,6 @@ trix-editor[input="user_message_content"], trix-editor[input="testimony_content"
 }
 
 trix-editor[input="user_message_content"] blockquote{
-    background: red;
     padding: 10px;
     display: block;
     font-size: 0.9rem;
@@ -1991,4 +1999,196 @@ trix-editor[input="user_message_content"] blockquote{
 
 trix-editor[input="user_message_content"]:focus{
     border: 2px solid var(--my-light-blue) !important;
+}
+
+/* ========== KNOWLEDGE SECTION ========== */
+/* INDEX */
+.knowledge-index-section {
+    min-height: 90vh;
+    background-image: url('../images/knowledge_index_background_light.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    & h1 {
+        color: white;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-shadow: var(--my-text-shadow);
+    }
+}
+
+.knowledge-index-section .knowledge-index-content-block{
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+
+    & .knowledge-index-item{
+        width: 24%;
+        height: 200px;
+        position: relative;
+        border: 2px solid var(--my-text-brown);
+        transition: 0.2s;
+        margin-bottom: 15px;
+        & img{
+            width: 100%;
+            object-fit: cover;
+            height: 100%;
+        }
+        & a{
+            color: var(--my-text-brown);
+            text-decoration: none;
+        }
+        & div{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            text-align: center;
+            padding: 15px 0;
+            & h2{
+                font-size: 1rem;
+                margin: 0;
+            }
+        }
+    }
+    & .knowledge-index-item:hover {
+        border: 2px solid var(--my-brown);
+        transition: 0.2s;
+        transform: scale(1.05);
+        & a{
+            color: var(--my-light-blue);
+        }
+    }
+}
+
+/* ====== */
+.anxiety-background{
+    background-image: url('../images/anxiety_background_light_darked.jpeg');
+}
+
+.anxiety-attack-background{
+    background-image: url('../images/anxiety_attack_background_light_darked.jpeg');
+}
+
+.panic-attack-background{
+    background-image: url('../images/panic_attack_background_light_darked.jpeg');
+}
+
+.agoraphobia-background{
+    background-image: url('../images/agoraphobia_background_light_darked.jpeg');
+}
+
+.depression-background{
+    background-image: url('../images/depression_2_background_light_darked.jpeg');
+}
+
+.burnout-background{
+    background-image: url('../images/burnout_background_light_darked.jpeg');
+}
+
+.phobia-background{
+    background-image: url('../images/phobia_background_light_darked.jpeg');
+}
+
+.loneliness-background{
+    background-image: url('../images/loneliness_background_light_darked.jpeg');
+}
+
+.bipolar-background{
+    background-image: url('../images/bipolar_background_light_darked.jpeg');
+}
+
+.understand-background{
+    background-image: url('../images/understand_background_light_darked.jpeg');
+}
+
+.doctor-background{
+    background-image: url('../images/doctor_background_light_darked.jpeg');
+}
+
+.psy-background{
+    background-image: url('../images/psy_background_light_darked.jpeg');
+}
+
+.advice-background{
+    background-image: url('../images/advice_background_light_darked.jpeg');
+}
+
+.exercice-background{
+    background-image: url('../images/exercice_background_light_darked.jpeg');
+}
+
+.relative-background{
+    background-image: url('../images/relative_background_light_darked.jpeg');
+}
+
+.panic-disorder-background{
+    background-image: url('../images/panic_disorder_background_light_darked.jpeg');
+}
+
+.knowledge-section{
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 90vh;
+
+
+    & .knowledge-content-block{
+        background: rgba(0,0,0,0.5);
+        border: 2px solid var(--my-light-blue);
+        padding: 25px;
+
+    }
+
+    & h1{
+        color: white;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-shadow: var(--my-text-shadow);
+    }
+    & h2{
+        color: var(--my-light-blue);
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-shadow: var(--my-text-shadow);
+        margin-bottom: 15px;
+    }
+    & p{
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+        font-size: 1.2rem;
+    }
+    & .knowledge-final-string{
+        font-weight: bold;
+    }
+    & ul li{
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+        font-size: 1.2rem;
+    }
+
+    & .accordion .accordion-item{
+        background: transparent;
+        & h2{
+            margin: 0;
+        }
+        & ol li{
+            color: var(--my-text-brown);
+            text-shadow: var(--my-text-shadow);
+            font-size: 1.2rem;
+        }
+        & .accordion-header .accordion-button{
+            background: var(--my-brown);
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        & .accordion-button::after{
+            background-color: var(--my-text-brown);
+            border-radius: 15px;
+        }
+    }
 }
