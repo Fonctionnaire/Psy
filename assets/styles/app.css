@@ -2014,6 +2014,11 @@ trix-editor[input="user_message_content"]:focus{
         font-size: 2.2rem;
         text-shadow: var(--my-text-shadow);
     }
+    & p{
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+        font-size: 1.2rem;
+    }
 }
 
 .knowledge-index-section .knowledge-index-content-block{
@@ -2021,7 +2026,6 @@ trix-editor[input="user_message_content"]:focus{
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-
     & .knowledge-index-item{
         width: 24%;
         height: 200px;
@@ -2189,6 +2193,50 @@ trix-editor[input="user_message_content"]:focus{
         & .accordion-button::after{
             background-color: var(--my-text-brown);
             border-radius: 15px;
+        }
+    }
+}
+/* ========================== */
+/* ====== VOLUNTEER ======= */
+/* INDEX */
+.volunteer-index-section{
+    background-image: url('../images/community_light_darked.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90vh;
+    background-attachment: fixed;
+    & h1{
+        color: white;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-shadow: var(--my-text-shadow);
+    }
+    & p{
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+        font-size: 1.2rem;
+    }
+}
+
+.volunteer-index-section .volunteer-index-content-block{
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    & .volunteer-index-item {
+        width: 24%;
+        height: 200px;
+        position: relative;
+        border: 2px solid var(--my-text-brown);
+        transition: 0.2s;
+        margin-bottom: 15px;
+    }
+    & .volunteer-index-item:hover {
+        border: 2px solid var(--my-brown);
+        transition: 0.2s;
+        transform: scale(1.05);
+        & a{
+            color: var(--my-light-blue);
         }
     }
 }
