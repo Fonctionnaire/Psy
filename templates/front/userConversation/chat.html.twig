@@ -80,6 +80,7 @@
                     <label for="user_message_content">Votre message</label>
                     <input id="user_message_content" value="" type="hidden" name="user_message[content]">
                     <trix-editor input="user_message_content" class="trix-content"></trix-editor>
+                    {{ form_errors(form.content) }}
                     <div>
                         {{ form_widget(form.submit) }}
                     </div>

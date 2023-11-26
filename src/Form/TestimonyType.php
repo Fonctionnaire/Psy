@@ -42,6 +42,7 @@ class TestimonyType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Testimony::class,
+            'csrf_protection' => false,
         ]);
     }
 }

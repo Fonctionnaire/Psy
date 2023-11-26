@@ -11,20 +11,23 @@
     <section class="custom-section home-first-section">
         <div id="first-section-content" class="custom-container custom-container-padding">
             <div class="first-section-block">
-                <h1>CECI EST MON TITRE PRINCIPAL</h1>
+                <h1>MY MIND COMMUNITY</h1>
                 <p>
-                    Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
+                    My Mind Community est une communauté d'entraide et de soutien pour les personnes souffrant de troubles psychologiques. Notre objectif est de vous aider à vous sentir mieux, à vous accompagner et à vous soutenir dans votre guérison. Vous trouverez ici toutes les informations nécessaires pour comprendre ce que vous traversez, les démarches à suivre, les personnes à contacter et une communauté prête à vous aider.
+                </p>
+                <p>
+                    Vous pouvez également partager votre expérience, vos victoires et vos difficultés avec la communauté afin de vous sentir soutenu.e et accompagné.e.
+                </p>
+                <p class="home-presentation-quote">
+                    « Vous pouvez compter sur nous, nous sommes là pour vous »
                 </p>
             </div>
             <div class="first-section-buttons">
                 <div>
-                    <a href="" class="btn btn-style-one">QUOI FAIRE ?</a>
-                    {# TODO Liste des choses à faire (médecin/psy/relaxation/etc) #}
+                    <a data-bs-toggle="modal" data-bs-target="#whatToDoHomeModal" class="btn btn-style-one">QUOI FAIRE ?</a>
                 </div>
                 <div>
-                    <a href="" class="btn btn-style-two">TOUT SAVOIR</a>
-                    {# TODO Liste des aspect psy (Peur d'avoir peur/anticipation/fuite/Pensées anxieuses/crise d'angoisse/attaque de panique. Page avec cadres, comme POINTS IMPORTANT #}
-
+                    <a href="{{ path('app_knowledge_index') }}" class="btn btn-style-two">TOUT SAVOIR</a>
                 </div>
             </div>
             <div class="first-section-important">
@@ -32,7 +35,6 @@
                 <div class="first-section-important-cards">
                     <div class="important-card">
                         <a data-bs-toggle="modal" data-bs-target="#understandHomeModal">
-                            {# TODO Trouble psy connaitre théorie #}
                             <img src="{{ asset('images/reading_child_light.jpeg') }}" alt="Tout savoir">
 
                             <div class="important-card-text">
@@ -64,8 +66,6 @@
                     <div class="important-card">
                         <a data-bs-toggle="modal" data-bs-target="#communityHomeModal">
                             <img src="{{ asset('images/dog_community_light.jpeg') }}" alt="Toute une communauté pour vous">
-                            {# TODO Discussion / Forum / Message privé #}
-
                             <div class="important-card-text">
                                 <h5>En parler</h5>
                                 <p>afin d'être soutenu</p>
@@ -82,11 +82,17 @@
             <h2>UNE COMMUNAUTÉ EN DEVENIR, PRÊTE À VOUS SOUTENIR</h2>
             <div class="second-section-content-block">
                 <p>
-                    Suspendisse dolor ex, mattis at erat in, scelerisque auctor orci. Etiam gravida eget erat ut sagittis. Vivamus hendrerit erat ligula, lobortis accumsan risus vestibulum id. Nulla aliquam hendrerit ipsum, vitae congue velit. Ut ac justo tortor. Duis sed consectetur enim, ac sollicitudin lectus. Proin at sagittis leo, eget varius ante. Vestibulum in sapien vitae tortor efficitur finibus. Fusce eu maximus lectus, id pharetra nibh. Mauris nec suscipit erat. Cras leo urna, suscipit eget tempor malesuada, fringilla nec orci. Cras vestibulum laoreet urna, ut luctus arcu luctus et. Suspendisse dolor orci, tempor nec rhoncus nec, elementum id enim. Curabitur quis vehicula mi. Duis vestibulum sodales elit, at tristique tortor pulvinar vitae. Aliquam mollis non arcu vel ornare.
+                    Sur My Mind Community, notre but est de former une communauté de soutien en qui vous pouvez avoir confiance. Les personnes prêtes à vous aider ici ont vécu ou vive encore ce que vous traversez. Cette compréhension de votre mal-être est un atout majeur pour vous aider à vous sentir mieux.
+                </p>
+                <p>
+                    Vous pouvez également compter sur notre équipe de bénévoles, prête à vous aider et à vous soutenir dans votre guérison. Ils sont là pour vous écouter, vous conseiller et vous accompagner dans votre démarche de guérison.
+                </p>
+                <p>
+                    Et qui sait, peut-être que vous pourrez à votre tour aider d'autres personnes en rejoignant notre équipe de bénévoles lorsque vous vous sentirez mieux.
                 </p>
             </div>
             <div>
-                <a href="#" class="btn btn-style-two">DÉCOUVRIR LES BÉNÉVOLES</a> <br> <a href="#">Rejoindre les bénévoles</a>
+                <a href="{{ path('app_volunteer_index') }}" class="btn btn-style-two">DÉCOUVRIR LES BÉNÉVOLES</a> <br> <a href="#">Rejoindre les bénévoles</a>
             </div>
         </div>
     </section>
@@ -188,7 +194,7 @@
                 </div>
                 <div class="testimony-section-block">
                     <p>
-                        {{ lastTestimony.content|slice(0, 600) }} ...
+                        {{ lastTestimony.content|slice(0, 600)|striptags }} ...
                     </p>
                 </div>
                 <div class="testimony-section-buttons">
