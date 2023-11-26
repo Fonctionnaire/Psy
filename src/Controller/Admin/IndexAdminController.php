@@ -9,7 +9,6 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/mmd-admin', name: 'app_admin_')]
 class IndexAdminController extends AbstractController
 {
-
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
     {

@@ -28,7 +28,7 @@ class VolunteerInfoType extends AbstractType
                         'mimeTypes' => [
                             'image/png',
                             'image/jpg',
-                            'image/jpeg'
+                            'image/jpeg',
                         ],
                         'mimeTypesMessage' => 'Merci d\'ajouter une image au format jpg ou png de maximum 1Mo.',
                     ]),

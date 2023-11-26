@@ -52,7 +52,7 @@ class VolunteerInfo
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
      */
-    public function setImageFile(?File $imageFile = null): void
+    public function setImageFile(File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
 
@@ -124,12 +124,12 @@ class VolunteerInfo
     public function setUser(?User $user): static
     {
         // unset the owning side of the relation if necessary
-        if ($user === null && $this->user !== null) {
+        if (null === $user && null !== $this->user) {
             $this->user->setVolunteerInfo(null);
         }
 
         // set the owning side of the relation if necessary
-        if ($user !== null && $user->getVolunteerInfo() !== $this) {
+        if (null !== $user && $user->getVolunteerInfo() !== $this) {
             $user->setVolunteerInfo($this);
         }
 
