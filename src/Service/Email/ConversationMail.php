@@ -25,6 +25,9 @@ class ConversationMail implements ConversationMailInterface
             $adminEmails[] = $admin->getEmail();
         }
 
+        if (empty($adminEmails)) {
+            return;
+        }
         $email = (new TemplatedEmail())
             ->from('nepasrepondre@anxiete-panique.fr')
             ->to(...$adminEmails)

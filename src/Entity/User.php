@@ -87,9 +87,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserMessage::class, orphanRemoval: true)]
     private Collection $userMessages;
 
-    #[ORM\OneToOne(inversedBy: 'user', cascade: ['persist', 'remove'])]
-    private ?VolunteerInfo $volunteerInfo = null;
-
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -376,18 +373,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $userMessage->setUser(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getVolunteerInfo(): ?VolunteerInfo
-    {
-        return $this->volunteerInfo;
-    }
-
-    public function setVolunteerInfo(?VolunteerInfo $volunteerInfo): static
-    {
-        $this->volunteerInfo = $volunteerInfo;
 
         return $this;
     }
