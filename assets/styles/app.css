@@ -97,6 +97,52 @@ body{
     min-width: 250px;
 }
 
+.btn-style-forum{
+    background: var(--my-light-blue);
+    color: white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    border: 2px solid var(--my-text-brown);
+    transition : 0.2s;
+    min-width: 200px;
+
+    & i{
+        margin-right: 10px;
+    }
+}
+
+.btn-style-forum:hover{
+    background: var(--my-text-brown);
+    transition : 0.2s;
+    border: 2px solid var(--my-light-blue);
+    color: var(--my-brown);
+}
+
+.dropdown-categories .dropdown-menu{
+    background: rgba(0,0,0,0.9);
+    border: 2px solid var(--my-light-blue);
+    min-width: 25%;
+}
+
+.dropdown-categories .dropdown-menu li a{
+    color: var(--my-text-brown);
+    text-shadow: var(--my-text-shadow);
+}
+
+.dropdown-categories .dropdown-menu li a span{
+    float: right;
+    margin-left: 15px;
+}
+
+.dropdown-categories .dropdown-menu li:hover a{
+    color: var(--my-brown);
+}
+
+.dropdown-categories .dropdown-menu hr.dropdown-divider{
+    border-top: 1px solid var(--my-light-blue);
+}
+
 /* ======== NAV ========= */
 #main-site-nav
 {
@@ -1517,33 +1563,9 @@ footer .footer-copyright{
 
 .testimony-section #testimony-section-list .testimony-list-buttons{
     margin-top: 25px;
-}
-
-.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories{
-    margin-top: 25px;
-}
-
-.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu{
-    background: rgba(0,0,0,0.9);
-    border: 2px solid var(--my-light-blue);
-    min-width: 25%;
-}
-
-.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li a{
-    color: var(--my-text-brown);
-    text-shadow: var(--my-text-shadow);
-}
-
-.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li a span{
-    float: right;
-}
-
-.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu li:hover a{
-    color: var(--my-brown);
-}
-
-.testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu hr.dropdown-divider{
-    border-top: 1px solid var(--my-light-blue);
+    & > a{
+        margin-bottom: 25px;
+    }
 }
 
 .testimony-section #testimony-section-list .testimonies-list-null{
@@ -1943,26 +1965,66 @@ footer .footer-copyright{
             text-align: center;
         }
     }
+    & .chat-button-answer{
+        margin-top: 25px;
+    }
 }
 
+
 .chat-section .chat-block .chat-form-answer{
-    margin-top: 50px;
-    width: 80%;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
+    display: none;
+    background-color: black;
+    padding: 25px;
+    border: 1px solid var(--my-light-blue);
+    transition: 2s;
     & label{
         color: var(--my-text-brown);
         font-size: 1.4rem;
         font-weight: bold;
         margin-bottom: 15px;
     }
-    & #user_message_content{
 
+    & .chat-answer-toggled-text{
+        color: var(--my-text-brown);
+        font-size: 1.2rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 0;
+        display: none;
     }
-    & .btn{
-        width: 100%;
+
+    & .chat-form-answer-submit{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
         margin-top: 25px;
+        & .close-icon{
+            color: var(--my-light-blue);
+            cursor: pointer;
+            font-weight: bold;
+        }
     }
+}
+
+& .toggle-icon {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--my-light-blue);
+    padding: 0 10px;
+    transition: 0.4s;
+}
+
+& .toggle-icon:hover {
+    background: var(--my-brown);
+    border-radius: 10px;
+    transition: 0.4s;
 }
 trix-toolbar [data-trix-action="attachFiles"] {
     display: none;
@@ -1974,18 +2036,20 @@ trix-toolbar [type="button"]{
 
 trix-editor[input="user_message_content"], trix-editor[input="testimony_content"]{
     background: white !important;
-    min-height: 200px;
+    height: 240px;
     padding: 15px;
+    overflow-y: scroll;
 }
 
 trix-editor[input="user_message_content"] blockquote{
     padding: 10px;
     display: block;
     font-size: 0.9rem;
-    max-height: 200px;
+    max-height: 150px;
     overflow-y: scroll;
     background: var(--my-text-brown);
 }
+
 
 trix-editor[input="user_message_content"]:focus{
     border: 2px solid var(--my-light-blue) !important;
@@ -2187,4 +2251,80 @@ trix-editor[input="user_message_content"]:focus{
     }
 }
 /* ========================== */
+/* ===== FORUM ====== */
+.forum-index-section{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(60,42,41,1) 100%);
+    min-height: 90vh;
+}
 
+.forum-index-section h1{
+    color: white;
+    font-weight: bold;
+    font-size: 2.2rem;
+    text-shadow: var(--my-text-shadow);
+}
+
+.forum-index-section .forum-index-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.forum-index-section .forum-index-table{
+    margin-top: 35px;
+    width: 100%;
+    & thead{
+        border-bottom: 1px solid var(--my-light-blue);
+        font-weight: bold;
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+    }
+    & thead th{
+        padding: 10px 5px;
+    }
+    & tbody a{
+        text-decoration: none;
+        color: white;
+        width: 100%;
+        display: block;
+        padding: 10px 5px;
+    }
+    & tbody tr{
+        border-bottom: 1px solid var(--my-light-blue);
+        transition: 0.2s;
+    }
+    & tbody tr:hover{
+        background: rgba(255,255,255, 0.3);
+        transition: 0.2s;
+    }
+    & tbody .forum-table-td-category a{
+        color: var(--my-light-blue);
+    }
+    & tbody .forum-table-td-subject{
+        width: 50%;
+        max-width: 0;
+        & a{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+    & tbody td i{
+        color: var(--my-light-blue);
+        margin-right: 5px;
+    }
+    & tbody .forum-index-table-activity{
+        font-size: 0.8rem;
+    }
+    & tbody .forum-index-table-null{
+        text-align: center;
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+        font-size: 1.2rem;
+        & a{
+            padding: 25px;
+        }
+    }
+}

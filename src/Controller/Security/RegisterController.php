@@ -38,6 +38,7 @@ class RegisterController extends AbstractController
         $user = new User();
         $form = $this->createForm(RegisterType::class, $user)->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $user->setUsername(str_replace(' ', '', $form->get('username')->getData()));
             $user->setRoles(['ROLE_USER']);
             $user->setPassword($hasher->hashPassword($user, $form->get('password')->getData()));
             $userRepository->save($user, true);

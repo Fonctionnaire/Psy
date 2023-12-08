@@ -3,6 +3,8 @@ function copyText(button) {
     var chatItemBody = button.parentNode.previousElementSibling.textContent;
     var element = document.querySelector("trix-editor");
     element.editor.setSelectedRange([0, 0]);
-    element.editor.insertHTML('<div><blockquote class="test">' + chatItemBody.trim() + '</blockquote></div><br>');
+
+    element.editor.insertHTML('<div><blockquote>' + chatItemBody.trim() + '</blockquote></div><br>');
+    element.editor.insertLineBreak();
 }
 
