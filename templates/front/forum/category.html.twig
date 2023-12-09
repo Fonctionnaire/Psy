@@ -7,7 +7,7 @@
 {% block body %}
     <section class="custom-section forum-index-section">
         <div id="forum-index" class="custom-container custom-container-padding">
-            <h1>TOUS LES SUJETS</h1>
+            <h1>{{ category.name|upper }}</h1>
             <div class="forum-index-block">
                 <div class="forum-index-header">
                     <div class="dropdown-categories dropdown">
@@ -85,9 +85,9 @@
                                 </td>
                             {% endif %}
                         </tr>
-                        {% else %}
+                    {% else %}
                         <tr>
-                            <td class="forum-index-table-null" colspan="6"><a href="{{ path('app_forum_new') }}">Pas encore de sujet sur le forum. <br>N'hésitez pas à créer un nouveau sujet pour obtenir de l'aide.</a></td>
+                            <td class="forum-index-table-null" colspan="6"><a href="{{ path('app_forum_new') }}">Pas encore de sujet pour cette catégorie. <br>N'hésitez pas à créer un nouveau sujet pour obtenir de l'aide.</a></td>
                         </tr>
                     {% endfor %}
                 </table>

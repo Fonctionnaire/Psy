@@ -44,19 +44,18 @@ class ForumSubject
     private ?User $author = null;
 
     #[ORM\Column]
-    private ?bool $isRule = null;
+    private ?bool $isRule = false;
 
     #[ORM\Column]
-    private ?int $nbOfView = null;
+    private ?int $nbOfView = 0;
 
     #[ORM\OneToMany(mappedBy: 'forumSubject', targetEntity: ForumAnswer::class, orphanRemoval: true)]
     private Collection $forumAnswers;
 
     #[ORM\Column]
-    private ?bool $isReported = null;
+    private ?bool $isReported = false;
 
     #[ORM\Column(length: 255)]
-    #[Assert\NotNull(message: 'Un slug est nécessaire')]
     private ?string $slug = null;
 
     #[ORM\ManyToOne(inversedBy: 'forumSubjects')]

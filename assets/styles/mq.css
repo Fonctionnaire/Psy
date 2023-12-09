@@ -347,6 +347,17 @@
     }
 }
 
+@media all and (max-width: 453px) {
+    /* NEW */
+    .forum-new-section{
+        & .forum_new_submit{
+            & a{
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
 @media all and (max-width: 420px){
     /* ===== KNOWLEDGE ===== */
     .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{

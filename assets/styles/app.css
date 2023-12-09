@@ -2034,7 +2034,7 @@ trix-toolbar [type="button"]{
     background: white !important;
 }
 
-trix-editor[input="user_message_content"], trix-editor[input="testimony_content"]{
+trix-editor[input="user_message_content"], trix-editor[input="testimony_content"], trix-editor[input="forum_subject_content"]{
     background: white !important;
     height: 240px;
     padding: 15px;
@@ -2051,7 +2051,7 @@ trix-editor[input="user_message_content"] blockquote{
 }
 
 
-trix-editor[input="user_message_content"]:focus{
+trix-editor[input="user_message_content"]:focus, trix-editor[input="forum_subject_content"]:focus{
     border: 2px solid var(--my-light-blue) !important;
 }
 
@@ -2325,6 +2325,61 @@ trix-editor[input="user_message_content"]:focus{
         font-size: 1.2rem;
         & a{
             padding: 25px;
+        }
+    }
+}
+
+/* NEW */
+.forum-new-section{
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(60,42,41,1) 100%);
+    min-height: 90vh;
+
+    & h1{
+        color: white;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-shadow: var(--my-text-shadow);
+    }
+
+    & .forum-new-block{
+        margin-top: 35px;
+        background: rgba(0,0,0,0.8);
+        border: 2px solid var(--my-light-blue);
+        padding: 25px;
+    }
+
+    & label{
+        color: var(--my-text-brown);
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 15px 0 5px 0;
+    }
+
+    & select{
+        width: 100%;
+    }
+
+    & input{
+        width: 100%;
+    }
+
+    & .forum_new_submit{
+        margin-top: 25px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        & a{
+            color: var(--my-light-blue);
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+        & a:hover{
+            color: var(--my-text-brown);
+            transition: 0.2s;
         }
     }
 }

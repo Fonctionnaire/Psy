@@ -3,8 +3,46 @@
 {% block title %}
 
 {% endblock %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+{% endblock %}
 {% block body %}
-
+<section class="custom-section forum-new-section">
+    <div id="forum-new" class="custom-container custom-container-padding">
+        <h1>NOUVEAU SUJET</h1>
+        <div class="forum-new-block">
+            {{ form_start(form, {'attr': {'id': 'forum_subject_new_form'}}) }}
+            <div>
+                <div>
+                    {{ form_label(form.forumCategory) }}
+                    {{ form_widget(form.forumCategory) }}
+                    {{ form_errors(form.forumCategory) }}
+                </div>
+                <div>
+                    {{ form_label(form.subject) }}
+                    {{ form_widget(form.subject) }}
+                    {{ form_errors(form.subject) }}
+                </div>
+                <div>
+                    {{ form_label(form.content) }}
+                    <input id="forum_subject_content" value="" type="hidden" name="forum_subject[content]">
+                    <trix-editor input="forum_subject_content" class="trix-content"></trix-editor>
+                    {{ form_errors(form.content) }}
+                </div>
+                <div class="forum_new_submit">
+                    <button type="submit" id="forum_subject_submit" name="forum_subject[submit]" class="btn btn-style-forum"><i class="fa-regular fa-paper-plane"></i> Créer le sujet</button>
+                    <a href="{{ path('app_forum_index') }}">Retour aux sujets</a>
+                </div>
+            </div>
+            {{ form_end(form, {render_rest: false}) }}
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/disableForumSubjectButton.js') }}"></script>
 {% endblock %}
 
