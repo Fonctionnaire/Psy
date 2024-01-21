@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const replyButton = document.querySelector('.chat-button-answer');
-    const quoteButtons = document.querySelectorAll('.btn-style-chat');
-    const chatFormAnswer = document.querySelector('.chat-form-answer');
+    const replyButton = document.querySelectorAll('.button-answer');
+    const quoteButtons = document.querySelectorAll('.btn-quote');
+    const chatFormAnswer = document.querySelector('.editor-form-answer');
     const closeButton = document.querySelector('.close-icon');
-    const chatForm = document.getElementById('user_conversation_new_form');
+    const chatForm = document.querySelector('.answer_form');
     const toggledText = document.querySelector('.chat-answer-toggled-text');
 
     const toggleIcon = document.querySelector('.toggle-icon');
     let isExpanded = true; // État initial
     var element = document.querySelector("trix-editor");
+
     const toggleChatForm = () => {
 
         if (isExpanded) {
@@ -37,19 +38,44 @@ document.addEventListener('DOMContentLoaded', (event) => {
         chatFormAnswer.style.bottom = '0';
         chatFormAnswer.style.left = '5%';
         chatFormAnswer.style.right = '5%';
-        chatFormAnswer.style.zIndex = '2';
+        chatFormAnswer.style.zIndex = '9';
         chatFormAnswer.style.transition = 'all 0.5s ease-in-out';
+
+        if(replyButton.length > 0){
+            replyButton.forEach(button => {
+                button.setAttribute('disabled', true);
+            });
+        }else{
+            replyButton.setAttribute('disabled', true);
+        }
+
+
+        quoteButtons.forEach(button => {
+            button.setAttribute('disabled', true);
+        });
     };
 
     const hideChatForm = () => {
         chatFormAnswer.style.display = 'none';
         element.editor.loadHTML('');
+        if(replyButton.length > 0) {
+            replyButton.forEach(button => {
+                button.removeAttribute('disabled');
+            });
+        }else{
+            replyButton.removeAttribute('disabled');
+        }
+        quoteButtons.forEach(button => {
+            button.removeAttribute('disabled');
+        });
     };
 
     if (replyButton) {
-        replyButton.addEventListener('click', (e) => {
-            showChatForm();
-        });
+        replyButton.forEach(button => {
+            button.addEventListener('click', (e) => {
+                showChatForm();
+            });
+        })
     }
 
     quoteButtons.forEach(button => {

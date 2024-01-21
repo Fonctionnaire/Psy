@@ -16,6 +16,11 @@
                     </div>
                     {{ form_start(form) }}
                     <div class="auth-section-item-inputs">
+                        {{ form_widget(form.userAvatar) }}
+                        {{ form_help(form.userAvatar) }}
+                        {{ form_errors(form.userAvatar) }}
+                    </div>
+                    <div class="auth-section-item-inputs">
                         {{ form_label(form.email) }}<br>
                         {{ form_widget(form.email) }}
                         {{ form_help(form.email) }}

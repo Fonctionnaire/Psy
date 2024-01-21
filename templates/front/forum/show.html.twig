@@ -1,10 +1,150 @@
 {% extends 'base.html.twig' %}
-
-{% block body %}
-
-{% endblock %}
-
 {% block title %}
 
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/trix@2.0.0/dist/trix.css">
+    <script type="text/javascript" src="https://unpkg.com/trix@2.0.0/dist/trix.umd.min.js"></script>
+{% endblock %}
+{% block body %}
+    <section class="custom-section forum-show-section">
+        <div id="forum-show" class="custom-container custom-container-padding">
+            <div class="action-buttons">
+                {% if app.user %}
+                    <button class="btn btn-style-forum button-answer">Répondre</button>
+                    {% else %}
+                    <a href="{{ path('app_login') }}">Connectez-vous pour répondre</a>
+                {% endif %}
+                <a href="{{ path('app_forum_index') }}">Retour aux sujets</a>
+            </div>
+            <h1>{{ forumSubject.subject|upper }}</h1>
+            <div class="forum-show-block">
+                <div class="forum-show-item">
+                    <div class="forum-show-item-header">
+                        <div class="forum-show-item-header-avatar">
+                            {% if forumSubject.author.userAvatar %}
+                                <img src="{{ vich_uploader_asset(forumSubject.author.userAvatar) }}" alt="{{ forumSubject.author.userAvatar.imageName }}">
+                            {% else %}
+                                <i class="fa-regular fa-user"></i>
+                            {% endif %}
+                            {% if forumSubject.author %}
+                                <span class="forum-show-item-author">{{ forumSubject.author.username }}</span>
+                            {% else %}
+                                <span class="forum-show-item-author">Utilisateur supprimé</span>
+                            {% endif %}
+                        </div>
+                        <div>
 
+                        </div>
+                        <div class="forum-show-item-header-date">
+                            <span>Le {{ forumSubject.createdAt|date('d/m/Y à H:i') }}</span>
+                        </div>
+                    </div>
+                    <div class="forum-show-item-body">
+                        {{ forumSubject.content|raw }}
+                    </div>
+                    <div class="forum-show-item-footer">
+                        {% if app.user %}
+                        <a class="btn btn-style-forum btn-quote" onclick="copyText(this)">citer</a>
+                        <form action="{{ path('app_forum_report_subject', {'slug': forumSubject.slug}) }}" method="POST">
+                            <button class="forum-report-button" data-bs-toggle="tooltip" data-bs-placement="top"
+                               data-bs-custom-class="custom-tooltip"
+                               data-bs-title="Signaler ce message"><i class="fa-solid fa-flag"></i></button>
+                        </form>
+                            {% else %}
+                                <a href="{{ path('app_login') }}" class="btn btn-style-forum btn-quote">Connectez-vous pour répondre</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="navigation testimonies-pagination">
+                    {{ knp_pagination_render(answers, null, {}, {
+                        'align': 'center',
+                        'size': 'small',
+                        'rounded': true,
+                    }) }}
+                </div>
+                <div class="forum-show-answers">
+                    {% for answer in answers %}
+                        <div class="forum-show-item">
+                            <div class="forum-show-item-header">
+                                <div class="forum-show-item-header-avatar">
+                                    {% if answer.author.userAvatar %}
+                                        <img src="{{ vich_uploader_asset(answer.author.userAvatar) }}" alt="{{ answer.author.userAvatar.imageName }}">
+                                    {% else %}
+                                        <i class="fa-regular fa-user"></i>
+                                    {% endif %}
+                                    {% if answer.author %}
+                                        <span class="forum-show-item-author">{{ answer.author.username }}</span>
+                                    {% else %}
+                                        <span class="forum-show-item-author">Utilisateur supprimé</span>
+                                    {% endif %}
+                                </div>
+                                <div>
+
+                                </div>
+                                <div class="forum-show-item-header-date">
+                                    <span>Le {{ answer.createdAt|date('d/m/Y à H:i') }}</span>
+                                </div>
+                            </div>
+                            <div class="forum-show-item-body">
+                                {{ answer.content|raw }}
+                            </div>
+                            <div class="forum-show-item-footer">
+                                {% if app.user %}
+                                    <button class="btn btn-style-forum btn-quote" onclick="copyText(this)">citer</button>
+                                    <form action="{{ path('app_forum_report_answer', {'id': answer.id}) }}" method="POST">
+                                        <button class="forum-report-button" data-bs-toggle="tooltip" data-bs-placement="top"
+                                           data-bs-custom-class="custom-tooltip"
+                                           data-bs-title="Signaler ce message"><i class="fa-solid fa-flag"></i></button>
+                                    </form>
+
+                                {% else %}
+                                    <a href="{{ path('app_login') }}" class="btn btn-style-forum">Connectez-vous pour répondre</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="navigation testimonies-pagination">
+                    {{ knp_pagination_render(answers, null, {}, {
+                        'align': 'center',
+                        'size': 'small',
+                        'rounded': true,
+                    }) }}
+                </div>
+                <div class="action-buttons">
+                    {% if app.user %}
+                        <button class="btn btn-style-forum button-answer">Répondre</button>
+                    {% else %}
+                        <a href="{{ path('app_login') }}">Connectez-vous pour répondre</a>
+                    {% endif %}
+                    <a href="{{ path('app_forum_index') }}">Retour aux sujets</a>
+                </div>
+                <div id="chat-answer-anchor" class="editor-form-answer">
+                    <span class="toggle-icon" title="Réduire"><i class="fa-solid fa-circle-arrow-down"></i></span>
+                    <p class="chat-answer-toggled-text">Votre message est en attente</p>
+                    {{ form_start(form, {'attr': {'class': 'answer_form', 'id': 'forum_answer_new_form'}}) }}
+                    <label for="forum_answer_content">Votre message</label>
+                    <input id="forum_answer_content" value="" type="hidden" name="forum_answer[content]">
+                    <trix-editor input="forum_answer_content" class="trix-content"></trix-editor>
+                    {{ form_errors(form.content) }}
+                    <div class="chat-form-answer-submit">
+                        {{ form_widget(form.submit) }}
+                        <span class="close-icon" data-bs-toggle="tooltip" data-bs-placement="top"
+                              data-bs-custom-class="custom-tooltip"
+                              data-bs-title="VOTRE MESSAGE SERA SUPPRIMÉ">Fermer</span>
+                    </div>
+                    {{ form_end(form, {render_rest: false}) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/conversation.js') }}"></script>
+    <script src="{{ asset('js/disableForumAnswerButton.js') }}"></script>
+    <script src="{{ asset('js/answerForm.js') }}"></script>
+{% endblock %}

@@ -93,6 +93,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: ForumAnswer::class)]
     private Collection $forumAnswers;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?UserAvatar $userAvatar = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -443,5 +446,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function setUserAvatar(UserAvatar $userAvatar): static
+    {
+        // set the owning side of the relation if necessary
+        if ($userAvatar->getUser() !== $this) {
+            $userAvatar->setUser($this);
+        }
+
+        $this->userAvatar = $userAvatar;
+
+        return $this;
+    }
+
+    public function getUserAvatar(): ?UserAvatar
+    {
+        return $this->userAvatar;
     }
 }

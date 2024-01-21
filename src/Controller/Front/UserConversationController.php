@@ -5,7 +5,7 @@ namespace App\Controller\Front;
 use App\Entity\User;
 use App\Entity\UserMessage;
 use App\Form\UserMessageType;
-use App\Security\Handler\UserConversationHandlerInterface;
+use App\Service\Handler\UserConversationHandlerInterface;
 use App\Service\Paginator\ConversationPaginator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

@@ -1,0 +1,22 @@
+{% apply inline_css(source('@styles/contactMail.css')) %}
+    <section id="contact-mail-section">
+        <div id="contact-mail-container">
+            <div class="contact-mail-header">
+                <h1>Bonjour {{ forumSubject.author.username }}, tu as une nouvelle réponse sur le forum.</h1>
+            </div>
+            <div class="contact-mail-body">
+                <p>{{ user.username }} a répondu à ton sujet « <em>{{ forumSubject.subject }}</em> » sur le forum.</p>
+                <p>Tu peux la consulter en cliquant sur le lien ci-dessous.</p>
+            </div>
+            <div class="contact-mail-footer">
+                <a href="{{ host }}/forum/sujet/{{ forumSubject.slug }}">Voir la réponse</a>
+            </div>
+        </div>
+        <div class="contact-mail-sign">
+            <p>
+                Prenez soin de vous.<br>
+                <a href="{{ host }}">My Mind Community</a>
+            </p>
+        </div>
+    </section>
+{% endapply %}

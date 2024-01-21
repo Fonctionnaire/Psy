@@ -363,5 +363,12 @@
     .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
         width: 100%;
     }
+
+    /* ===== FORUM ===== */
+    & .action-buttons{
+        & a{
+            margin-top: 15px;
+        }
+    }
 }
 

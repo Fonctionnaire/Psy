@@ -2,40 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\ForumCategory;
+use App\Entity\ForumAnswer;
 use App\Entity\ForumSubject;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ForumSubjectType extends AbstractType
+class ForumAnswerType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('subject', TextType::class, [
-                'label' => 'Titre du sujet',
-                'attr' => [
-                    'autocomplete' => 'off',
-                    'placeholder' => '250 caractères maximum',
-                    'maxlength' => '250',
-                ],
-            ])
             ->add('content', TextareaType::class, [
-                'label' => 'Contenu du sujet',
-            ])
-            ->add('forumCategory', EntityType::class, [
-                'class' => ForumCategory::class,
-                'choice_label' => 'name',
-                'label' => 'Catégorie du sujet',
-                'placeholder' => 'Choisir une catégorie',
+                'label' => 'Votre réponse',
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Créer le sujet',
+                'label' => 'Envoyer',
                 'attr' => [
                     'class' => 'btn btn-style-forum',
                 ],
@@ -46,7 +32,7 @@ class ForumSubjectType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => ForumSubject::class,
+            'data_class' => ForumAnswer::class,
             'csrf_protection' => false,
         ]);
     }

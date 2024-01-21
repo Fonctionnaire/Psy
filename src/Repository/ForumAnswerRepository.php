@@ -21,6 +21,24 @@ class ForumAnswerRepository extends ServiceEntityRepository
         parent::__construct($registry, ForumAnswer::class);
     }
 
+    public function save(ForumAnswer $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(ForumAnswer $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
     //    /**
     //     * @return ForumAnswer[] Returns an array of ForumAnswer objects
     //     */

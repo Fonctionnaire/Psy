@@ -82,7 +82,7 @@
                     Sur My Mind Community, notre but est de former une communauté de soutien en qui vous pouvez avoir confiance. Les personnes prêtes à vous aider ici ont vécu ou vivent encore ce que vous traversez. Cette compréhension de votre mal-être est un atout majeur pour vous aider à mettre en place les bonnes solutions pour aller mieux.
                 </p>
                 <p>
-                    Vous pouvez compter sur cette communauté pour vous aider et vous aiguiller sur notre <a>Forum</a>, ainsi que sur Thibaut et Lilie en <a href="{{ path('app_conversation_index') }}">Discussion privée</a>.
+                    Vous pouvez compter sur cette communauté pour vous aider et vous aiguiller sur notre <a href="{{ path('app_forum_index') }}">Forum</a>, ainsi que sur Thibaut et Lilie en <a href="{{ path('app_conversation_index') }}">Discussion privée</a>.
                 </p>
                 <p>
                     Et qui sait, peut-être que vous pourrez à votre tour aider d'autres personnes lorsque vous vous sentirez mieux.
@@ -154,7 +154,7 @@
                         <p>Bénévoles</p>
                     </div>
                     <div class="home-data-numbers-info-item">
-                        <span><i class="fa-regular fa-message"></i> 324</span>
+                        <span><i class="fa-regular fa-message"></i> {{ homeCount.nbForumSubjects }}</span>
                         <p>Sujets sur le forum</p>
                     </div>
                     <div class="home-data-numbers-info-item">
@@ -169,14 +169,20 @@
                         <span><i class="fa-solid fa-blog"></i> 18</span>
                         <p>Actualités</p>
                     </div>
-                    <div class="home-data-numbers-info-item">
-                        <span><i class="fa-solid fa-check"></i> {{ homeCount.nbUserReviews }}</span>
-                        <p>Avis</p>
-                    </div>
-                    <div class="home-data-numbers-info-item">
-                        <span><i class="fa-regular fa-star"></i> {{ homeCount.averageRate }}/5</span>
-                        <p>Note moyenne</p>
-                    </div>
+
+                        <div class="home-data-numbers-info-item">
+                            <span><i class="fa-solid fa-check"></i> {{ homeCount.nbUserReviews }}</span>
+                            <p>Avis</p>
+                        </div>
+                        <div class="home-data-numbers-info-item">
+                            {% if homeCount.nbUserReviews > 0 %}
+                                <span><i class="fa-solid fa-star"></i> {{ homeCount.averageRate }}/5</span>
+                            {% else %}
+                                <span><i class="fa-solid fa-star"></i> -/5</span>
+                            {% endif %}
+                            <p>Note moyenne</p>
+                        </div>
+
                 </div>
             </div>
         </div>

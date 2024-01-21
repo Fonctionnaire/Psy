@@ -21,7 +21,7 @@ class ForumPaginator implements ForumPaginatorInterface
 
         $subjects = $this->paginator->paginate(
             $list,
-            $this->request->getCurrentRequest()->query->getInt('page', 1),
+            $this->request->getCurrentRequest()->query->getInt('page', ceil($messages)),
             $itemsPerPage
         );
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\Handler;
+namespace App\Service\Handler;
 
 use App\Entity\User;
 use App\Entity\UserMessage;
@@ -27,7 +27,7 @@ class userConversationHandler extends AbstractController implements userConversa
             $userConversation->setIsViewed(false);
         }
 
-        $trimMessage = preg_replace('/^(<p><br><\/p>)+|(<p><br><\/p>)+$/', '', $userMessage->getContent());
+        $trimMessage = preg_replace('/(<div>\s*)(<br\s*\/?>\s*)+|(<br\s*\/?>\s*)+(<\/div>)/i', '$1$4', $userMessage->getContent());
 
         $userMessage->setContent($trimMessage);
         $userMessage->setUserConversation($userConversation);
