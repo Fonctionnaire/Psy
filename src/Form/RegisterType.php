@@ -35,6 +35,10 @@ class RegisterType extends AbstractType
             ])
             ->add('username', TextType::class, [
                 'label' => 'Votre pseudo',
+                'attr' => [
+                    'maxlength' => 15,
+                    'placeholder' => '15 caractères maximum - sans espace',
+                ],
             ])
             ->add('firstname', TextType::class, [
                 'required' => false,

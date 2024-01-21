@@ -51,7 +51,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     #[Assert\NotBlank(message: 'Veuillez renseigner votre pseudo')]
-    #[Assert\Length(min: 2, minMessage: 'Votre pseudo doit contenir au moins {{ limit }} caractères', max: 30, maxMessage: 'Votre pseudo doit contenir au maximum {{ limit }} caractères')]
+    #[Assert\Length(min: 2, minMessage: 'Votre pseudo doit contenir au moins {{ limit }} caractères', max: 15, maxMessage: 'Votre pseudo doit contenir au maximum {{ limit }} caractères')]
     private ?string $username = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -87,11 +87,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: UserMessage::class, orphanRemoval: true)]
     private Collection $userMessages;
 
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: ForumSubject::class)]
+    private Collection $forumSubjects;
+
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: ForumAnswer::class)]
+    private Collection $forumAnswers;
+
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?UserAvatar $userAvatar = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->registrationToken = Uuid::v4();
         $this->userMessages = new ArrayCollection();
+        $this->forumSubjects = new ArrayCollection();
+        $this->forumAnswers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -375,5 +386,82 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, ForumSubject>
+     */
+    public function getForumSubjects(): Collection
+    {
+        return $this->forumSubjects;
+    }
+
+    public function addForumSubject(ForumSubject $forumSubject): static
+    {
+        if (!$this->forumSubjects->contains($forumSubject)) {
+            $this->forumSubjects->add($forumSubject);
+            $forumSubject->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeForumSubject(ForumSubject $forumSubject): static
+    {
+        if ($this->forumSubjects->removeElement($forumSubject)) {
+            // set the owning side to null (unless already changed)
+            if ($forumSubject->getAuthor() === $this) {
+                $forumSubject->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ForumAnswer>
+     */
+    public function getForumAnswers(): Collection
+    {
+        return $this->forumAnswers;
+    }
+
+    public function addForumAnswer(ForumAnswer $forumAnswer): static
+    {
+        if (!$this->forumAnswers->contains($forumAnswer)) {
+            $this->forumAnswers->add($forumAnswer);
+            $forumAnswer->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeForumAnswer(ForumAnswer $forumAnswer): static
+    {
+        if ($this->forumAnswers->removeElement($forumAnswer)) {
+            // set the owning side to null (unless already changed)
+            if ($forumAnswer->getAuthor() === $this) {
+                $forumAnswer->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function setUserAvatar(UserAvatar $userAvatar): static
+    {
+        // set the owning side of the relation if necessary
+        if ($userAvatar->getUser() !== $this) {
+            $userAvatar->setUser($this);
+        }
+
+        $this->userAvatar = $userAvatar;
+
+        return $this;
+    }
+
+    public function getUserAvatar(): ?UserAvatar
+    {
+        return $this->userAvatar;
     }
 }

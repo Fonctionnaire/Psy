@@ -38,7 +38,7 @@
                                 {{ message.content|raw }}
                             </div>
                             <div class="chat-item-footer">
-                                <a href="#chat-answer-anchor" class="btn btn-style-chat" onclick="copyText(this)">citer</a>
+                                <a href="#chat-answer-anchor" class="btn btn-style-chat btn-quote" onclick="copyText(this)">citer</a>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                                     {{ message.content|raw }}
                                 </div>
                                 <div class="chat-item-footer">
-                                    <a href="#chat-answer-anchor" class="btn btn-style-chat" onclick="copyText(this)">citer</a>
+                                    <button class="btn btn-style-chat btn-quote" onclick="copyText(this)">citer</button>
                                 </div>
                             </div>
                     {% endif %}
@@ -75,14 +75,22 @@
                         'rounded': true,
                     }) }}
                 </div>
-                <div id="chat-answer-anchor" class="chat-form-answer">
-                    {{ form_start(form, {'attr': {'id': 'user_conversation_new_form'}}) }}
+                <div class="action-buttons">
+                    <button class="btn btn-style-forum button-answer">Répondre</button>
+                </div>
+                <div id="chat-answer-anchor" class="editor-form-answer">
+                    <span class="toggle-icon" title="Réduire"><i class="fa-solid fa-circle-arrow-down"></i></span>
+                    <p class="chat-answer-toggled-text">Votre message est en attente</p>
+                    {{ form_start(form, {'attr': {'class': 'answer_form', 'id': 'user_conversation_new_form'}}) }}
                     <label for="user_message_content">Votre message</label>
                     <input id="user_message_content" value="" type="hidden" name="user_message[content]">
                     <trix-editor input="user_message_content" class="trix-content"></trix-editor>
                     {{ form_errors(form.content) }}
-                    <div>
+                    <div class="chat-form-answer-submit">
                         {{ form_widget(form.submit) }}
+                        <span class="close-icon" data-bs-toggle="tooltip" data-bs-placement="top"
+                              data-bs-custom-class="custom-tooltip"
+                              data-bs-title="VOTRE MESSAGE SERA SUPPRIMÉ">Fermer</span>
                     </div>
                     {{ form_end(form, {render_rest: false}) }}
                 </div>
@@ -94,4 +102,5 @@
     {{ parent() }}
     <script src="{{ asset('js/conversation.js') }}"></script>
     <script src="{{ asset('js/disableChatButton.js') }}"></script>
+    <script src="{{ asset('js/answerForm.js') }}"></script>
 {% endblock %}

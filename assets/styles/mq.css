@@ -170,7 +170,8 @@
 
     /* ===== CONVERSATION ===== */
     .chat-section .chat-block .chat-form-answer {
-        width: 100%;
+        max-height: 80%;
+        overflow: scroll;
     }
 
     /* ======================== */
@@ -178,6 +179,15 @@
     /* ===== KNOWLEDGE ===== */
     .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
         width: 32%;
+    }
+    /* ======================== */
+
+    /* ===== FORUM ===== */
+    /* INDEX */
+    .forum-index-section .forum-index-table {
+        & tbody .forum-table-td-subject {
+            width: 30%;
+        }
     }
 }
 @media all and (max-width: 772px) {
@@ -223,6 +233,19 @@
     }
 
 }
+
+@media all and (max-width: 680px){
+
+    /* ===== FORUM ===== */
+    /* INDEX */
+    .forum-index-section .forum-index-table {
+        & tbody .forum-table-td-subject {
+            width: 20%;
+        }
+    }
+}
+
+
 @media all and (max-width: 576px){
     .custom-container-padding{
         padding-top: 25%;
@@ -295,12 +318,57 @@
     .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
         width: 49%;
     }
+
+    /* ======================== */
+
+    /* ===== CONVERSATION ===== */
+    .chat-section .chat-block .chat-form-answer {
+        height: 70%;
+    }
+
+    trix-editor[input="user_message_content"]{
+        height: 22rem;
+    }
+
+    /* ===== FORUM ===== */
+    /* INDEX */
+    .forum-index-mq-hidden{
+        display: none;
+    }
+}
+
+@media all and (max-width: 491px){
+    .forum-index-section .forum-index-header{
+        justify-content: center;
+        & .btn-style-one{
+            margin-bottom: 15px;
+            margin-right: 0;
+        }
+    }
+}
+
+@media all and (max-width: 453px) {
+    /* NEW */
+    .forum-new-section{
+        & .forum_new_submit{
+            & a{
+                margin-top: 15px;
+            }
+        }
+    }
 }
 
 @media all and (max-width: 420px){
     /* ===== KNOWLEDGE ===== */
     .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
         width: 100%;
+    }
+
+    /* ===== FORUM ===== */
+    & .action-buttons{
+        & a{
+            margin-top: 15px;
+        }
     }
 }
 

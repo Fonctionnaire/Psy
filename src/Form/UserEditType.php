@@ -18,6 +18,7 @@ class UserEditType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('userAvatar', UserAvatarType::class)
             ->add('email', EmailType::class, [
                 'label' => 'Votre email',
                 'required' => false,
@@ -55,6 +56,10 @@ class UserEditType extends AbstractType
             ])
             ->add('username', TextType::class, [
                 'label' => 'Votre pseudo',
+                'attr' => [
+                    'maxlength' => 15,
+                    'placeholder' => '15 caractères maximum - sans espace',
+                ],
             ])
             ->add('firstname', TextType::class, [
                 'required' => false,

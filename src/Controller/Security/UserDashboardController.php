@@ -48,6 +48,7 @@ class UserDashboardController extends AbstractController
             } elseif (null !== $form->get('email')->getData() && filter_var($form->get('email')->getData(), FILTER_VALIDATE_EMAIL)) {
                 $user->setEmail($form->get('email')->getData());
             }
+            $user->setUsername(str_replace(' ', '', $form->get('username')->getData()));
             $em->flush();
             $this->addFlash('success', 'Votre compte a bien été modifié.');
 

@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+    <section class="custom-section forum-index-section">
+        <div id="forum-index" class="custom-container custom-container-padding">
+            <h1>TOUS LES SUJETS</h1>
+            <div class="forum-index-block">
+                <div class="forum-index-header">
+                    <div class="dropdown-categories dropdown">
+                        <a class="btn btn-style-one dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            CATÉGORIES
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <li><a class="dropdown-item" href="{{ path('app_forum_index') }}">Tout voir <span
+                                            class="badge rounded-pill text-bg-info">{{ nbOfSubjects }}</span></a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            {% for category in categories %}
+                                <li><a class="dropdown-item"
+                                       href="{{ path('app_forum_category', {'slug': category.slug }) }}">{{ category.name }}
+                                        <span class="badge rounded-pill text-bg-info">{{ category.forumSubjects|length }}</span></a>
+                                </li>
+                                {% if not loop.last %}
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="{{ path('app_forum_new') }}" class="btn btn-style-forum"><i class="fa-solid fa-plus"></i> Nouveau sujet</a>
+                    </div>
+                </div>
+                <table class="forum-index-table">
+                    <thead>
+                    <tr>
+                        <th>Catégorie</th>
+                        <th>Sujet</th>
+                        <th>Auteur</th>
+                        <th class="forum-index-mq-hidden">Réponses</th>
+                        <th class="forum-index-mq-hidden">Vue</th>
+                        <th>Activité</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for subject in subjects %}
+
+                        <tr>
+                            <td class="forum-table-td-category"><a
+                                        href="{{ path('app_forum_show', {'slug': subject.slug}) }}">{{ subject.forumCategory.name }}</a>
+                            </td>
+                            <td class="forum-table-td-subject"><a
+                                        href="{{ path('app_forum_show', {'slug': subject.slug}) }}">{{ subject.subject }}</a>
+                            </td>
+                            {% if subject.author %}
+                                <td>
+                                    <a href="{{ path('app_forum_show', {'slug': subject.slug}) }}">{{ subject.author.username }}</a>
+                                </td>
+                            {% else %}
+                                <td>
+                                    <a href="{{ path('app_forum_show', {'slug': subject.slug}) }}"><em>Anonyme</em></a>
+                                </td>
+                            {% endif %}
+                            <td class="forum-index-mq-hidden"><a
+                                        href="{{ path('app_forum_show', {'slug': subject.slug}) }}"><i
+                                            class="fa-regular fa-message"></i> {{ subject.forumAnswers|length }}</a>
+                            </td>
+                            <td class="forum-index-mq-hidden"><a
+                                        href="{{ path('app_forum_show', {'slug': subject.slug}) }}">{{ subject.nbOfView }}</a>
+                            </td>
+                            {% if subject.lastReply %}
+                                <td class="forum-index-table-activity"><a
+                                            href="{{ path('app_forum_show', {'slug': subject.slug}) }}">{{ subject.lastReply|ago }}</a>
+                                </td>
+                            {% else %}
+                                <td class="forum-index-table-activity"><a
+                                            href="{{ path('app_forum_show', {'slug': subject.slug}) }}">{{ subject.createdAt|ago }}</a>
+                                </td>
+                            {% endif %}
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td class="forum-index-table-null" colspan="6"><a href="{{ path('app_forum_new') }}">Pas encore de sujet sur le forum. <br>N'hésitez pas à créer un nouveau sujet pour obtenir de l'aide.</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <div class="navigation testimonies-pagination">
+                    {{ knp_pagination_render(subjects, null, {}, {
+                        'align': 'center',
+                        'size': 'small',
+                        'rounded': true,
+                    }) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

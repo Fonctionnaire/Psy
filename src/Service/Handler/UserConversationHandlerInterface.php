@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Security\Handler;
+namespace App\Service\Handler;
 
 use App\Entity\User;
 use App\Entity\UserMessage;
