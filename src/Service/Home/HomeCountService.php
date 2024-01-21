@@ -10,8 +10,6 @@ use App\Repository\UserReviewRepository;
 
 class HomeCountService implements HomeCountServiceInterface
 {
-
-
     public function __construct(
         private readonly UserRepository $userRepository,
         private readonly UserReviewRepository $userReviewRepository,

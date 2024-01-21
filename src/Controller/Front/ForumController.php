@@ -70,9 +70,10 @@ class ForumController extends AbstractController
         $answer = new ForumAnswer();
         $form = $this->createForm(ForumAnswerType::class, $answer);
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
-            if($this->getUser() === null) {
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (null === $this->getUser()) {
                 $this->addFlash('warning', 'Vous devez être connecté pour répondre à un sujet');
+
                 return $this->redirectToRoute('app_login');
             }
             $answer->setAuthor($this->getUser());
@@ -84,11 +85,11 @@ class ForumController extends AbstractController
             $forumAnswerMail->send($this->getUser(), $forumSubject);
 
             $this->addFlash('success', 'Votre réponse a bien été envoyée');
+
             return $this->redirectToRoute('app_forum_show', [
                 'slug' => $forumSubject->getSlug(),
             ]);
         }
-
 
         return $this->render('front/forum/show.html.twig', [
             'forumSubject' => $forumSubject,
@@ -106,7 +107,7 @@ class ForumController extends AbstractController
         $subject = new ForumSubject();
         $form = $this->createForm(ForumSubjectType::class, $subject);
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()) {
             $subject->setAuthor($this->getUser());
             $slugger = new AsciiSlugger();
