@@ -21,6 +21,24 @@ class ForumCategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, ForumCategory::class);
     }
 
+    public function save(ForumCategory $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(ForumCategory $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
     //    /**
     //     * @return ForumCategory[] Returns an array of ForumCategory objects
     //     */
