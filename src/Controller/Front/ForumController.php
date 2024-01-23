@@ -82,6 +82,9 @@ class ForumController extends AbstractController
             $answer->setContent($trimMessage);
             $forumAnswerRepository->save($answer, true);
 
+            $forumSubject->setLastReply(new \DateTimeImmutable());
+            $forumSubjectRepository->save($forumSubject, true);
+
             $forumAnswerMail->send($this->getUser(), $forumSubject);
 
             $this->addFlash('success', 'Votre réponse a bien été envoyée');

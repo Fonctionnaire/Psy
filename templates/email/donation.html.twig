@@ -1,0 +1,42 @@
+{% apply inky_to_html|inline_css(source('@styles/emailDonation.css')) %}
+    <section class="donation-paiement-success">
+        <h1>Merci infiniment <span>{{ donation.firstname}}</span> pour votre don !</h1>
+        <hr>
+        <div>
+            <article class="donation-paiement-recap">
+                <h2>Récapitulatif</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Prénom</th>
+                        <th>E-mail</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ donation.createdAt|date('d/m/Y') }}</td>
+                        <td>{{ donation.firstname }}</td>
+                        <td>{{ donation.email }}</td>
+                    </tr>
+                    {% if donation.comment %}
+                        <tr>
+                            <th>Commentaire</th>
+                        </tr>
+                        <tr>
+                            <td>{{ donation.comment }}</td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <th>Don</th>
+                    </tr>
+                    <tr class="donation-amount">
+                        <td>{{ (donation.price / 100)|number_format(2, ',', '.') }} €</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </article>
+        </div>
+    </section>
+
+{% endapply %}

@@ -1,0 +1,10 @@
+<section>
+    <h3>Génial ! Tu as reçu un nouveau don</h3>
+    <p>Informations :</p>
+    <p>Prénom : {{ donation.firstname }}</p>
+    <p>E-mail : {{ donation.email }}</p>
+    <p>Montant : {{ (donation.price / 100)|number_format(2, ',', '.') }} €</p>
+    {% if donation.comment %}
+    <p>Message : <br> {{ donation.comment }}</p>
+    {% endif %}
+</section>
