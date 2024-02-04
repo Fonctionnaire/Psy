@@ -232,6 +232,15 @@
         }
     }
 
+    /* ========================== */
+    /* ====== DONATION ====== */
+    .donation-section {
+        & .donation-section-block {
+            & .donation-section-block-item{
+                width: 100%;
+            }
+        }
+    }
 }
 
 @media all and (max-width: 680px){
@@ -246,8 +255,8 @@
 }
 
 
-@media all and (max-width: 576px){
-    .custom-container-padding{
+@media all and (max-width: 576px) {
+    .custom-container-padding {
         padding-top: 25%;
     }
 
@@ -256,85 +265,80 @@
         top: 10%;
     }
 
-    .custom-container
-    {
+    .custom-container {
         margin: 0 5%;
     }
 
     /* ========= HOME ========= */
-
-    .home-first-section .first-section-important .first-section-important-cards .important-card{
+    .home-first-section .first-section-important .first-section-important-cards .important-card {
         width: 100%;
     }
 
     /* SECOND SECTION */
-
     .home-second-section #second-section-content a {
         width: 100%;
     }
 
     /* THIRD SECTION */
-    .home-data-section .home-data-numbers-block .home-data-numbers-info .home-data-numbers-info-item{
+    .home-data-section .home-data-numbers-block .home-data-numbers-info .home-data-numbers-info-item {
         width: 100%;
     }
 
-    .home-data-section .home-data-victories-block .home-data-victories .home-data-victories-item{
+    .home-data-section .home-data-victories-block .home-data-victories .home-data-victories-item {
         width: 100%;
     }
 
     /* TESTIMONY SECTION */
-    .home-testimony-section .testimony-section-header-info{
+    .home-testimony-section .testimony-section-header-info {
         margin-left: 10%;
         margin-right: 10%;
     }
 
     /* VICTORY SECTION */
-    .home-victory-section .home-victory-victories .home-victory-victories-item{
+    .home-victory-section .home-victory-victories .home-victory-victories-item {
         width: 100%;
 
     }
 
     /* COMMITMENT SECTION */
-    .home-commitment-section .home-commitment-section-block ul{
+    .home-commitment-section .home-commitment-section-block ul {
         padding-left: 0;
     }
 
     /* ====================== */
     /* ====== DASHBOARD USER ====== */
-
     .dashboard-section {
         background-image: url('../images/user_dashboard_vertical_light_darked.jpeg');
     }
 
     /* ==================== */
-
     /* ===== TESTIMONY SECTION ===== */
-    .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu{
+    .testimony-section #testimony-section-list .testimony-list-buttons .testimony-categories .dropdown-menu {
         min-width: 70%;
     }
-    /* ======================== */
 
+    /* ======================== */
     /* ===== KNOWLEDGE ===== */
-    .knowledge-index-section .knowledge-index-content-block .knowledge-index-item{
+    .knowledge-index-section .knowledge-index-content-block .knowledge-index-item {
         width: 49%;
     }
 
     /* ======================== */
-
     /* ===== CONVERSATION ===== */
     .chat-section .chat-block .chat-form-answer {
         height: 70%;
     }
 
-    trix-editor[input="user_message_content"]{
+    trix-editor[input="user_message_content"] {
         height: 22rem;
     }
 
     /* ===== FORUM ===== */
     /* INDEX */
-    .forum-index-mq-hidden{
+    .forum-index-mq-hidden {
         display: none;
     }
+
 }
 
 @media all and (max-width: 491px){

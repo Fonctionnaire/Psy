@@ -1,5 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+<section class="custom-section donation-section">
+    <div class="custom-container donation-section-content custom-container-padding">
+        <h1>FAIRE UN DON</h1>
+        <div class="donation-section-block">
+            <div class="donation-item-info donation-section-block-item">
+                <h2>À quoi va servir mon don ?</h2>
+                <p>Notre but n'est pas de faire du profit. Nous proposons les fonctionnalités et le contenu du site internet sans aucune contrepartie financière (publicité, abonnement, service payant, etc.).</p>
+                <p>Votre soutien participe au maintien de l'action et l'aide que nous proposons bénévolement ici.</p>
+                <p>En toute transparence, les dons nous servent à trois choses :</p>
+                <ul>
+                    <li>Financer l'hébergement et le nom de domaine du site internet.</li>
+                    <li>Améliorer les fonctionnalités d'aide du site internet ainsi que son contenu.</li>
+                    <li>Préparer la création d'une association qui aura pour but d'aider et d'accompagner les personnes en souffrance psychique.</li>
+                </ul>
+                <p>Nous vous remercions de tout cœur pour votre générosité. &#x2764;&#xFE0F;</p>
+            </div>
+            <div class="donation-item-form donation-section-block-item">
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-12 col-lg-6">
+                        <p>{{ form_label(form.firstname) }}</p>
+                        {{ form_widget(form.firstname) }}
+                        {{ form_errors(form.firstname) }}
+                    </div>
+                    <div class="col-md-12 col-lg-6">
+                        <p>{{ form_label(form.email) }}</p>
+                        {{ form_widget(form.email) }}
+                        {{ form_errors(form.email) }}
+                    </div>
+                    <div>
+                        <p>{{ form_label(form.price) }}</p>
+                        {{ form_widget(form.price) }}
+                        {{ form_errors(form.price) }}
+                    </div>
+                    <div>
+                        <p>{{ form_label(form.comment) }}</p>
+                        {{ form_widget(form.comment) }}
+                        {{ form_errors(form.comment) }}
+                    </div>
+                    <div>
+                        <label for="donation_isAcceptTerms" class="required">
+                            {{ form_widget(form.isAcceptTerms) }}
+                            <span>J'accepte les <a href="#" target="_blank">conditions d'utilisation</a> en vigueur</span></label>
+                            {# TODO Changer le lien vers les CGU #}
+                    </div>
+                    <div>
+                        {{ form_row(form.submit) }}
+                    </div>
+                    <p class="donation-form-stripe-secure">
+                        <i class="fa-solid fa-lock"></i>
+                        Paiement <span>100% sécurisé</span> avec <a href="https://stripe.com/fr" target="_blank">Stripe</a>
+                    </p>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

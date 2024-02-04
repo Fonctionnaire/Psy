@@ -19,27 +19,27 @@ class DonationType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-                'label' => 'Votre prénom'
+                'label' => 'Votre prénom',
             ])
             ->add('email', EmailType::class, [
-                'label' => 'Votre adresse e-mail'
+                'label' => 'Votre adresse e-mail',
             ])
             ->add('price', NumberType::class, [
                 'label' => 'Montant (en Euro)',
-                'attr' => ['placeholder' => '2€ minimum']
+                'attr' => ['placeholder' => '2€ minimum'],
             ])
             ->add('comment', TextareaType::class, [
-                'label' => 'Vous pouvez me laisser un commentaire',
+                'label' => 'Vous pouvez nous laisser un commentaire',
                 'required' => false,
-                'attr' => ['placeholder' => 'Champ facultatif']
+                'attr' => ['placeholder' => 'Champ facultatif'],
             ])
             ->add('isAcceptTerms', CheckboxType::class, [
                 'value' => 0,
-                'attr' => ['class' => 'form-input-terms']
+                'attr' => ['class' => 'form-input-terms'],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Valider votre don',
-                'attr' => ['class' => 'btn']
+                'attr' => ['class' => 'btn'],
             ])
         ;
     }

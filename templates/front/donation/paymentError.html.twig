@@ -1,5 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    <section class="custom-section donation-result-section donation-result-error">
+        <div class="custom-container donation-result-section-content custom-container-padding">
+            <h1>Oups ! Il semblerait qu'un problème a été rencontré</h1>
+            <div class="donation-result-section-block">
+                <p>Un problème semble s'être produit lors de votre tentative de don.</p>
+                <p>Rassurez-vous, le paiement a échoué et rien ne vous a été débité.</p>
+            </div>
+            <div class="donation-button">
+                <a href="{{ path('app_donation_index') }}" class="btn btn-style-one">Réessayer</a>
+                <a href="{{ path('app_home_index') }}" class="btn btn-style-two">Retour à l'accueil</a>
+            </div>
+        </div>
+    </section>
 {% endblock %}

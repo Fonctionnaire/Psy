@@ -27,15 +27,12 @@ class DonationController extends AbstractController
     public function index(
         Request $request,
         StripeDonationInterface $stripeDonation
-    ): Response
-    {
-
+    ): Response {
         $donation = new Donation();
         $form = $this->createForm(DonationType::class, $donation);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid())
-        {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->em->persist($donation);
             $this->em->flush();
 
@@ -43,37 +40,31 @@ class DonationController extends AbstractController
         }
 
         return $this->render('front/donation/index.html.twig', [
-            'form' => $form->createView()
+            'form' => $form->createView(),
         ]);
     }
-
 
     #[Route('/success/{stripeSessionId}', name: 'payment_success', methods: ['GET'])]
     public function paymentSuccess(
         $stripeSessionId,
         DonationMailToUserInterface $donationMailToUser,
         DonationMailToAdminInterface $donationMailToAdmin
-    ): Response
-    {
-
+    ): Response {
         $donation = $this->em->getRepository(Donation::class)->findOneByStripeSessionId($stripeSessionId);
 
-        if(!$donation)
-        {
+        if (!$donation) {
             return $this->redirectToRoute('app_home_index');
         }
 
-        if(!$donation->getIsPaid())
-        {
+        if (!$donation->getIsPaid()) {
             $donation->setIsPaid(1);
             $this->em->flush();
+            $donationMailToAdmin($donation);
+            $donationMailToUser($donation);
         }
 
-        $donationMailToAdmin($donation);
-        $donationMailToUser($donation);
-
         return $this->render('front/donation/paymentSuccess.html.twig', [
-            'donation' => $donation
+            'donation' => $donation,
         ]);
     }
 
@@ -82,8 +73,7 @@ class DonationController extends AbstractController
     {
         $donation = $this->em->getRepository(Donation::class)->findOneByStripeSessionId($stripeSessionId);
 
-        if(!$donation)
-        {
+        if (!$donation) {
             return $this->redirectToRoute('app_home_index');
         }
 
@@ -91,5 +81,4 @@ class DonationController extends AbstractController
             'donation' => $donation,
         ]);
     }
-
 }

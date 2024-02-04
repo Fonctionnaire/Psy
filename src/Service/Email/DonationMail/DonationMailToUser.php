@@ -3,16 +3,18 @@
 namespace App\Service\Email\DonationMail;
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Mailer\MailerInterface;
 
 class DonationMailToUser implements DonationMailToUserInterface
 {
-    public function __construct(private MailerInterface $mailer)
+    public function __construct(private MailerInterface $mailer, private readonly RequestStack $requestStack)
     {
     }
 
     public function __invoke($donation): void
     {
+        $host = $this->requestStack->getCurrentRequest()->getSchemeAndHttpHost();
         $email = (new TemplatedEmail())
             // TODO: Change this email address
             ->from('nepasrepondre@anxiete-panique.fr')
@@ -22,6 +24,7 @@ class DonationMailToUser implements DonationMailToUserInterface
 
             ->context([
                 'donation' => $donation,
+                'host' => $host,
             ])
         ;
 
