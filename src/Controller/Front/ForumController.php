@@ -15,7 +15,7 @@ use App\Service\Paginator\ForumPaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\AsciiSlugger;
 
@@ -81,6 +81,9 @@ class ForumController extends AbstractController
             $trimMessage = preg_replace('/(<div>\s*)(<br\s*\/?>\s*)+|(<br\s*\/?>\s*)+(<\/div>)/i', '$1$4', $answer->getContent());
             $answer->setContent($trimMessage);
             $forumAnswerRepository->save($answer, true);
+
+            $forumSubject->setLastReply(new \DateTimeImmutable());
+            $forumSubjectRepository->save($forumSubject, true);
 
             $forumAnswerMail->send($this->getUser(), $forumSubject);
 

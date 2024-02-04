@@ -23,6 +23,8 @@
                 <div class="forum-show-item">
                     <div class="forum-show-item-header">
                         <div class="forum-show-item-header-avatar">
+                            {# TODO Pour les bénévoles/fondateur : entourer la photo d'une bordure de couleur, et mettre le titre(bénévole/fondateur) en dessous de l'image avec un background de la même couleur que la bordure de l'image #}
+                            {# TODO Les bénévoles peuvent répondre sur le forum et soumettre des articles (validation par admin) #}
                             {% if forumSubject.author.userAvatar %}
                                 <img src="{{ vich_uploader_asset(forumSubject.author.userAvatar) }}" alt="{{ forumSubject.author.userAvatar.imageName }}">
                             {% else %}

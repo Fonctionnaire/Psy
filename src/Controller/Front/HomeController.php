@@ -7,7 +7,7 @@ use App\Repository\UserReviewRepository;
 use App\Service\Home\HomeCountServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/', name: 'app_home_')]
 class HomeController extends AbstractController

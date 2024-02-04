@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section class="custom-section donation-result-section donation-result-success">
+    <div class="custom-container donation-result-section-content custom-container-padding">
+        <h1>MERCI ! VOTRE DON A BIEN ÉTÉ ENVOYÉ</h1>
+        <div class="donation-result-section-block">
+            <p>Nous vous remercions infiniment pour votre générosité. &#x2764;&#xFE0F;</p>
+            <p>Un e-mail de confirmation vous a été envoyé.</p>
+            <h3>Récapitulatif de votre don</h3>
+
+            <div class="donation-resume">
+                <div>
+                    <p><b>Date</b></p>
+                    <p>{{ donation.createdAt|date('d/m/Y') }}</p>
+                </div>
+                <div>
+                    <p><b>Prénom</b></p>
+                    <p>{{ donation.firstname }}</p>
+                </div>
+                <div>
+                    <p><b>Email</b></p>
+                    <p>{{ donation.email }}</p>
+                </div>
+                <div>
+                    <p><b>Montant</b></p>
+                    <p>{{ (donation.price / 100)|number_format(2, ',', '.') }} €</p>
+                </div>
+            </div>
+        </div>
+        <div class="donation-button">
+            <a href="{{ path('app_home_index') }}" class="btn btn-style-two">Retour à l'accueil</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

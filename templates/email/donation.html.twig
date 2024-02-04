@@ -1,0 +1,49 @@
+{% apply inline_css(source('@styles/contactMail.css')) %}
+    <section id="contact-mail-section">
+        <div id="contact-mail-container">
+            <div class="contact-mail-header">
+                <h1>Merci infiniment <span>{{ donation.firstname}}</span> pour votre don !</h1>
+            </div>
+            {# TODO Passer en flex au lieu du tableau #}
+            <div class="contact-mail-body">
+                <h2>Récapitulatif</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Prénom</th>
+                        <th>E-mail</th>
+                        <th>Montant</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ donation.createdAt|date('d/m/Y') }}</td>
+                        <td>{{ donation.firstname }}</td>
+                        <td>{{ donation.email }}</td>
+                        <td>{{ (donation.price / 100)|number_format(2, ',', '.') }} €</td>
+                    </tr>
+                    {% if donation.comment %}
+                        <tr>
+                            <th>Commentaire</th>
+                        </tr>
+                        <tr>
+                            <td colspan="4">{{ donation.comment }}</td>
+                        </tr>
+                    {% endif %}
+
+                    </tbody>
+                </table>
+            </div>
+            <div class="contact-mail-footer">
+                <span>Votre générosité nous va droit au cœur.</span>
+            </div>
+        </div>
+        <div class="contact-mail-sign">
+            <p>
+                Prenez soin de vous.<br>
+                <a href="{{ host }}">My Mind Community</a>
+            </p>
+        </div>
+    </section>
+{% endapply %}

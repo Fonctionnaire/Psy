@@ -50,3 +50,12 @@
 #contact-mail-section .contact-mail-sign{
     margin-top: 15px;
 }
+
+#contact-mail-section table{
+    width: 80%;
+    margin: auto;
+}
+
+#contact-mail-section table tr{
+    text-align: left;
+}
