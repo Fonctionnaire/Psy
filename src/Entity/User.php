@@ -96,10 +96,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?UserAvatar $userAvatar = null;
 
+    #[ORM\Column(type: 'uuid')]
+    private ?Uuid $dashboardToken;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
         $this->registrationToken = Uuid::v4();
+        $this->dashboardToken = Uuid::v4();
         $this->userMessages = new ArrayCollection();
         $this->forumSubjects = new ArrayCollection();
         $this->forumAnswers = new ArrayCollection();
@@ -463,5 +467,17 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function getUserAvatar(): ?UserAvatar
     {
         return $this->userAvatar;
+    }
+
+    public function getDashboardToken(): ?Uuid
+    {
+        return $this->dashboardToken;
+    }
+
+    public function setDashboardToken(Uuid $dashboardToken): static
+    {
+        $this->dashboardToken = $dashboardToken;
+
+        return $this;
     }
 }

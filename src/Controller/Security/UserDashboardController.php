@@ -15,7 +15,7 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route('/utilisateur/mon-compte/{id}', name: 'app_user_dashboard_', requirements: ['id' => '\d+'])]
+#[Route('/utilisateur/mon-compte/{id}/{dashboardToken}', name: 'app_user_dashboard_', requirements: ['id' => '\d+'])]
 #[IsGranted('ROLE_USER')]
 class UserDashboardController extends AbstractController
 {
@@ -53,7 +53,9 @@ class UserDashboardController extends AbstractController
             $this->addFlash('success', 'Votre compte a bien été modifié.');
 
             return $this->redirectToRoute('app_user_dashboard_index', [
-                'id' => $user->getId()]
+                    'id' => $user->getId(),
+                    'dashboardToken' => $user->getDashboardToken(),
+                ]
             );
         }
 
@@ -80,7 +82,9 @@ class UserDashboardController extends AbstractController
             $this->addFlash('success', 'Merci ! Votre avis a bien été envoyé.');
 
             return $this->redirectToRoute('app_user_dashboard_index', [
-                'id' => $user->getId()]
+                    'id' => $user->getId(),
+                    'dashboardToken' => $user->getDashboardToken(),
+                ]
             );
         }
 

@@ -14,7 +14,7 @@
                 <p>En espérant avoir pu vous aider.</p>
             </div>
             <div class="modal-footer">
-                <a href="{{ path('app_user_dashboard_delete', {'id': user.id}) }}">Confirmer la suppression de mon compte</a>
+                <a href="{{ path('app_user_dashboard_delete', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}">Confirmer la suppression de mon compte</a>
 
             </div>
         </div>

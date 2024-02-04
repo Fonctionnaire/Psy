@@ -47,7 +47,8 @@ class UserDashboardControllerTest extends WebTestCase
 
     public function testUserDashboardAccessWithoutLogin(): void
     {
-        $this->client->request('GET', '/utilisateur/mon-compte/'.$this->createUser()->getId());
+        $user = $this->createUser();
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/'.$user->getDashboardToken());
         $this->assertResponseRedirects();
     }
 
@@ -55,7 +56,7 @@ class UserDashboardControllerTest extends WebTestCase
     {
         $user = $this->createUser();
         $this->client->loginUser($user);
-        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId());
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/'.$user->getDashboardToken());
         $this->assertResponseIsSuccessful();
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->assertSelectorExists('h1', 'MON PROFIL');
@@ -65,7 +66,7 @@ class UserDashboardControllerTest extends WebTestCase
     {
         $user = $this->createUser();
         $this->client->loginUser($user);
-        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/edition');
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/'.$user->getDashboardToken().'/edition');
         $this->assertResponseIsSuccessful();
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
         $this->assertSelectorExists('h1', 'MODIFIER MES INFORMATIONS');
@@ -75,7 +76,7 @@ class UserDashboardControllerTest extends WebTestCase
     {
         $user = $this->createUser();
         $this->client->loginUser($user);
-        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/edition');
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/'.$user->getDashboardToken().'/edition');
         $this->assertResponseIsSuccessful();
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
@@ -96,7 +97,7 @@ class UserDashboardControllerTest extends WebTestCase
     {
         $user = $this->createUser();
         $this->client->loginUser($user);
-        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/mon-avis');
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/'.$user->getDashboardToken().'/mon-avis');
 
         $this->assertResponseIsSuccessful();
         $this->assertResponseStatusCodeSame(200);
@@ -114,7 +115,7 @@ class UserDashboardControllerTest extends WebTestCase
     {
         $user = $this->createUser();
         $this->client->loginUser($user);
-        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/suppression-du-compte');
+        $this->client->request('GET', '/utilisateur/mon-compte/'.$user->getId().'/'.$user->getDashboardToken().'/suppression-du-compte');
         $this->assertResponseRedirects();
         $this->client->followRedirect();
         $this->assertResponseStatusCodeSame(200);

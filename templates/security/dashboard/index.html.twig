@@ -28,7 +28,7 @@
                         <p class="info-user-data">{{ user.username }}</p>
                     </div>
                     <div>
-                        <a href="{{ path('app_user_dashboard_edit', {'id': user.id}) }}" class="btn btn-style-two">Modifier mes infos</a>
+                        <a href="{{ path('app_user_dashboard_edit', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">Modifier mes infos</a>
                     </div>
                     <div>
                         <a type="button" class="dashboard-section-infos-delete-link" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
@@ -47,9 +47,9 @@
                     </div>
                     <div class="dashboard-section-blocks">
                         <h5>MES SUJETS SUR LE FORUM</h5>
-                        <p><span>10</span></p>
+                        <p><span>{{ user.forumSubjects|length }}</span></p>
                         <div>
-                            <a href="#" class="btn btn-style-two">ACCÉDER</a>
+                            <a href="{{ path('app_forum_index') }}" class="btn btn-style-two">ACCÉDER</a>
                         </div>
                     </div>
                     <div class="dashboard-section-blocks">
@@ -73,12 +73,12 @@
                         {% if user.userReview %}
                             <p>Écrit le : <span>{{ user.userReview.createdAt|date('d/m/y') }}</span></p>
                             <div>
-                                <a href="{{ path('app_user_dashboard_review', {'id': user.id}) }}" class="btn btn-style-two">VOIR</a>
+                                <a href="{{ path('app_user_dashboard_review', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">VOIR</a>
                             </div>
                         {% else %}
                             <p>Vous n'avez pas encore donné votre avis</p>
                             <div>
-                                <a href="{{ path('app_user_dashboard_review', {'id': user.id}) }}" class="btn btn-style-two">DONNER MON AVIS</a>
+                                <a href="{{ path('app_user_dashboard_review', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">DONNER MON AVIS</a>
                             </div>
                         {% endif %}
 
