@@ -338,6 +338,11 @@ trix-editor[input="user_message_content"]:focus, trix-editor[input="forum_subjec
     margin-right: 10px;
 }
 
+#main-site-nav span.nav-donation{
+    color: var(--my-light-blue);
+    font-weight: bold;
+}
+
 #main-site-nav span.nav-username{
     color: var(--my-light-blue);
     font-weight: bold;
@@ -1650,6 +1655,94 @@ footer .footer-copyright{
     border-top: 1px solid var(--my-light-blue);
     padding: 25px 0;
 }
+
+/* ==== SOLUTION FORM ==== */
+#dashboard-solution-form-section{
+    & h1{
+        margin-top: 0;
+        font-weight: bold;
+        font-size: 2.2rem;
+        color: white;
+        text-shadow: var(--my-text-shadow);
+    }
+}
+
+#dashboard-solution-form-section .dashboard-solution-form-block{
+    background: rgba(0,0,0,0.9);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid var(--my-light-blue);
+    margin-bottom: 20px;
+
+    & form label{
+        color: var(--my-text-brown);
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+    & form .soluceFormHelp{
+        font-size: 0.8rem;
+        font-weight: normal;
+        color: var(--my-light-blue);
+    }
+    & form .solution-form-group{
+        margin-bottom: 25px;
+    }
+    & form .solution-form-optional{
+        display: none;
+    }
+    & form input[type="radio"]{
+        margin-left: 15px;
+        margin-right: 5px;
+    }
+    & form li{
+        list-style-type: none;
+        color: red;
+        font-size: 0.8rem;
+        font-weight: bold;
+
+    }
+}
+
+/* ==== SOLUTION SHOW ====*/
+
+#dashboard-solution-section{
+    & h1{
+        margin-top: 10px;
+        font-weight: bold;
+        font-size: 2.2rem;
+        color: white;
+        text-shadow: var(--my-text-shadow);
+    }
+    & a:first-of-type{
+        margin-bottom: 20px;
+        color: var(--my-brown);
+        background: rgba(255,255,255, 0.8);
+        border: 3px solid var(--my-brown);
+        padding: 5px 10px;
+        text-decoration: none;
+    }
+
+    & .dashboard-solution-block{
+        background: rgba(0,0,0,0.9);
+        padding: 20px;
+        border-radius: 10px;
+        border: 2px solid var(--my-light-blue);
+        margin-bottom: 20px;
+        & h3{
+            color: var(--my-light-blue);
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        & p {
+            color: var(--my-text-brown);
+            font-size: 1.2rem;
+            text-shadow: var(--my-text-shadow);
+        }
+    }
+}
+
+/* ======================== */
 
 /* ======= TESTIMONY ======= */
 /* INDEX */

@@ -38,7 +38,7 @@ class DonationType extends AbstractType
                 'attr' => ['class' => 'form-input-terms'],
             ])
             ->add('submit', SubmitType::class, [
-                'label' => 'Valider votre don',
+                'label' => 'Valider mon soutien',
                 'attr' => ['class' => 'btn'],
             ])
         ;

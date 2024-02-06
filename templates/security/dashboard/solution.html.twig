@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+{% block body %}
+<section id="dashboard-solution-section" class="dashboard-section custom-section">
+    <div class="custom-container dashboard-section-content custom-container-padding">
+        <a href="{{ path('app_user_dashboard_index', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}">Retour au profil</a>
+
+        <h1>MES SOLUTIONS</h1>
+        <div class="dashboard-solution-block">
+
+            {% for key, value in user.userSolution.customAdvices %}
+                <h3>{{ key }}</h3>
+                <p>{{ value|raw }}</p>
+            {% endfor %}
+        </div>
+        <a href="{{ path('app_user_dashboard_index', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-one">Retour au profil</a>
+    </div>
+</section>
+{% endblock %}
+

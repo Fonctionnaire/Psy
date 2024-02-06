@@ -99,6 +99,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'uuid')]
     private ?Uuid $dashboardToken;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?UserSolution $userSolution = null;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
@@ -477,6 +480,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setDashboardToken(Uuid $dashboardToken): static
     {
         $this->dashboardToken = $dashboardToken;
+
+        return $this;
+    }
+
+    public function getUserSolution(): ?UserSolution
+    {
+        return $this->userSolution;
+    }
+
+    public function setUserSolution(UserSolution $userSolution): static
+    {
+        // set the owning side of the relation if necessary
+        if ($userSolution->getUser() !== $this) {
+            $userSolution->setUser($this);
+        }
+
+        $this->userSolution = $userSolution;
 
         return $this;
     }

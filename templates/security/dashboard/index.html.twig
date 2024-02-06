@@ -144,24 +144,40 @@
                 </div>
                 <div id="dashboard-solution-anchor" class="dashboard-help-block">
                     <h2>MES SOLUTIONS</h2>
-                    <div class="dashboard-help-form-null">
-                        {# SI PAS ENCORE REPONDU AU QUESTIONNAIRE #}
-                        <p>
-                            Avoir les bonnes solutions pour guérir est important.
-                        </p>
-                        <p>
-                            En répondant au questionnaire que nous vous proposons, des solutions adaptées à votre situation vous seront proposées.
-                        </p>
-                        <p>
-                            Ces solutions représentent une première base d'actions à mettre en place afin d'engager le processus de guérison.
-                        </p>
-                        <em>
-                            Si vous souhaitez approfondir chacune d'entre elles, n'hésitez pas à nous poser vos questions en message privé ou sur le forum.
-                        </em>
-                        <div>
-                            <a href="#" class="btn btn-style-two">C'EST PARTI</a>
+                        <div class="dashboard-help-form-null">
+                            {% if not user.userSolution %}
+                            {# SI PAS ENCORE REPONDU AU QUESTIONNAIRE #}
+                            <p>
+                                Avoir les bonnes solutions pour guérir est important.
+                            </p>
+                            <p>
+                                En répondant au questionnaire que nous vous proposons, des solutions adaptées à votre situation vous seront proposées.
+                            </p>
+                            <p>
+                                Ces solutions représentent une première base d'actions à mettre en place afin d'engager le processus de guérison.
+                            </p>
+                            <em>
+                                Si vous souhaitez approfondir chacune d'entre elles, n'hésitez pas à nous poser vos questions en message privé ou sur le forum.
+                            </em>
+                            <div>
+                                <a href="{{ path('app_user_dashboard_solution_quiz', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">C'EST PARTI</a>
+                            </div>
+                            {% else %}
+                            {# SI DEJA REPONDU AU QUESTIONNAIRE #}
+                                <p>
+                                    Vous avez répondu au questionnaire le <span>{{ user.userSolution.createdAt|date('d/m/y') }}</span>.
+                                </p>
+                                <p>
+                                    Des solutions adaptées à votre situation vous ont été proposées, et vous pouvez les consulter à tout moment en cliquant sur le bouton ci-dessous.
+                                </p>
+                                <em>
+                                    En espérant que ces solutions aient pu être une base très utile pour vous.
+                                </em>
+                                <div>
+                                    <a href="{{ path('app_user_dashboard_solution', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">VOIR MES SOLUTIONS</a>
+                                </div>
+                            {% endif %}
                         </div>
-                    </div>
                 </div>
             </div>
         </div>
