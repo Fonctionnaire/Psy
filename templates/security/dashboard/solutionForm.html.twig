@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+
+{% endblock %}
+{% block body %}
+<section id="dashboard-solution-form-section" class="dashboard-section custom-section">
+    <div class="custom-container dashboard-section-content custom-container-padding">
+        <h1>MON QUESTIONNAIRE</h1>
+        <div class="dashboard-solution-form-block">
+            {{ form_start(form) }}
+                <div class="solution-form-group">
+                    {{ form_label(form.category) }}
+                    {{ form_widget(form.category, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.category) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_label(form.currentState) }}
+                    {{ form_widget(form.currentState, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.currentState) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_label(form.isDisabling) }}
+                    {{ form_widget(form.isDisabling) }}
+                    {{ form_errors(form.isDisabling) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_label(form.howLong) }}
+                    {{ form_widget(form.howLong, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.howLong) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_label(form.isSource) }}
+                    {{ form_widget(form.isSource) }}
+                    {{ form_errors(form.isSource) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_label(form.isExcitingProduct) }}
+                    {{ form_widget(form.isExcitingProduct) }}
+                    {{ form_help(form.isExcitingProduct) }}
+                    {{ form_errors(form.isExcitingProduct) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_label(form.isDoctorConsulted) }}
+                    {{ form_widget(form.isDoctorConsulted) }}
+                    {{ form_errors(form.isDoctorConsulted) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_label(form.isPsyConsulted) }}
+                    {{ form_widget(form.isPsyConsulted) }}
+                    {{ form_errors(form.isPsyConsulted) }}
+                </div>
+                <div class="solution-form-group solution-form-optional">
+                    {{ form_label(form.isPsyAfraid) }}
+                    {{ form_widget(form.isPsyAfraid) }}
+                    {{ form_errors(form.isPsyAfraid) }}
+                </div>
+                <div class="solution-form-group">
+                    {{ form_widget(form.submit) }}
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/userSolutionForm.js') }}"></script>
+{% endblock %}
+

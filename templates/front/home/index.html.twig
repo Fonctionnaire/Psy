@@ -331,7 +331,7 @@
                 <div class="home-review-section-links">
                     {% if app.user %}
                         {% if not app.user.userReview %}
-                            <a href="{{ path('app_user_dashboard_review', {'id': app.user.id}) }}" class="btn btn-style-two">DONNER VOTRE AVIS</a>
+                            <a href="{{ path('app_user_dashboard_review', {'id': app.user.id, 'dashboardToken': app.user.dashboardToken}) }}" class="btn btn-style-two">DONNER VOTRE AVIS</a>
                         {% endif %}
                     {% else %}
                         <a href="{{ path('app_register') }}" class="home-review-section-links-register">Inscrivez-vous pour laisser votre avis</a>

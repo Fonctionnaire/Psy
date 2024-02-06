@@ -47,7 +47,7 @@
                 {% endif %}
             </div>
             <div>
-                <a href="{{ path('app_user_dashboard_index', {'id': user.id}) }}" class="btn btn-style-one">RETOUR</a>
+                <a href="{{ path('app_user_dashboard_index', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-one">RETOUR</a>
             </div>
         </div>
     </section>

@@ -28,7 +28,7 @@
                         <p class="info-user-data">{{ user.username }}</p>
                     </div>
                     <div>
-                        <a href="{{ path('app_user_dashboard_edit', {'id': user.id}) }}" class="btn btn-style-two">Modifier mes infos</a>
+                        <a href="{{ path('app_user_dashboard_edit', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">Modifier mes infos</a>
                     </div>
                     <div>
                         <a type="button" class="dashboard-section-infos-delete-link" data-bs-toggle="modal" data-bs-target="#deleteUserModal">
@@ -47,9 +47,9 @@
                     </div>
                     <div class="dashboard-section-blocks">
                         <h5>MES SUJETS SUR LE FORUM</h5>
-                        <p><span>10</span></p>
+                        <p><span>{{ user.forumSubjects|length }}</span></p>
                         <div>
-                            <a href="#" class="btn btn-style-two">ACCÉDER</a>
+                            <a href="{{ path('app_forum_index') }}" class="btn btn-style-two">ACCÉDER</a>
                         </div>
                     </div>
                     <div class="dashboard-section-blocks">
@@ -73,12 +73,12 @@
                         {% if user.userReview %}
                             <p>Écrit le : <span>{{ user.userReview.createdAt|date('d/m/y') }}</span></p>
                             <div>
-                                <a href="{{ path('app_user_dashboard_review', {'id': user.id}) }}" class="btn btn-style-two">VOIR</a>
+                                <a href="{{ path('app_user_dashboard_review', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">VOIR</a>
                             </div>
                         {% else %}
                             <p>Vous n'avez pas encore donné votre avis</p>
                             <div>
-                                <a href="{{ path('app_user_dashboard_review', {'id': user.id}) }}" class="btn btn-style-two">DONNER MON AVIS</a>
+                                <a href="{{ path('app_user_dashboard_review', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">DONNER MON AVIS</a>
                             </div>
                         {% endif %}
 
@@ -144,24 +144,40 @@
                 </div>
                 <div id="dashboard-solution-anchor" class="dashboard-help-block">
                     <h2>MES SOLUTIONS</h2>
-                    <div class="dashboard-help-form-null">
-                        {# SI PAS ENCORE REPONDU AU QUESTIONNAIRE #}
-                        <p>
-                            Avoir les bonnes solutions pour guérir est important.
-                        </p>
-                        <p>
-                            En répondant au questionnaire que nous vous proposons, des solutions adaptées à votre situation vous seront proposées.
-                        </p>
-                        <p>
-                            Ces solutions représentent une première base d'actions à mettre en place afin d'engager le processus de guérison.
-                        </p>
-                        <em>
-                            Si vous souhaitez approfondir chacune d'entre elles, n'hésitez pas à nous poser vos questions en message privé ou sur le forum.
-                        </em>
-                        <div>
-                            <a href="#" class="btn btn-style-two">C'EST PARTI</a>
+                        <div class="dashboard-help-form-null">
+                            {% if not user.userSolution %}
+                            {# SI PAS ENCORE REPONDU AU QUESTIONNAIRE #}
+                            <p>
+                                Avoir les bonnes solutions pour guérir est important.
+                            </p>
+                            <p>
+                                En répondant au questionnaire que nous vous proposons, des solutions adaptées à votre situation vous seront proposées.
+                            </p>
+                            <p>
+                                Ces solutions représentent une première base d'actions à mettre en place afin d'engager le processus de guérison.
+                            </p>
+                            <em>
+                                Si vous souhaitez approfondir chacune d'entre elles, n'hésitez pas à nous poser vos questions en message privé ou sur le forum.
+                            </em>
+                            <div>
+                                <a href="{{ path('app_user_dashboard_solution_quiz', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">C'EST PARTI</a>
+                            </div>
+                            {% else %}
+                            {# SI DEJA REPONDU AU QUESTIONNAIRE #}
+                                <p>
+                                    Vous avez répondu au questionnaire le <span>{{ user.userSolution.createdAt|date('d/m/y') }}</span>.
+                                </p>
+                                <p>
+                                    Des solutions adaptées à votre situation vous ont été proposées, et vous pouvez les consulter à tout moment en cliquant sur le bouton ci-dessous.
+                                </p>
+                                <em>
+                                    En espérant que ces solutions aient pu être une base très utile pour vous.
+                                </em>
+                                <div>
+                                    <a href="{{ path('app_user_dashboard_solution', {'id': user.id, 'dashboardToken': user.dashboardToken}) }}" class="btn btn-style-two">VOIR MES SOLUTIONS</a>
+                                </div>
+                            {% endif %}
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

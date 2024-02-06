@@ -4,9 +4,13 @@ namespace App\Controller\Security;
 
 use App\Entity\User;
 use App\Entity\UserReview;
+use App\Entity\UserSolution;
 use App\Form\UserEditType;
 use App\Form\UserReviewType;
+use App\Form\UserSolutionType;
+use App\Repository\UserSolutionRepository;
 use App\Service\CensorUserEmail\CensorUserEmailInterface;
+use App\Service\Handler\UserSolution\UserSolutionHandler;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,12 +19,12 @@ use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 
-#[Route('/utilisateur/mon-compte/{id}', name: 'app_user_dashboard_', requirements: ['id' => '\d+'])]
+#[Route('/utilisateur/mon-compte/{id}/{dashboardToken}', name: 'app_user_dashboard_', requirements: ['id' => '\d+'])]
 #[IsGranted('ROLE_USER')]
+#[IsGranted('', subject: 'user')]
 class UserDashboardController extends AbstractController
 {
     #[Route('', name: 'index', methods: ['GET'])]
-    #[IsGranted('', subject: 'user')]
     public function index(User $user, CensorUserEmailInterface $censorUserEmail): Response
     {
         return $this->render('security/dashboard/index.html.twig', [
@@ -30,7 +34,6 @@ class UserDashboardController extends AbstractController
     }
 
     #[Route('/edition', name: 'edit', methods: ['GET', 'POST'])]
-    #[IsGranted('', subject: 'user')]
     public function edit(
         User $user,
         Request $request,
@@ -53,7 +56,9 @@ class UserDashboardController extends AbstractController
             $this->addFlash('success', 'Votre compte a bien été modifié.');
 
             return $this->redirectToRoute('app_user_dashboard_index', [
-                'id' => $user->getId()]
+                    'id' => $user->getId(),
+                    'dashboardToken' => $user->getDashboardToken(),
+                ]
             );
         }
 
@@ -64,7 +69,6 @@ class UserDashboardController extends AbstractController
     }
 
     #[Route('/mon-avis', name: 'review', methods: ['GET', 'POST'])]
-    #[IsGranted('', subject: 'user')]
     public function userReview(
         User $user,
         Request $request,
@@ -80,7 +84,9 @@ class UserDashboardController extends AbstractController
             $this->addFlash('success', 'Merci ! Votre avis a bien été envoyé.');
 
             return $this->redirectToRoute('app_user_dashboard_index', [
-                'id' => $user->getId()]
+                    'id' => $user->getId(),
+                    'dashboardToken' => $user->getDashboardToken(),
+                ]
             );
         }
 
@@ -96,8 +102,55 @@ class UserDashboardController extends AbstractController
         return $this->render('security/dashboard/victory.html.twig');
     }
 
+    #[Route('/mes-solutions', name: 'solution', methods: ['GET'])]
+    public function solution(User $user): Response
+    {
+        return $this->render('security/dashboard/solution.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
+    #[Route('/mes-solutions/questionnaire', name: 'solution_quiz', methods: ['GET', 'POST'])]
+    public function solutionForm(
+        User $user,
+        Request $request,
+        UserSolutionRepository $userSolutionRepository,
+        UserSolutionHandler $userSolutionHandler
+    ): Response {
+        if ($user->getUserSolution()) {
+            $this->addFlash('warning', 'Vous avez déjà généré vos solutions personnalisées.');
+
+            return $this->redirectToRoute('app_user_dashboard_solution', [
+                    'id' => $user->getId(),
+                    'dashboardToken' => $user->getDashboardToken(),
+                ]
+            );
+        }
+        $solution = new UserSolution();
+        $form = $this->createForm(UserSolutionType::class, $solution);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $solution->setCustomAdvices($userSolutionHandler($solution));
+            $solution->setUser($user);
+
+            $userSolutionRepository->save($solution, true);
+
+            $this->addFlash('success', 'Vos solutions personnalisées ont bien été générées.');
+
+            return $this->redirectToRoute('app_user_dashboard_solution', [
+                    'id' => $user->getId(),
+                    'dashboardToken' => $user->getDashboardToken(),
+                ]
+            );
+        }
+
+        return $this->render('security/dashboard/solutionForm.html.twig', [
+            'user' => $user,
+            'form' => $form,
+        ]);
+    }
+
     #[Route('/suppression-du-compte', name: 'delete', methods: ['GET', 'POST'])]
-    #[IsGranted('', subject: 'user')]
     public function delete(User $user, EntityManagerInterface $em): Response
     {
         $this->container->get('security.token_storage')->setToken(null);
