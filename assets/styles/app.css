@@ -1405,6 +1405,26 @@ footer .footer-copyright{
     border-radius: 10px;
     border: 2px solid var(--my-light-blue);
     margin-bottom: 20px;
+
+    & table{
+        color: var(--my-text-brown);
+        text-shadow: var(--my-text-shadow);
+        font-size: 1.2rem;
+
+        & tr td:first-of-type{
+            color: green;
+            padding-right: 10px;
+            font-weight: bold;
+        }
+        & tr td{
+            vertical-align: top;
+            padding: 5px 0;
+        }
+    }
+    & span{
+        font-size: 0.9rem;
+        font-style: italic;
+    }
 }
 
 .dashboard-section .dashboard-help-section .dashboard-help-block .dashboard-victories-list{
