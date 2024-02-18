@@ -31,7 +31,7 @@ class ContactController extends AbstractController
                 $contactMail->sendToUser($contact);
                 $contactMail->sendToAdmin($contact);
             }
-            $this->addFlash('success', 'Votre message a bien été envoyé. Nous vous répondrons le plus rapidement possible.');
+            $this->addFlash('success', 'Votre message a bien été envoyé. Je vous répondrai le plus rapidement possible.');
 
             return $this->redirectToRoute('app_contact_index');
         }

@@ -91,9 +91,13 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            COMMUNAUTÉ
+                            SUPPORT
                         </a>
                         <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ path('app_emergency_number_index') }}">NUMÉROS D'URGENCE</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="{{ path('app_forum_index') }}">Forum</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -116,7 +120,7 @@
                         <a class="nav-link" aria-current="page" href="{{ path('app_contact_index') }}">CONTACT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ path('app_donation_index') }}"><span class="nav-donation">NOUS SOUTENIR</span></a>
+                        <a class="nav-link" aria-current="page" href="{{ path('app_donation_index') }}"><span class="nav-donation">ME SOUTENIR</span></a>
                     </li>
                 </ul>
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
