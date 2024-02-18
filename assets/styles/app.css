@@ -51,7 +51,6 @@ body{
     font-weight: bold;
     transition: 0.2s;
     border: 2px solid rgb(225, 217, 209);
-    margin-right: 25px;
     font-size: 1.2rem;
 }
 
@@ -79,6 +78,26 @@ body{
     background: rgba(225, 217, 209, 1);
     transition: 0.2s;
     color: rgba(60,42,41,1);
+}
+
+.btn-style-urgence
+{
+    background: white;
+    border-radius: 10px;
+    padding: 10px 30px;
+    color: #2c84e8;
+    font-weight: bold;
+    transition: 0.2s;
+    border: 2px solid #eb4034;
+    font-size: 1.2rem;
+}
+
+.btn-style-urgence:hover
+{
+    background: white;
+    transition: 0.2s;
+    color: #eb4034;
+    border: 2px solid #2c84e8;
 }
 
 .btn-style-chat{
@@ -562,7 +581,7 @@ footer .footer-copyright{
 
 .home-first-section #first-section-content .first-section-block
 {
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.8);
     padding: 20px;
     border-radius: 10px;
     margin-top: 30px;
@@ -593,6 +612,8 @@ footer .footer-copyright{
 .home-first-section #first-section-content .first-section-buttons
 {
     display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
     margin-top: 15px;
 }
 
@@ -2792,6 +2813,118 @@ footer .footer-copyright{
                     color: var(--my-light-blue);
                 }
             }
+        }
+    }
+}
+
+/* ========================== */
+
+/* ====== EMERGENCY NUMBERS ====== */
+
+.emergency-number-section{
+    background-image: url('../images/emergency_numbers.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 90vh;
+
+    & h1{
+        color: white;
+        font-weight: bold;
+        font-size: 2.2rem;
+        text-shadow: var(--my-text-shadow);
+    }
+
+    & .emergency-number-header{
+        display: flex;
+        flex-wrap: wrap;
+        & .emergency-number-header-item
+        {
+            text-align: center;
+            width: 20%;
+            display: flex;
+            flex-direction: column;
+            height: 210px;
+            border: 2px solid var(--my-brown);
+            & div:first-of-type{
+                color: white;
+                font-weight: bold;
+                font-size: 2.5rem;
+                padding: 10px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                & i{
+                    color: black;
+                    font-size: 1.5rem;
+                }
+            }
+            & div:last-of-type{
+                padding: 10px 0;
+                font-size: 1.5rem;
+                color: var(--my-text-brown);
+                font-weight: bold;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                & p{
+                    margin: 0;
+                }
+                & span{
+                    font-size: 0.8rem;
+                }
+                & p:last-of-type{
+                    font-size: 1rem;
+                }
+            }
+        }
+
+        & .emergency-number-header-item:nth-child(1){
+            background: #4292d4;
+        }
+        & .emergency-number-header-item:nth-child(2){
+            background: #1676c4;
+        }
+        & .emergency-number-header-item:nth-child(3){
+            background: #cc7408;
+        }
+        & .emergency-number-header-item:nth-child(4){
+            background: #cf2e19;
+        }
+        & .emergency-number-header-item:nth-child(5){
+            background: #108f2b;
+            & div:first-of-type{
+                font-size: 1.5rem;
+            }
+        }
+        & .emergency-number-header-item:nth-child(6){
+            background: #4d158a;
+        }
+        & .emergency-number-header-item:nth-child(7){
+            background: #262526;
+        }
+        & .emergency-number-header-item:nth-child(8){
+            background: #113599;
+        }
+    }
+    & .emergency-number-advices{
+        margin-top: 35px;
+        background: rgba(0,0,0,0.9);
+        border: 2px solid var(--my-light-blue);
+        padding: 25px;
+        color: var(--my-text-brown);
+        & h2{
+            color: var(--my-light-blue);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        & p{
+            font-size: 1.2rem;
         }
     }
 }

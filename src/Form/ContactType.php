@@ -24,7 +24,6 @@ class ContactType extends AbstractType
                 'placeholder' => 'Choisir un sujet',
                 'choices' => [
                     'Demande d\'informations' => 'Demande d\'informations',
-                    'Rejoindre les bénévoles' => 'Rejoindre les bénévoles',
                     'Demande de partenariat' => 'Demande de partenariat',
                     'Signaler un bug' => 'Signaler un bug',
                     'Autre' => 'Autre',

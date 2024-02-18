@@ -20,7 +20,7 @@ class ContactControllerTest extends WebTestCase
         $this->client->request('GET', '/nous-contacter');
         $this->assertResponseIsSuccessful();
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
-        $this->assertSelectorExists('h1', 'NOUS CONTACTER');
+        $this->assertSelectorExists('h1', 'ME CONTACTER');
     }
 
     public function testContactSend(): void
@@ -38,6 +38,6 @@ class ContactControllerTest extends WebTestCase
         $this->client->followRedirect();
         $this->assertResponseIsSuccessful();
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
-        $this->assertSelectorExists('.alert.alert-success', 'Votre message a bien été envoyé. Nous vous répondrons le plus rapidement possible.');
+        $this->assertSelectorExists('.alert.alert-success', 'Votre message a bien été envoyé. Je vous répondrai le plus rapidement possible.');
     }
 }
