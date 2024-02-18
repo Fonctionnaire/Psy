@@ -14,5 +14,4 @@ class EmergencyNumberControllerTest extends WebTestCase
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('h1', 'PRINCIPAUX NUMÉROS D\'URGENCE');
     }
-
 }
