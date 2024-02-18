@@ -9,7 +9,6 @@ use Symfony\Component\Routing\Attribute\Route;
 #[Route('/numeros-urgence', name: 'app_emergency_number_')]
 class EmergencyNumberController extends AbstractController
 {
-
     #[Route('', name: 'index', methods: ['GET'])]
     public function index(): Response
     {
